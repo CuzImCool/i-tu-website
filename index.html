@@ -4,143 +4,291 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>i-tu | Chess Club</title>
+<title>i-tu | Official Club</title>
 
 <style>
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #080910;
+  --panel: #111522;
+  --purple: #9b75ff;
+  --blue: #62d8ff;
+  --text: #f5f5ff;
+  --muted: #9298ad;
 }
 
 body {
-  margin: 0;
-  background: #090909;
-  color: white;
+  background:
+    radial-gradient(ellipse at 50% 0%, #29204b 0%, transparent 55%),
+    var(--bg);
+  color: var(--text);
   font-family: Arial, sans-serif;
-  text-align: center;
+  overflow-x: hidden;
 }
 
-header {
-  padding: 35px 15px;
-  background: linear-gradient(135deg, #202020, #080808);
-  border-bottom: 1px solid #444;
-}
-
-.logo {
-  font-size: 42px;
-  font-weight: bold;
-  letter-spacing: 5px;
-}
-
-.subtitle {
-  color: #aaa;
-  letter-spacing: 3px;
-  font-size: 12px;
-}
-
-main {
-  max-width: 650px;
+.wrapper {
+  max-width: 850px;
   margin: auto;
-  padding: 25px 18px;
+  padding: 18px;
 }
 
-h2 {
-  color: #eee;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 16px;
+  border: 1px solid #292b40;
+  background: #0c0e18dd;
+  border-radius: 14px;
+}
+
+.brand {
+  font-weight: 900;
+  letter-spacing: 3px;
+  font-size: 22px;
+}
+
+.status {
+  font-size: 10px;
+  color: #8effc2;
   letter-spacing: 2px;
 }
 
-.panel {
-  background: #151515;
-  border: 1px solid #333;
-  border-radius: 12px;
-  padding: 22px;
-  margin: 18px 0;
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 65px 12px 45px;
 }
 
-.button {
-  display: block;
-  padding: 14px;
-  margin: 12px auto;
-  max-width: 300px;
-  border: 1px solid #888;
-  border-radius: 8px;
-  color: white;
-  text-decoration: none;
-  background: #222;
-  transition: 0.2s;
+.eyebrow {
+  display: inline-block;
+  border: 1px solid #604ba0;
+  background: #20183b;
+  color: #c6afff;
+  padding: 8px 13px;
+  border-radius: 30px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 23px;
 }
 
-.button:hover {
-  background: #444;
-  border-color: white;
-  transform: scale(1.03);
+.logo {
+  font-size: clamp(65px, 16vw, 110px);
+  font-weight: 1000;
+  letter-spacing: -5px;
+  line-height: 1;
+  background: linear-gradient(120deg, white, #b69aff, #6edfff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 20px #9b75ff66);
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { filter: drop-shadow(0 0 10px #9b75ff33); }
+  to { filter: drop-shadow(0 0 27px #9b75ff99); }
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 390px;
+  margin: 20px auto 27px;
 }
 
 .join {
-  background: white;
-  color: black;
-  font-weight: bold;
+  display: inline-block;
+  padding: 15px 30px;
+  background: linear-gradient(110deg, #9b75ff, #62d8ff);
+  color: #080910;
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-radius: 9px;
+  box-shadow: 0 0 25px #9574ff55;
+  transition: .25s;
 }
 
 .join:hover {
-  background: #ccc;
+  transform: translateY(-4px);
+  box-shadow: 0 0 35px #9574ff99;
 }
 
-.muted {
-  color: #999;
-  font-size: 13px;
+.section-title {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #b5a1ff;
+  margin: 27px 0 13px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #171c2b, #10121d);
+  border: 1px solid #292e45;
+  border-radius: 13px;
+  padding: 19px 15px;
+  min-height: 112px;
+  text-decoration: none;
+  color: white;
+  transition: .25s;
+}
+
+.card:hover {
+  border-color: var(--purple);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px #8060ff22;
+}
+
+.card .symbol {
+  font-size: 23px;
+  margin-bottom: 13px;
+}
+
+.card h3 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.card p {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.wide {
+  grid-column: span 2;
+}
+
+.community {
+  margin-top: 28px;
+  border: 1px solid #383052;
+  border-radius: 15px;
+  padding: 24px 17px;
+  text-align: center;
+  background: linear-gradient(120deg, #19152a, #111a28);
+}
+
+.community h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.community p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.7;
 }
 
 footer {
-  padding: 25px;
-  color: #666;
-  font-size: 12px;
+  text-align: center;
+  padding: 30px 10px 15px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #646a80;
+}
+
+@media (max-width: 350px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .wide {
+    grid-column: span 1;
+  }
 }
 </style>
 </head>
 
 <body>
+<div class="wrapper">
 
-<header>
+<nav>
+  <div class="brand">i-tu<span style="color:#9b75ff">.</span></div>
+  <div class="status">● THE COMMUNITY</div>
+</nav>
+
+<section class="hero">
+  <div class="eyebrow">WELCOME TO THE CLUB</div>
   <div class="logo">i-tu</div>
-  <p class="subtitle">MORE THAN JUST CHESS</p>
-</header>
+  <p>
+    Not just another chess club.
+    A community built around competition,
+    friendship, and unforgettable games.
+  </p>
+  <a class="join"
+     href="https://www.chess.com/club/i-tu/join"
+     target="_blank">
+     JOIN THE COMMUNITY ↗
+  </a>
+</section>
 
-<main>
+<div class="section-title">EXPLORE THE CLUB / 01</div>
 
-  <section class="panel">
-    <h2>WELCOME TO i-tu</h2>
-    <p>A place for chess, friends, and unforgettable games.</p>
-    <a class="button join"
-       href="https://www.chess.com/club/i-tu/join"
-       target="_blank">
-       JOIN THE CLUB →
-    </a>
-  </section>
+<div class="grid">
 
-  <section class="panel">
-    <h2>QUICK LINKS</h2>
-    <a class="button" href="https://www.chess.com/club/i-tu">
-      Club Homepage
-    </a>
-    <a class="button" href="https://www.chess.com/club/i-tu/members">
-      Members
-    </a>
-    <a class="button" href="https://www.chess.com/club/i-tu/leaderboard">
-      Leaderboard
-    </a>
-  </section>
+  <a class="card wide"
+     href="https://www.chess.com/club/i-tu">
+    <div class="symbol">♟</div>
+    <h3>CLUB HOMEPAGE</h3>
+    <p>Enter the official i-tu Chess.com club.</p>
+  </a>
 
-  <section class="panel">
-    <h2>THE COMMUNITY</h2>
-    <p>Good games. Good people. Great chess.</p>
-    <p class="muted">Welcome to i-tu.</p>
-  </section>
+  <a class="card"
+     href="https://www.chess.com/club/i-tu/members">
+    <div class="symbol">◈</div>
+    <h3>MEMBERS</h3>
+    <p>Meet the community.</p>
+  </a>
 
-</main>
+  <a class="card"
+     href="https://www.chess.com/club/i-tu/leaderboard">
+    <div class="symbol">✦</div>
+    <h3>LEADERBOARD</h3>
+    <p>See who's leading.</p>
+  </a>
+
+  <a class="card"
+     href="https://www.chess.com/club/i-tu/events">
+    <div class="symbol">⌁</div>
+    <h3>EVENTS</h3>
+    <p>Find club activities.</p>
+  </a>
+
+  <a class="card"
+     href="https://www.chess.com/club/i-tu">
+    <div class="symbol">✧</div>
+    <h3>ANNOUNCEMENTS</h3>
+    <p>Check the latest club updates.</p>
+  </a>
+
+</div>
+
+<section class="community">
+  <h2>YOUR NEXT MOVE STARTS HERE.</h2>
+  <p>
+    Find your people. Play your games.
+    Become part of i-tu.
+  </p>
+</section>
 
 <footer>
-  i-tu Chess Club · Chess.com
+  i-tu CHESS CLUB · EST. ON CHESS.COM
 </footer>
 
+</div>
 </body>
 </html>
