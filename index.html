@@ -1,5 +1,20 @@
-<p></p>
+ 
 <div id="itu-theme" data-color="off" style="background:#050505;color:#fff;padding:16px;border:1px solid #888;border-radius:14px;font-family:Arial,sans-serif;">
+
+<style>
+#itu-theme a[data-hover-button] {
+  transition: transform .22s ease, box-shadow .22s ease, filter .22s ease, background .22s ease, border-color .22s ease;
+}
+#itu-theme a[data-hover-button]:hover {
+  transform: translateY(-2px) scale(1.025);
+  filter: brightness(1.25);
+  box-shadow: 0 0 16px var(--hover-glow, #fff), 0 0 28px var(--hover-glow, #fff);
+  border-color: var(--hover-border, #fff) !important;
+}
+#itu-theme a[data-hover-button]:active {
+  transform: scale(.99);
+}
+</style>
 
 <!-- COLOR BUTTON -->
 <button onclick="
@@ -23,114 +38,68 @@ b.querySelectorAll('[data-color-shadow]').forEach(function(e){
 e.style.textShadow=on?e.getAttribute('data-color-shadow'):'none';
 });
 
-b.querySelectorAll('[data-color-hover]').forEach(function(e){
-e.setAttribute('data-active-hover',on?'on':'off');
+b.querySelectorAll('[data-hover-button]').forEach(function(e){
+e.style.setProperty('--hover-glow',on?e.getAttribute('data-hover-color'):'#fff');
+e.style.setProperty('--hover-border',on?e.getAttribute('data-hover-border'):'#fff');
 });
 
 this.innerHTML=on?'◼ BLACK &amp; WHITE':'✦ TURN ON COLOR';
 this.style.background=on?'#111':'linear-gradient(90deg,#287bff,#8b5cf6)';
 this.style.color='#fff';
-" style="display:block;width:100%;background:#111;color:#fff;border:1px solid #fff;border-radius:9px;padding:12px;margin-bottom:14px;font-weight:bold;letter-spacing:2px;cursor:pointer;">✦ TURN ON COLOR</button>
+" style="display:block;width:100%;background:#111;color:#fff;border:1px solid #fff;border-radius:9px;padding:12px;margin-bottom:14px;font-weight:bold;letter-spacing:2px;cursor:pointer;transition:all .25s ease;">✦ TURN ON COLOR</button>
 
 <!-- HEADER -->
 <div data-color-bg="linear-gradient(135deg,#101b42,#281044,#101c38)" data-bw-bg="linear-gradient(135deg,#111,#222,#080808)" style="text-align:center;padding:20px 8px;background:linear-gradient(135deg,#111,#222,#080808);border:1px solid #888;border-radius:12px;margin-bottom:14px;">
-<div data-color-text="#72eaff" data-color-shadow="0 0 12px #008cff" style="font-size:28px;font-weight:900;letter-spacing:4px;color:#fff;text-shadow:none;">♞ CHESS ♞</div>
-<div data-color-text="#c3a5ff" style="font-size:10px;letter-spacing:5px;color:#ddd;margin-top:8px;">C L U B</div>
-<div style="font-size:10px;letter-spacing:3px;color:#aaa;margin-top:12px;">PLAY &bull; LEARN &bull; GROW</div>
+  <div data-color-text="#72eaff" data-color-shadow="0 0 12px #008cff" style="font-size:28px;font-weight:900;letter-spacing:4px;color:#fff;text-shadow:none;">♞ CHESS ♞</div>
+  <div data-color-text="#c3a5ff" style="font-size:10px;letter-spacing:5px;color:#ddd;margin-top:8px;">C L U B</div>
+  <div style="font-size:10px;letter-spacing:3px;color:#aaa;margin-top:12px;">PLAY &bull; LEARN &bull; GROW</div>
 </div>
 
 <!-- JOIN BUTTON -->
-<a href="https://www.chess.com/club/i-tu/join?utm_campaign=club_invite_link&amp;utm_source=chesscom&amp;utm_medium=copy"
-data-color-bg="linear-gradient(90deg,#287bff,#8b5cf6)"
-data-bw-bg="#111"
-data-color-border="#72eaff"
-style="display:block;background:#111;color:#fff;text-decoration:none;text-align:center;border:1px solid #fff;border-radius:9px;padding:14px;margin:10px 0 16px;font-weight:bold;letter-spacing:2px;box-shadow:none;transition:all .25s ease;"
-onmouseover="
-var b=document.getElementById('itu-theme');
-var on=b.getAttribute('data-color')==='on';
-this.style.boxShadow=on?'0 0 28px #00d9ff,0 0 40px #744cff':'0 0 12px #fff';
-this.style.transform='scale(1.03)';
-this.style.filter='brightness(1.3)';
-"
-onmouseout="
-var b=document.getElementById('itu-theme');
-var on=b.getAttribute('data-color')==='on';
-this.style.boxShadow=on?'0 0 12px #174cff':'none';
-this.style.transform='scale(1)';
-this.style.filter='brightness(1)';
-">♟ JOIN THE CLUB &rarr;</a>
+<a data-hover-button data-hover-color="#00d9ff" data-hover-border="#72eaff"
+href="https://www.chess.com/club/i-tu/join?utm_campaign=club_invite_link&amp;utm_source=chesscom&amp;utm_medium=copy"
+data-color-bg="linear-gradient(90deg,#287bff,#8b5cf6)" data-bw-bg="#111"
+style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#111;color:#fff;text-decoration:none;text-align:center;border:1px solid #fff;border-radius:9px;padding:14px;margin:10px 0 16px;font-weight:bold;letter-spacing:2px;box-shadow:none;">♟ JOIN THE CLUB &rarr;</a>
 
 <!-- MEMBER GOAL -->
 <div data-color-bg="#10172d" data-bw-bg="#111" style="background:#111;border:1px solid #888;border-radius:12px;padding:16px;text-align:center;margin-bottom:14px;">
-<div data-color-text="#a8baff" style="font-size:10px;letter-spacing:4px;color:#ddd;">MEMBER MISSION</div>
-<div style="font-size:32px;font-weight:bold;margin:12px 0;color:#fff;"><span style="font-size:15px;color:#ccc;">70/ 100</span></div>
-<div style="font-size:10px;letter-spacing:2px;color:#ccc;margin-bottom:12px;">MEMBERS REACHED</div>
-<div style="height:10px;background:#333;border-radius:10px;overflow:hidden;">
-<div data-color-bg="linear-gradient(90deg,#287bff,#a855f7)" data-bw-bg="#888" style="height:10px;width:57%;background:#888;border-radius:10px;"></div>
-</div>
-<div data-color-text="#c5a0ff" style="font-size:17px;font-weight:bold;color:#fff;margin-top:13px;letter-spacing:3px;">30 TO GO</div>
+  <div data-color-text="#a8baff" style="font-size:10px;letter-spacing:4px;color:#ddd;">MEMBER MISSION</div>
+  <div style="font-size:32px;font-weight:bold;margin:12px 0;color:#fff;"><span style="font-size:15px;color:#ccc;">70/ 100</span></div>
+  <div style="font-size:10px;letter-spacing:2px;color:#ccc;margin-bottom:12px;">MEMBERS REACHED</div>
+  <div style="height:10px;background:#333;border-radius:10px;overflow:hidden;">
+    <div data-color-bg="linear-gradient(90deg,#287bff,#a855f7)" data-bw-bg="#888" style="height:10px;width:57%;background:#888;border-radius:10px;"></div>
+  </div>
+  <div data-color-text="#c5a0ff" style="font-size:17px;font-weight:bold;color:#fff;margin-top:13px;letter-spacing:3px;">30 TO GO</div>
 </div>
 
 <!-- NEWEST MEMBER -->
 <div data-color-bg="#0b172b" data-bw-bg="#111" style="background:#111;border:1px solid #888;border-radius:12px;padding:15px;text-align:center;margin-bottom:14px;">
-<div data-color-text="#00dfff" style="font-size:15px;font-weight:bold;letter-spacing:2px;color:#fff;margin-bottom:12px;">♛ NEWEST MEMBER ♛</div>
-<div data-color-bg="#151b30" data-bw-bg="#181818" style="background:#181818;border:1px solid #777;border-radius:9px;padding:14px;">
-<div style="font-size:13px;color:#fff;">Welcome to the club!</div>
-<div data-color-text="#d18aff" style="font-size:17px;font-weight:bold;color:#fff;margin-top:8px;">@Valy2022</div>
-</div>
+  <div data-color-text="#00dfff" style="font-size:15px;font-weight:bold;letter-spacing:2px;color:#fff;margin-bottom:12px;">♛ NEWEST MEMBER ♛</div>
+  <div data-color-bg="#151b30" data-bw-bg="#181818" style="background:#181818;border:1px solid #777;border-radius:9px;padding:14px;">
+    <div id="itu-new-member-message" style="font-size:13px;color:#fff;">Checking the club member list…</div>
+    <div id="itu-new-member-name" data-color-text="#d18aff" style="font-size:17px;font-weight:bold;color:#fff;margin-top:8px;">Loading…</div>
+    <div id="itu-new-member-date" style="font-size:10px;color:#aaa;margin-top:6px;"></div>
+  </div>
 </div>
 
 <!-- NAVIGATION -->
 <div data-color-bg="#0d1020" data-bw-bg="#111" style="background:#111;border:1px solid #777;border-radius:12px;padding:14px;margin-bottom:14px;">
-<div data-color-text="#d1c4ff" style="text-align:center;font-size:13px;font-weight:bold;letter-spacing:3px;margin-bottom:12px;color:#fff;">✦ NAVIGATION ✦</div>
+  <div data-color-text="#d1c4ff" style="text-align:center;font-size:13px;font-weight:bold;letter-spacing:3px;margin-bottom:12px;color:#fff;">✦ NAVIGATION ✦</div>
 
-<a href="https://www.chess.com/club/i-tu" data-color-bg="#10172a" data-bw-bg="#181818" style="display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;transition:all .25s ease;"
-onmouseover="
-var on=document.getElementById('itu-theme').getAttribute('data-color')==='on';
-this.style.boxShadow=on?'0 0 22px #00bfff':'0 0 12px #fff';
-this.style.borderColor=on?'#72eaff':'#fff';
-this.style.transform='scale(1.03)';
-this.style.background=on?'#14264b':'#333';
-"
-onmouseout="
-var on=document.getElementById('itu-theme').getAttribute('data-color')==='on';
-this.style.boxShadow='none';
-this.style.borderColor=on?'#426cff':'#888';
-this.style.transform='scale(1)';
-this.style.background=on?'#10172a':'#181818';
-">♟ &nbsp; CLUB HOME &rarr;</a>
+  <a data-hover-button data-hover-color="#00bfff" data-hover-border="#72eaff"
+  href="https://www.chess.com/club/i-tu"
+  data-color-bg="#10172a" data-bw-bg="#181818"
+  style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;">♟ &nbsp; CLUB HOME &rarr;</a>
 
-<a href="https://www.chess.com/clubs/members/i-tu" data-color-bg="#10172a" data-bw-bg="#181818" style="display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;transition:all .25s ease;"
-onmouseover="
-var on=document.getElementById('itu-theme').getAttribute('data-color')==='on';
-this.style.boxShadow=on?'0 0 22px #00dfff':'0 0 12px #fff';
-this.style.borderColor=on?'#83eaff':'#fff';
-this.style.transform='scale(1.03)';
-this.style.background=on?'#103044':'#333';
-"
-onmouseout="
-var on=document.getElementById('itu-theme').getAttribute('data-color')==='on';
-this.style.boxShadow='none';
-this.style.borderColor=on?'#286fa8':'#888';
-this.style.transform='scale(1)';
-this.style.background=on?'#10172a':'#181818';
-">♙ &nbsp; MEMBERS &rarr;</a>
+  <a data-hover-button data-hover-color="#00dfff" data-hover-border="#83eaff"
+  href="https://www.chess.com/clubs/members/i-tu"
+  data-color-bg="#10172a" data-bw-bg="#181818"
+  style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;">♙ &nbsp; MEMBERS &rarr;</a>
 
-<a href="https://www.chess.com/clubs/events/i-tu" data-color-bg="#10172a" data-bw-bg="#181818" style="display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;transition:all .25s ease;"
-onmouseover="
-var on=document.getElementById('itu-theme').getAttribute('data-color')==='on';
-this.style.boxShadow=on?'0 0 22px #b65cff':'0 0 12px #fff';
-this.style.borderColor=on?'#d18aff':'#fff';
-this.style.transform='scale(1.03)';
-this.style.background=on?'#281747':'#333';
-"
-onmouseout="
-var on=document.getElementById('itu-theme').getAttribute('data-color')==='on';
-this.style.boxShadow='none';
-this.style.borderColor=on?'#7c4cff':'#888';
-this.style.transform='scale(1)';
-this.style.background=on?'#10172a':'#181818';
-">⚡ &nbsp; EVENTS &rarr;</a>
+  <a data-hover-button data-hover-color="#b65cff" data-hover-border="#d18aff"
+  href="https://www.chess.com/clubs/events/i-tu"
+  data-color-bg="#10172a" data-bw-bg="#181818"
+  style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;">⚡ &nbsp; EVENTS &rarr;</a>
 </div>
 
 <!-- FOOTER -->
@@ -139,4 +108,54 @@ this.style.background=on?'#10172a':'#181818';
 <div style="text-align:center;color:#aaa;font-size:9px;letter-spacing:4px;">C H E S S &bull; E S T . 2 0 2 6</div>
 
 </div>
-<p></p>
+
+<!-- NEWEST MEMBER SCRIPT -->
+<script>
+(function(){
+  var nameBox = document.getElementById("itu-new-member-name");
+  var messageBox = document.getElementById("itu-new-member-message");
+  var dateBox = document.getElementById("itu-new-member-date");
+
+  if (!nameBox || !messageBox) return;
+
+  fetch("https://api.chess.com/pub/club/i-tu/members")
+    .then(function(response){
+      if (!response.ok) throw new Error("Chess.com API request failed");
+      return response.json();
+    })
+    .then(function(data){
+      var members = [];
+
+      if (data && Array.isArray(data.all_members)) {
+        members = data.all_members;
+      } else if (data && Array.isArray(data.members)) {
+        members = data.members;
+      }
+
+      if (!members.length) throw new Error("No member list found");
+
+      members.sort(function(a,b){
+        return new Date(b.joined || 0) - new Date(a.joined || 0);
+      });
+
+      var newest = members[0];
+      if (!newest || !newest.username) throw new Error("Newest member unavailable");
+
+      nameBox.textContent = "@" + newest.username;
+      messageBox.textContent = "Welcome to the club!";
+      
+      if (newest.joined) {
+        var joinedDate = new Date(newest.joined);
+        if (!isNaN(joinedDate.getTime())) {
+          dateBox.textContent = "Joined " + joinedDate.toLocaleDateString();
+        }
+      }
+    })
+    .catch(function(){
+      messageBox.textContent = "Welcome to the club!";
+      nameBox.textContent = "Member list unavailable";
+      dateBox.textContent = "Chess.com may block automatic loading here.";
+    });
+})();
+</script>
+
