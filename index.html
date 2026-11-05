@@ -93,27 +93,6 @@ style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background
   <div style="font-size:10px;letter-spacing:3px;color:#aaa;margin-top:12px;">PLAY &bull; LEARN &bull; GROW</div>
 </div>
 
-<!-- MEMBER GOAL -->
-<div data-color-bg="#10172d" data-bw-bg="#111" style="background:#111;border:1px solid #888;border-radius:12px;padding:16px;text-align:center;margin-bottom:14px;">
-  <div data-color-text="#a8baff" style="font-size:10px;letter-spacing:4px;color:#ddd;">MEMBER MISSION</div>
-  <div style="font-size:32px;font-weight:bold;margin:12px 0;color:#fff;"><span style="font-size:15px;color:#ccc;">70/ 100</span></div>
-  <div style="font-size:10px;letter-spacing:2px;color:#ccc;margin-bottom:12px;">MEMBERS REACHED</div>
-  <div style="height:10px;background:#333;border-radius:10px;overflow:hidden;">
-    <div data-color-bg="linear-gradient(90deg,#287bff,#a855f7)" data-bw-bg="#888" style="height:10px;width:57%;background:#888;border-radius:10px;"></div>
-  </div>
-  <div data-color-text="#c5a0ff" style="font-size:17px;font-weight:bold;color:#fff;margin-top:13px;letter-spacing:3px;">30 TO GO</div>
-</div>
-
-<!-- NEWEST MEMBER -->
-<div data-color-bg="#0b172b" data-bw-bg="#111" style="background:#111;border:1px solid #888;border-radius:12px;padding:15px;text-align:center;margin-bottom:14px;">
-  <div data-color-text="#00dfff" style="font-size:15px;font-weight:bold;letter-spacing:2px;color:#fff;margin-bottom:12px;">♛ NEWEST MEMBER ♛</div>
-  <div data-color-bg="#151b30" data-bw-bg="#181818" style="background:#181818;border:1px solid #777;border-radius:9px;padding:14px;">
-    <div id="itu-new-member-message" style="font-size:13px;color:#fff;">Checking the club member list…</div>
-    <div id="itu-new-member-name" data-color-text="#d18aff" style="font-size:17px;font-weight:bold;color:#fff;margin-top:8px;">Loading…</div>
-    <div id="itu-new-member-date" style="font-size:10px;color:#aaa;margin-top:6px;"></div>
-  </div>
-</div>
-
 <!-- NAVIGATION -->
 <div data-color-bg="#0d1020" data-bw-bg="#111" style="background:#111;border:1px solid #777;border-radius:12px;padding:14px;margin-bottom:14px;">
   <div data-color-text="#d1c4ff" style="text-align:center;font-size:13px;font-weight:bold;letter-spacing:3px;margin-bottom:12px;color:#fff;">✦ NAVIGATION ✦</div>
@@ -140,53 +119,3 @@ style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background
 <div style="text-align:center;color:#aaa;font-size:9px;letter-spacing:4px;">C H E S S &bull; E S T . 2 0 2 6</div>
 
 </div>
-
-<!-- NEWEST MEMBER SCRIPT -->
-<script>
-(function(){
-  var nameBox = document.getElementById("itu-new-member-name");
-  var messageBox = document.getElementById("itu-new-member-message");
-  var dateBox = document.getElementById("itu-new-member-date");
-
-  if (!nameBox || !messageBox) return;
-
-  fetch("https://api.chess.com/pub/club/i-tu/members")
-    .then(function(response){
-      if (!response.ok) throw new Error("Chess.com API request failed");
-      return response.json();
-    })
-    .then(function(data){
-      var members = [];
-
-      if (data && Array.isArray(data.all_members)) {
-        members = data.all_members;
-      } else if (data && Array.isArray(data.members)) {
-        members = data.members;
-      }
-
-      if (!members.length) throw new Error("No member list found");
-
-      members.sort(function(a,b){
-        return new Date(b.joined || 0) - new Date(a.joined || 0);
-      });
-
-      var newest = members[0];
-      if (!newest || !newest.username) throw new Error("Newest member unavailable");
-
-      nameBox.textContent = "@" + newest.username;
-      messageBox.textContent = "Welcome to the club!";
-
-      if (newest.joined) {
-        var joinedDate = new Date(newest.joined);
-        if (!isNaN(joinedDate.getTime())) {
-          dateBox.textContent = "Joined " + joinedDate.toLocaleDateString();
-        }
-      }
-    })
-    .catch(function(){
-      messageBox.textContent = "Welcome to the club!";
-      nameBox.textContent = "Member list unavailable";
-      dateBox.textContent = "Chess.com may block automatic loading here.";
-    });
-})();
-</script>
