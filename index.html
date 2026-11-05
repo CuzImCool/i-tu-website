@@ -1,294 +1,142 @@
+<p></p>
+<div id="itu-theme" data-color="off" style="background:#050505;color:#fff;padding:16px;border:1px solid #888;border-radius:14px;font-family:Arial,sans-serif;">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>i-tu | Official Club</title>
+<!-- COLOR BUTTON -->
+<button onclick="
+var b=document.getElementById('itu-theme');
+var on=b.getAttribute('data-color')!=='on';
+b.setAttribute('data-color',on?'on':'off');
+b.style.background=on?'#100a24':'#050505';
+b.style.borderColor=on?'#a855f7':'#888';
+b.style.boxShadow=on?'0 0 22px #7c3aed':'none';
 
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+b.querySelectorAll('[data-color-bg]').forEach(function(e){
+e.style.background=on?e.getAttribute('data-color-bg'):e.getAttribute('data-bw-bg');
+});
+b.querySelectorAll('[data-color-border]').forEach(function(e){
+e.style.borderColor=on?e.getAttribute('data-color-border'):'#888';
+});
+b.querySelectorAll('[data-color-text]').forEach(function(e){
+e.style.color=on?e.getAttribute('data-color-text'):'#fff';
+});
+b.querySelectorAll('[data-color-shadow]').forEach(function(e){
+e.style.textShadow=on?e.getAttribute('data-color-shadow'):'none';
+});
 
-:root {
-  --bg: #080910;
-  --panel: #111522;
-  --purple: #9b75ff;
-  --blue: #62d8ff;
-  --text: #f5f5ff;
-  --muted: #9298ad;
-}
+b.querySelectorAll('[data-color-hover]').forEach(function(e){
+e.setAttribute('data-active-hover',on?'on':'off');
+});
 
-body {
-  background:
-    radial-gradient(ellipse at 50% 0%, #29204b 0%, transparent 55%),
-    var(--bg);
-  color: var(--text);
-  font-family: Arial, sans-serif;
-  overflow-x: hidden;
-}
+this.innerHTML=on?'◼ BLACK &amp; WHITE':'✦ TURN ON COLOR';
+this.style.background=on?'#111':'linear-gradient(90deg,#287bff,#8b5cf6)';
+this.style.color='#fff';
+" style="display:block;width:100%;background:#111;color:#fff;border:1px solid #fff;border-radius:9px;padding:12px;margin-bottom:14px;font-weight:bold;letter-spacing:2px;cursor:pointer;">✦ TURN ON COLOR</button>
 
-.wrapper {
-  max-width: 850px;
-  margin: auto;
-  padding: 18px;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 13px 16px;
-  border: 1px solid #292b40;
-  background: #0c0e18dd;
-  border-radius: 14px;
-}
-
-.brand {
-  font-weight: 900;
-  letter-spacing: 3px;
-  font-size: 22px;
-}
-
-.status {
-  font-size: 10px;
-  color: #8effc2;
-  letter-spacing: 2px;
-}
-
-.hero {
-  position: relative;
-  text-align: center;
-  padding: 65px 12px 45px;
-}
-
-.eyebrow {
-  display: inline-block;
-  border: 1px solid #604ba0;
-  background: #20183b;
-  color: #c6afff;
-  padding: 8px 13px;
-  border-radius: 30px;
-  font-size: 10px;
-  letter-spacing: 2px;
-  margin-bottom: 23px;
-}
-
-.logo {
-  font-size: clamp(65px, 16vw, 110px);
-  font-weight: 1000;
-  letter-spacing: -5px;
-  line-height: 1;
-  background: linear-gradient(120deg, white, #b69aff, #6edfff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 0 20px #9b75ff66);
-  animation: glow 3s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from { filter: drop-shadow(0 0 10px #9b75ff33); }
-  to { filter: drop-shadow(0 0 27px #9b75ff99); }
-}
-
-.hero p {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.7;
-  max-width: 390px;
-  margin: 20px auto 27px;
-}
-
-.join {
-  display: inline-block;
-  padding: 15px 30px;
-  background: linear-gradient(110deg, #9b75ff, #62d8ff);
-  color: #080910;
-  font-weight: 900;
-  font-size: 13px;
-  letter-spacing: 1px;
-  text-decoration: none;
-  border-radius: 9px;
-  box-shadow: 0 0 25px #9574ff55;
-  transition: .25s;
-}
-
-.join:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 35px #9574ff99;
-}
-
-.section-title {
-  font-size: 12px;
-  letter-spacing: 3px;
-  color: #b5a1ff;
-  margin: 27px 0 13px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.card {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(145deg, #171c2b, #10121d);
-  border: 1px solid #292e45;
-  border-radius: 13px;
-  padding: 19px 15px;
-  min-height: 112px;
-  text-decoration: none;
-  color: white;
-  transition: .25s;
-}
-
-.card:hover {
-  border-color: var(--purple);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px #8060ff22;
-}
-
-.card .symbol {
-  font-size: 23px;
-  margin-bottom: 13px;
-}
-
-.card h3 {
-  font-size: 14px;
-  margin-bottom: 6px;
-}
-
-.card p {
-  font-size: 11px;
-  line-height: 1.5;
-  color: var(--muted);
-}
-
-.wide {
-  grid-column: span 2;
-}
-
-.community {
-  margin-top: 28px;
-  border: 1px solid #383052;
-  border-radius: 15px;
-  padding: 24px 17px;
-  text-align: center;
-  background: linear-gradient(120deg, #19152a, #111a28);
-}
-
-.community h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.community p {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-footer {
-  text-align: center;
-  padding: 30px 10px 15px;
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: #646a80;
-}
-
-@media (max-width: 350px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-  .wide {
-    grid-column: span 1;
-  }
-}
-</style>
-</head>
-
-<body>
-<div class="wrapper">
-
-<nav>
-  <div class="brand">i-tu<span style="color:#9b75ff">.</span></div>
-  <div class="status">● THE COMMUNITY</div>
-</nav>
-
-<section class="hero">
-  <div class="eyebrow">WELCOME TO THE CLUB</div>
-  <div class="logo">i-tu</div>
-  <p>
-    Not just another chess club.
-    A community built around competition,
-    friendship, and unforgettable games.
-  </p>
-  <a class="join"
-     href="https://www.chess.com/club/i-tu/join"
-     target="_blank">
-     JOIN THE COMMUNITY ↗
-  </a>
-</section>
-
-<div class="section-title">EXPLORE THE CLUB / 01</div>
-
-<div class="grid">
-
-  <a class="card wide"
-     href="https://www.chess.com/club/i-tu">
-    <div class="symbol">♟</div>
-    <h3>CLUB HOMEPAGE</h3>
-    <p>Enter the official i-tu Chess.com club.</p>
-  </a>
-
-  <a class="card"
-     href="https://www.chess.com/club/i-tu/members">
-    <div class="symbol">◈</div>
-    <h3>MEMBERS</h3>
-    <p>Meet the community.</p>
-  </a>
-
-  <a class="card"
-     href="https://www.chess.com/club/i-tu/leaderboard">
-    <div class="symbol">✦</div>
-    <h3>LEADERBOARD</h3>
-    <p>See who's leading.</p>
-  </a>
-
-  <a class="card"
-     href="https://www.chess.com/club/i-tu/events">
-    <div class="symbol">⌁</div>
-    <h3>EVENTS</h3>
-    <p>Find club activities.</p>
-  </a>
-
-  <a class="card"
-     href="https://www.chess.com/club/i-tu">
-    <div class="symbol">✧</div>
-    <h3>ANNOUNCEMENTS</h3>
-    <p>Check the latest club updates.</p>
-  </a>
-
+<!-- HEADER -->
+<div data-color-bg="linear-gradient(135deg,#101b42,#281044,#101c38)" data-bw-bg="linear-gradient(135deg,#111,#222,#080808)" style="text-align:center;padding:20px 8px;background:linear-gradient(135deg,#111,#222,#080808);border:1px solid #888;border-radius:12px;margin-bottom:14px;">
+<div data-color-text="#72eaff" data-color-shadow="0 0 12px #008cff" style="font-size:28px;font-weight:900;letter-spacing:4px;color:#fff;text-shadow:none;">♞ CHESS ♞</div>
+<div data-color-text="#c3a5ff" style="font-size:10px;letter-spacing:5px;color:#ddd;margin-top:8px;">C L U B</div>
+<div style="font-size:10px;letter-spacing:3px;color:#aaa;margin-top:12px;">PLAY &bull; LEARN &bull; GROW</div>
 </div>
 
-<section class="community">
-  <h2>YOUR NEXT MOVE STARTS HERE.</h2>
-  <p>
-    Find your people. Play your games.
-    Become part of i-tu.
-  </p>
-</section>
+<!-- JOIN BUTTON -->
+<a href="https://www.chess.com/club/i-tu/join?utm_campaign=club_invite_link&amp;utm_source=chesscom&amp;utm_medium=copy"
+data-color-bg="linear-gradient(90deg,#287bff,#8b5cf6)"
+data-bw-bg="#111"
+data-color-border="#72eaff"
+style="display:block;background:#111;color:#fff;text-decoration:none;text-align:center;border:1px solid #fff;border-radius:9px;padding:14px;margin:10px 0 16px;font-weight:bold;letter-spacing:2px;box-shadow:none;transition:all .25s ease;"
+onmouseover="
+var b=document.getElementById('itu-theme');
+var on=b.getAttribute('data-color')==='on';
+this.style.boxShadow=on?'0 0 28px #00d9ff,0 0 40px #744cff':'0 0 12px #fff';
+this.style.transform='scale(1.03)';
+this.style.filter='brightness(1.3)';
+"
+onmouseout="
+var b=document.getElementById('itu-theme');
+var on=b.getAttribute('data-color')==='on';
+this.style.boxShadow=on?'0 0 12px #174cff':'none';
+this.style.transform='scale(1)';
+this.style.filter='brightness(1)';
+">♟ JOIN THE CLUB &rarr;</a>
 
-<footer>
-  i-tu CHESS CLUB · EST. ON CHESS.COM
-</footer>
+<!-- MEMBER GOAL -->
+<div data-color-bg="#10172d" data-bw-bg="#111" style="background:#111;border:1px solid #888;border-radius:12px;padding:16px;text-align:center;margin-bottom:14px;">
+<div data-color-text="#a8baff" style="font-size:10px;letter-spacing:4px;color:#ddd;">MEMBER MISSION</div>
+<div style="font-size:32px;font-weight:bold;margin:12px 0;color:#fff;"><span style="font-size:15px;color:#ccc;">70/ 100</span></div>
+<div style="font-size:10px;letter-spacing:2px;color:#ccc;margin-bottom:12px;">MEMBERS REACHED</div>
+<div style="height:10px;background:#333;border-radius:10px;overflow:hidden;">
+<div data-color-bg="linear-gradient(90deg,#287bff,#a855f7)" data-bw-bg="#888" style="height:10px;width:57%;background:#888;border-radius:10px;"></div>
+</div>
+<div data-color-text="#c5a0ff" style="font-size:17px;font-weight:bold;color:#fff;margin-top:13px;letter-spacing:3px;">30 TO GO</div>
+</div>
+
+<!-- NEWEST MEMBER -->
+<div data-color-bg="#0b172b" data-bw-bg="#111" style="background:#111;border:1px solid #888;border-radius:12px;padding:15px;text-align:center;margin-bottom:14px;">
+<div data-color-text="#00dfff" style="font-size:15px;font-weight:bold;letter-spacing:2px;color:#fff;margin-bottom:12px;">♛ NEWEST MEMBER ♛</div>
+<div data-color-bg="#151b30" data-bw-bg="#181818" style="background:#181818;border:1px solid #777;border-radius:9px;padding:14px;">
+<div style="font-size:13px;color:#fff;">Welcome to the club!</div>
+<div data-color-text="#d18aff" style="font-size:17px;font-weight:bold;color:#fff;margin-top:8px;">@Valy2022</div>
+</div>
+</div>
+
+<!-- NAVIGATION -->
+<div data-color-bg="#0d1020" data-bw-bg="#111" style="background:#111;border:1px solid #777;border-radius:12px;padding:14px;margin-bottom:14px;">
+<div data-color-text="#d1c4ff" style="text-align:center;font-size:13px;font-weight:bold;letter-spacing:3px;margin-bottom:12px;color:#fff;">✦ NAVIGATION ✦</div>
+
+<a href="https://www.chess.com/club/i-tu" data-color-bg="#10172a" data-bw-bg="#181818" style="display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;transition:all .25s ease;"
+onmouseover="
+var on=document.getElementById('itu-theme').getAttribute('data-color')==='on';
+this.style.boxShadow=on?'0 0 22px #00bfff':'0 0 12px #fff';
+this.style.borderColor=on?'#72eaff':'#fff';
+this.style.transform='scale(1.03)';
+this.style.background=on?'#14264b':'#333';
+"
+onmouseout="
+var on=document.getElementById('itu-theme').getAttribute('data-color')==='on';
+this.style.boxShadow='none';
+this.style.borderColor=on?'#426cff':'#888';
+this.style.transform='scale(1)';
+this.style.background=on?'#10172a':'#181818';
+">♟ &nbsp; CLUB HOME &rarr;</a>
+
+<a href="https://www.chess.com/clubs/members/i-tu" data-color-bg="#10172a" data-bw-bg="#181818" style="display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;transition:all .25s ease;"
+onmouseover="
+var on=document.getElementById('itu-theme').getAttribute('data-color')==='on';
+this.style.boxShadow=on?'0 0 22px #00dfff':'0 0 12px #fff';
+this.style.borderColor=on?'#83eaff':'#fff';
+this.style.transform='scale(1.03)';
+this.style.background=on?'#103044':'#333';
+"
+onmouseout="
+var on=document.getElementById('itu-theme').getAttribute('data-color')==='on';
+this.style.boxShadow='none';
+this.style.borderColor=on?'#286fa8':'#888';
+this.style.transform='scale(1)';
+this.style.background=on?'#10172a':'#181818';
+">♙ &nbsp; MEMBERS &rarr;</a>
+
+<a href="https://www.chess.com/clubs/events/i-tu" data-color-bg="#10172a" data-bw-bg="#181818" style="display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;transition:all .25s ease;"
+onmouseover="
+var on=document.getElementById('itu-theme').getAttribute('data-color')==='on';
+this.style.boxShadow=on?'0 0 22px #b65cff':'0 0 12px #fff';
+this.style.borderColor=on?'#d18aff':'#fff';
+this.style.transform='scale(1.03)';
+this.style.background=on?'#281747':'#333';
+"
+onmouseout="
+var on=document.getElementById('itu-theme').getAttribute('data-color')==='on';
+this.style.boxShadow='none';
+this.style.borderColor=on?'#7c4cff':'#888';
+this.style.transform='scale(1)';
+this.style.background=on?'#10172a':'#181818';
+">⚡ &nbsp; EVENTS &rarr;</a>
+</div>
+
+<!-- FOOTER -->
+<div data-color-text="#c39aff" style="text-align:center;padding:10px;color:#ccc;font-size:13px;font-style:italic;">&ldquo;Meow Meeeeow&rdquo; &nbsp;- once said by a hungry cat</div>
+<div style="height:1px;background:#777;margin:6px 0 12px;"></div>
+<div style="text-align:center;color:#aaa;font-size:9px;letter-spacing:4px;">C H E S S &bull; E S T . 2 0 2 6</div>
 
 </div>
-</body>
-</html>
+<p></p>
