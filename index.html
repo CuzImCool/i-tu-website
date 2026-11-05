@@ -1,18 +1,35 @@
- 
-<div id="itu-theme" data-color="off" style="background:#050505;color:#fff;padding:16px;border:1px solid #888;border-radius:14px;font-family:Arial,sans-serif;">
+
+<div id="itu-theme" data-color="off" style="position:relative;background:#050505;color:#fff;padding:16px;border:1px solid #888;border-radius:14px;font-family:Arial,sans-serif;">
 
 <style>
-#itu-theme a[data-hover-button] {
+#itu-theme a[data-hover-button],
+#itu-theme button[data-hover-button] {
   transition: transform .22s ease, box-shadow .22s ease, filter .22s ease, background .22s ease, border-color .22s ease;
 }
-#itu-theme a[data-hover-button]:hover {
+#itu-theme a[data-hover-button]:hover,
+#itu-theme button[data-hover-button]:hover {
   transform: translateY(-2px) scale(1.025);
   filter: brightness(1.25);
   box-shadow: 0 0 16px var(--hover-glow, #fff), 0 0 28px var(--hover-glow, #fff);
   border-color: var(--hover-border, #fff) !important;
 }
-#itu-theme a[data-hover-button]:active {
+#itu-theme a[data-hover-button]:active,
+#itu-theme button[data-hover-button]:active {
   transform: scale(.99);
+}
+#itu-theme .itu-cat-rain {
+  position:absolute;
+  top:-40px;
+  z-index:9999;
+  pointer-events:none;
+  animation:ituCatFall linear forwards;
+  line-height:1;
+}
+@keyframes ituCatFall {
+  0% { transform:translateY(-30px) rotate(0deg); opacity:0; }
+  10% { opacity:1; }
+  90% { opacity:1; }
+  100% { transform:translateY(750px) rotate(360deg); opacity:0; }
 }
 </style>
 
@@ -46,7 +63,28 @@ e.style.setProperty('--hover-border',on?e.getAttribute('data-hover-border'):'#ff
 this.innerHTML=on?'◼ BLACK &amp; WHITE':'✦ TURN ON COLOR';
 this.style.background=on?'#111':'linear-gradient(90deg,#287bff,#8b5cf6)';
 this.style.color='#fff';
-" style="display:block;width:100%;background:#111;color:#fff;border:1px solid #fff;border-radius:9px;padding:12px;margin-bottom:14px;font-weight:bold;letter-spacing:2px;cursor:pointer;transition:all .25s ease;">✦ TURN ON COLOR</button>
+" style="display:block;width:100%;background:#111;color:#fff;border:1px solid #fff;border-radius:9px;padding:12px;margin-bottom:10px;font-weight:bold;letter-spacing:2px;cursor:pointer;transition:all .25s ease;">✦ TURN ON COLOR</button>
+
+<!-- CAT RAIN BUTTON -->
+<button data-hover-button data-hover-color="#ff9de2" data-hover-border="#ffc5ef"
+onclick="
+var box=document.getElementById('itu-theme');
+var cats=['😼','🐱','🐈','🐈‍⬛','😺','😻','😹','🙀','🐾'];
+for(var i=0;i<32;i++){
+  (function(){
+    var cat=document.createElement('span');
+    cat.className='itu-cat-rain';
+    cat.textContent=cats[Math.floor(Math.random()*cats.length)];
+    cat.style.left=(Math.random()*92)+'%';
+    cat.style.fontSize=(18+Math.random()*20)+'px';
+    cat.style.animationDuration=(2.5+Math.random()*2.5)+'s';
+    cat.style.animationDelay=(Math.random()*1.8)+'s';
+    box.appendChild(cat);
+    setTimeout(function(){cat.remove();},7500);
+  })();
+}
+"
+style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background:#171717;color:#fff;border:1px solid #888;border-radius:9px;padding:12px;margin-bottom:14px;font-size:20px;cursor:pointer;">😼</button>
 
 <!-- HEADER -->
 <div data-color-bg="linear-gradient(135deg,#101b42,#281044,#101c38)" data-bw-bg="linear-gradient(135deg,#111,#222,#080808)" style="text-align:center;padding:20px 8px;background:linear-gradient(135deg,#111,#222,#080808);border:1px solid #888;border-radius:12px;margin-bottom:14px;">
@@ -54,12 +92,6 @@ this.style.color='#fff';
   <div data-color-text="#c3a5ff" style="font-size:10px;letter-spacing:5px;color:#ddd;margin-top:8px;">C L U B</div>
   <div style="font-size:10px;letter-spacing:3px;color:#aaa;margin-top:12px;">PLAY &bull; LEARN &bull; GROW</div>
 </div>
-
-<!-- JOIN BUTTON -->
-<a data-hover-button data-hover-color="#00d9ff" data-hover-border="#72eaff"
-href="https://www.chess.com/club/i-tu/join?utm_campaign=club_invite_link&amp;utm_source=chesscom&amp;utm_medium=copy"
-data-color-bg="linear-gradient(90deg,#287bff,#8b5cf6)" data-bw-bg="#111"
-style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#111;color:#fff;text-decoration:none;text-align:center;border:1px solid #fff;border-radius:9px;padding:14px;margin:10px 0 16px;font-weight:bold;letter-spacing:2px;box-shadow:none;">♟ JOIN THE CLUB &rarr;</a>
 
 <!-- MEMBER GOAL -->
 <div data-color-bg="#10172d" data-bw-bg="#111" style="background:#111;border:1px solid #888;border-radius:12px;padding:16px;text-align:center;margin-bottom:14px;">
@@ -143,7 +175,7 @@ style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#111;color
 
       nameBox.textContent = "@" + newest.username;
       messageBox.textContent = "Welcome to the club!";
-      
+
       if (newest.joined) {
         var joinedDate = new Date(newest.joined);
         if (!isNaN(joinedDate.getTime())) {
@@ -158,4 +190,3 @@ style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#111;color
     });
 })();
 </script>
-
