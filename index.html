@@ -1,5 +1,4 @@
 
-
 <style>
 html, body {
   margin: 0 !important;
@@ -26,8 +25,8 @@ html, body {
 #itu-theme button[data-hover-button]:hover {
   transform: translateY(-2px) scale(1.025);
   filter: brightness(1.25);
-  box-shadow: 0 0 16px var(--hover-glow, #fff), 0 0 28px var(--hover-glow, #fff);
-  border-color: var(--hover-border, #fff) !important;
+  box-shadow: 0 0 16px var(--hover-glow,#fff), 0 0 28px var(--hover-glow,#fff);
+  border-color: var(--hover-border,#fff) !important;
 }
 #itu-theme a[data-hover-button]:active,
 #itu-theme button[data-hover-button]:active {
@@ -48,25 +47,35 @@ html, body {
   100% { transform:translateY(750px) rotate(360deg); opacity:0; }
 }
 
-/* PROFILE CARD */
+/* OWNER PROFILE */
 #itu-theme .hawk-profile {
   text-align:center;
   padding:20px 10px;
   margin-bottom:14px;
-  border:1px solid #555;
+  border:1px solid #888;
   border-radius:12px;
-  background:linear-gradient(145deg,#101820,#101020,#080808);
+  background:#111;
   position:relative;
   overflow:hidden;
+  transition:all .25s ease;
 }
 #itu-theme .hawk-avatar-wrap {
   width:112px;
   height:112px;
-  margin:12px auto;
+  margin:16px auto;
   border-radius:50%;
   padding:4px;
-  background:linear-gradient(135deg,#00dfff,#8b5cf6,#00dfff);
-  box-shadow:0 0 18px #008cff, 0 0 35px #5630a0;
+  background:#555;
+  box-shadow:0 0 10px #fff;
+  transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;
+  cursor:pointer;
+}
+#itu-theme .hawk-avatar-wrap:hover {
+  transform:scale(1.09);
+  filter:brightness(1.2);
+  box-shadow:0 0 16px var(--avatar-glow,#fff),
+             0 0 28px var(--avatar-glow,#fff),
+             0 0 45px var(--avatar-glow,#fff);
 }
 #itu-theme .hawk-avatar-inner {
   width:100%;
@@ -79,7 +88,7 @@ html, body {
   overflow:hidden;
   font-size:42px;
   font-weight:900;
-  color:#72eaff;
+  color:#fff;
 }
 #itu-theme #hawk-live-avatar {
   width:100%;
@@ -92,13 +101,12 @@ html, body {
   font-weight:900;
   letter-spacing:3px;
   color:#fff;
-  text-shadow:0 0 12px #008cff;
 }
-#itu-theme .hawk-subtitle {
-  font-size:9px;
-  letter-spacing:4px;
+#itu-theme .hawk-owner-label {
+  font-size:10px;
+  letter-spacing:5px;
   color:#aaa;
-  margin-top:7px;
+  margin-bottom:8px;
 }
 </style>
 
@@ -128,6 +136,19 @@ b.querySelectorAll('[data-hover-button]').forEach(function(e){
 e.style.setProperty('--hover-glow',on?e.getAttribute('data-hover-color'):'#fff');
 e.style.setProperty('--hover-border',on?e.getAttribute('data-hover-border'):'#fff');
 });
+
+var ring=b.querySelector('.hawk-avatar-wrap');
+if(ring){
+ring.style.background=on?'linear-gradient(135deg,#00dfff,#8b5cf6,#00dfff)':'#555';
+ring.style.setProperty('--avatar-glow',on?'#00dfff':'#fff');
+ring.style.boxShadow=on?'0 0 18px #008cff,0 0 35px #5630a0':'0 0 10px #fff';
+}
+
+var profile=b.querySelector('.hawk-profile');
+if(profile){
+profile.style.background=on?'linear-gradient(145deg,#101820,#101020,#080808)':'#111';
+profile.style.borderColor=on?'#8b5cf6':'#888';
+}
 
 this.innerHTML=on?'◼ BLACK &amp; WHITE':'✦ TURN ON COLOR';
 this.style.background=on?'#111':'linear-gradient(90deg,#287bff,#8b5cf6)';
@@ -162,28 +183,18 @@ style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background
   <div style="font-size:10px;letter-spacing:3px;color:#aaa;margin-top:12px;">PLAY &bull; LEARN &bull; GROW</div>
 </div>
 
-<!-- LIVE CHESS.COM PROFILE -->
+<!-- OWNER PROFILE -->
 <div class="hawk-profile">
-  <div style="font-size:10px;letter-spacing:4px;color:#72eaff;font-weight:bold;">✦ PLAYER PROFILE ✦</div>
+  <div class="hawk-owner-label" data-color-text="#72eaff">✦ OWNER ✦</div>
 
   <div class="hawk-avatar-wrap">
     <div class="hawk-avatar-inner">
       <span id="hawk-avatar-fallback">H</span>
-      <img id="hawk-live-avatar" alt="I-Am-Hawk Chess.com profile picture">
+      <img id="hawk-live-avatar" alt="Owner profile picture">
     </div>
   </div>
 
-  <div class="hawk-name">@I-Am-Hawk</div>
-  <div class="hawk-subtitle">CHESS.COM PLAYER</div>
-
-  <a href="https://www.chess.com/member/i-am-hawk"
-     target="_blank"
-     data-hover-button
-     data-hover-color="#00dfff"
-     data-hover-border="#72eaff"
-     style="--hover-glow:#fff;--hover-border:#fff;display:inline-block;margin-top:15px;padding:9px 18px;background:#181818;color:#fff;border:1px solid #888;border-radius:8px;text-decoration:none;font-size:10px;font-weight:bold;letter-spacing:2px;">
-    VIEW PROFILE ↗
-  </a>
+  <div class="hawk-name" data-color-text="#72eaff" data-color-shadow="0 0 12px #008cff">@I-Am-Hawk</div>
 </div>
 
 <!-- NAVIGATION -->
@@ -266,5 +277,4 @@ COPY CLUB LINK
 </script>
 
 </div>
-
 
