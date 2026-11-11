@@ -186,17 +186,12 @@ html *, body * {
   text-align:left;
 }
 #itu-theme .watch-name {
-  font-size:19px;
+  font-size:13px;
   font-weight:900;
   color:#fff;
   overflow-wrap:anywhere;
   line-height:1.2;
-  margin-bottom:5px;
-}
-#itu-theme .watch-rating {
-  font-size:15px;
-  font-weight:900;
-  color:#35c5ff;
+  margin-bottom:0;
 }
 
 /* CLICKABLE PROFILE NAMES */
@@ -392,7 +387,6 @@ PLAY &bull; LEARN &bull; GROW
     <a class="profile-name-link" href="https://www.chess.com/member/watchandlearn101" target="_blank">
       <div class="watch-name" data-color-text="#65e99a">@WatchandLearn101</div>
     </a>
-    <div class="watch-rating" id="watch-blitz-rating">Blitz: Loading...</div>
   </div>
 </div>
 
@@ -408,7 +402,6 @@ PLAY &bull; LEARN &bull; GROW
     <a class="profile-name-link" href="https://www.chess.com/member/lowkbadmove" target="_blank">
       <div class="watch-name" data-color-text="#65e99a">@LowkBadMove</div>
     </a>
-    <div class="watch-rating" id="lowk-blitz-rating">Blitz: Loading...</div>
   </div>
 </div>
 
@@ -547,29 +540,6 @@ function loadAvatar(username,imageId,fallbackId,letter){
 loadAvatar('i-am-hawk','hawk-live-avatar','hawk-avatar-fallback','H');
 loadAvatar('watchandlearn101','watch-live-avatar','watch-avatar-fallback','W');
 loadAvatar('lowkbadmove','lowk-live-avatar','lowk-avatar-fallback','L');
-
-/* LOAD BLITZ RATINGS */
-function loadBlitz(username,elementId){
-  fetch('https://api.chess.com/pub/player/'+username+'/stats')
-    .then(function(response){
-      if(!response.ok) throw new Error('Stats unavailable');
-      return response.json();
-    })
-    .then(function(stats){
-      var rating=document.getElementById(elementId);
-      if(stats.chess_blitz && stats.chess_blitz.last && stats.chess_blitz.last.rating){
-        rating.textContent='Blitz: '+stats.chess_blitz.last.rating;
-      } else {
-        rating.textContent='Blitz: Unrated';
-      }
-    })
-    .catch(function(){
-      document.getElementById(elementId).textContent='Blitz: --';
-    });
-}
-
-loadBlitz('watchandlearn101','watch-blitz-rating');
-loadBlitz('lowkbadmove','lowk-blitz-rating');
 
 /* LOAD CLUB MEMBER COUNT */
 function loadMemberCount(){
