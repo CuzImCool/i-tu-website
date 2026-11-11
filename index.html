@@ -12,9 +12,9 @@ html, body {
   min-height:100vh;
 }
 
-/* MAGNUS SANTA CURSOR */
+/* CHRISTMAS SANTA CURSOR */
 #itu-theme, #itu-theme * {
-  cursor:var(--santa-cursor, auto)!important;
+  cursor:var(--holiday-cursor,auto)!important;
 }
 
 /* HOVER EFFECTS */
@@ -240,60 +240,68 @@ html, body {
 </style>
 
 <div id="itu-theme" data-color="off"
-style="--santa-cursor:url(https://images.chesscomfiles.com/uploads/v1/user/3889224.121e2094.160x160o.7e81e6058f8d.jpg) 16 16, auto;position:relative;background:#050505;color:#fff;padding:16px;border:1px solid #888;border-radius:14px;font-family:Arial,sans-serif;">
+style="--holiday-cursor:auto;position:relative;background:#050505;color:#fff;padding:16px;border:1px solid #888;border-radius:14px;font-family:Arial,sans-serif;">
 
-<!-- COLOR BUTTON -->
+<!-- CHRISTMAS COLOR BUTTON -->
 <button onclick="
 var b=document.getElementById('itu-theme');
 var on=b.getAttribute('data-color')!=='on';
 b.setAttribute('data-color',on?'on':'off');
-b.style.background=on?'#100a24':'#050505';
-b.style.borderColor=on?'#a855f7':'#888';
-b.style.boxShadow=on?'0 0 22px #7c3aed':'none';
 
-/* SANTA CURSOR IN BOTH THEMES */
-var santaCursor='url(https://images.chesscomfiles.com/uploads/v1/user/3889224.121e2094.160x160o.7e81e6058f8d.jpg) 16 16, auto';
-b.style.setProperty('--santa-cursor',santaCursor);
+b.style.background=on?'linear-gradient(145deg,#071b10,#180609,#071b10)':'#050505';
+b.style.borderColor=on?'#c9a64b':'#888';
+b.style.boxShadow=on?'0 0 22px #176b37,0 0 35px #8b1525':'none';
 
 b.querySelectorAll('[data-color-bg]').forEach(function(e){
 e.style.background=on?e.getAttribute('data-color-bg'):e.getAttribute('data-bw-bg');
 });
+
 b.querySelectorAll('[data-color-border]').forEach(function(e){
 e.style.borderColor=on?e.getAttribute('data-color-border'):'#888';
 });
+
 b.querySelectorAll('[data-color-text]').forEach(function(e){
 e.style.color=on?e.getAttribute('data-color-text'):'#fff';
 });
+
 b.querySelectorAll('[data-color-shadow]').forEach(function(e){
 e.style.textShadow=on?e.getAttribute('data-color-shadow'):'none';
 });
+
 b.querySelectorAll('[data-hover-button]').forEach(function(e){
 e.style.setProperty('--hover-glow',on?e.getAttribute('data-hover-color'):'#fff');
 e.style.setProperty('--hover-border',on?e.getAttribute('data-hover-border'):'#fff');
 });
+
 b.querySelectorAll('.hawk-avatar-wrap,.watch-avatar-wrap').forEach(function(r){
-r.style.background=on?'linear-gradient(135deg,#00dfff,#8b5cf6,#00dfff)':'#555';
-r.style.setProperty('--avatar-glow',on?'#00dfff':'#fff');
-r.style.boxShadow=on?'0 0 18px #008cff,0 0 35px #5630a0':'0 0 9px #fff';
+r.style.background=on?'linear-gradient(135deg,#d51d36,#087a3c,#d5ad45)':'#555';
+r.style.setProperty('--avatar-glow',on?'#28c76f':'#fff');
+r.style.boxShadow=on?'0 0 18px #087a3c,0 0 30px #b51c32':'0 0 9px #fff';
 });
+
 b.querySelectorAll('.hawk-profile,.watch-profile,.member-counter').forEach(function(p){
-p.style.background=on?'linear-gradient(145deg,#101820,#101020,#080808)':'#111';
-p.style.borderColor=on?'#8b5cf6':'#888';
+p.style.background=on?'linear-gradient(145deg,#102719,#210c12,#102719)':'#111';
+p.style.borderColor=on?'#c9a64b':'#888';
 });
+
 b.querySelectorAll('.watch-profile').forEach(function(p){
-p.style.borderLeftColor=on?'#00dfff':'#777';
+p.style.borderLeftColor=on?'#c91f36':'#777';
 });
+
 var number=b.querySelector('.member-number');
 if(number){
-number.style.color=on?'#72eaff':'#fff';
-number.style.textShadow=on?'0 0 12px #008cff':'0 0 12px #fff';
+number.style.color=on?'#65e99a':'#fff';
+number.style.textShadow=on?'0 0 12px #087a3c,0 0 20px #b51c32':'0 0 12px #fff';
 }
+
 b.querySelectorAll('.member-dot').forEach(function(d){
-d.style.background=on?'#00e5ff':'#888';
+d.style.background=on?'#28c76f':'#888';
 });
-this.innerHTML=on?'◼ BLACK &amp; WHITE':'✦ TURN ON COLOR';
-this.style.background=on?'#111':'linear-gradient(90deg,#287bff,#8b5cf6)';
+
+this.innerHTML=on?'🎄 CHRISTMAS MODE ON 🎄':'✦ TURN ON COLOR';
+this.style.background=on?'linear-gradient(90deg,#a9142b,#087a3c,#a9142b)':'#111';
 this.style.color='#fff';
+this.style.borderColor=on?'#d5ad45':'#fff';
 "
 style="display:block;width:100%;background:#111;color:#fff;border:1px solid #fff;border-radius:9px;padding:12px;margin-bottom:10px;font-weight:bold;letter-spacing:2px;">
 ✦ TURN ON COLOR
@@ -323,16 +331,16 @@ style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background
 </button>
 
 <!-- HEADER -->
-<div data-color-bg="linear-gradient(135deg,#101b42,#281044,#101c38)"
+<div data-color-bg="linear-gradient(135deg,#0d572d,#7b1425,#0d572d)"
 data-bw-bg="linear-gradient(135deg,#111,#222,#080808)"
 style="text-align:center;padding:20px 8px;background:linear-gradient(135deg,#111,#222,#080808);border:1px solid #888;border-radius:12px;margin-bottom:14px;">
 
-<div data-color-text="#72eaff" data-color-shadow="0 0 12px #008cff"
+<div data-color-text="#e9c66a" data-color-shadow="0 0 12px #087a3c,0 0 18px #b51c32"
 style="font-size:28px;font-weight:900;letter-spacing:4px;color:#fff;">
 ♞ CHESS ♞
 </div>
 
-<div data-color-text="#c3a5ff"
+<div data-color-text="#65e99a"
 style="font-size:10px;letter-spacing:5px;color:#ddd;margin-top:8px;">
 C L U B
 </div>
@@ -344,20 +352,22 @@ PLAY &bull; LEARN &bull; GROW
 
 <!-- OWNER PROFILE -->
 <div class="hawk-profile">
-  <div class="hawk-owner-label" data-color-text="#72eaff">
+  <div class="hawk-owner-label" data-color-text="#65e99a">
     ✦ OWNER ✦
   </div>
+
   <div class="hawk-avatar-wrap">
     <div class="hawk-avatar-inner">
       <span id="hawk-avatar-fallback">H</span>
       <img id="hawk-live-avatar" alt="Owner profile picture">
     </div>
   </div>
+
   <a class="profile-name-link"
      href="https://www.chess.com/member/i-am-hawk"
      target="_blank">
-    <div class="hawk-name" data-color-text="#72eaff"
-    data-color-shadow="0 0 12px #008cff">
+    <div class="hawk-name" data-color-text="#e9c66a"
+    data-color-shadow="0 0 12px #087a3c">
       @I-Am-Hawk
     </div>
   </a>
@@ -365,23 +375,26 @@ PLAY &bull; LEARN &bull; GROW
 
 <!-- WATCHANDLEARN101 PROFILE -->
 <div class="watch-profile"
-data-color-bg="linear-gradient(145deg,#101820,#101020,#080808)"
+data-color-bg="linear-gradient(145deg,#102719,#210c12,#102719)"
 data-bw-bg="#111"
-data-color-border="#8b5cf6">
+data-color-border="#c9a64b">
+
   <div class="watch-avatar-wrap">
     <div class="watch-avatar-inner">
       <span id="watch-avatar-fallback">W</span>
       <img id="watch-live-avatar" alt="WatchandLearn101 profile picture">
     </div>
   </div>
+
   <div class="watch-info">
     <a class="profile-name-link"
        href="https://www.chess.com/member/watchandlearn101"
        target="_blank">
-      <div class="watch-name" data-color-text="#72eaff">
+      <div class="watch-name" data-color-text="#65e99a">
         @WatchandLearn101
       </div>
     </a>
+
     <div class="watch-rating" id="watch-blitz-rating">
       Blitz: Loading...
     </div>
@@ -390,23 +403,26 @@ data-color-border="#8b5cf6">
 
 <!-- LOWKBADMOVE PROFILE -->
 <div class="watch-profile"
-data-color-bg="linear-gradient(145deg,#101820,#101020,#080808)"
+data-color-bg="linear-gradient(145deg,#102719,#210c12,#102719)"
 data-bw-bg="#111"
-data-color-border="#8b5cf6">
+data-color-border="#c9a64b">
+
   <div class="watch-avatar-wrap">
     <div class="watch-avatar-inner">
       <span id="lowk-avatar-fallback">L</span>
       <img id="lowk-live-avatar" alt="LowkBadMove profile picture">
     </div>
   </div>
+
   <div class="watch-info">
     <a class="profile-name-link"
        href="https://www.chess.com/member/lowkbadmove"
        target="_blank">
-      <div class="watch-name" data-color-text="#72eaff">
+      <div class="watch-name" data-color-text="#65e99a">
         @LowkBadMove
       </div>
     </a>
+
     <div class="watch-rating" id="lowk-blitz-rating">
       Blitz: Loading...
     </div>
@@ -415,16 +431,22 @@ data-color-border="#8b5cf6">
 
 <!-- LIVE MEMBER COUNTER -->
 <div class="member-counter"
-data-color-bg="linear-gradient(145deg,#101820,#101020,#080808)"
+data-color-bg="linear-gradient(145deg,#102719,#210c12,#102719)"
 data-bw-bg="#111"
-data-color-border="#8b5cf6">
-  <div class="member-heading" data-color-text="#72eaff">
+data-color-border="#c9a64b">
+
+  <div class="member-heading" data-color-text="#65e99a">
     ✦ CLUB MEMBERS ✦
   </div>
-  <div class="member-number" id="itu-member-count">...</div>
-  <div class="member-caption" data-color-text="#c3a5ff">
+
+  <div class="member-number" id="itu-member-count">
+    ...
+  </div>
+
+  <div class="member-caption" data-color-text="#e9c66a">
     MEMBERS AND COUNTING
   </div>
+
   <div class="member-status">
     <span class="member-dot" id="itu-member-dot"></span>
     <span id="itu-member-status">Connecting to Chess.com...</span>
@@ -432,41 +454,42 @@ data-color-border="#8b5cf6">
 </div>
 
 <!-- NAVIGATION -->
-<div data-color-bg="#0d1020" data-bw-bg="#111"
+<div data-color-bg="linear-gradient(145deg,#102719,#210c12)"
+data-bw-bg="#111"
 style="background:#111;border:1px solid #777;border-radius:12px;padding:14px;margin-bottom:14px;">
 
-<div data-color-text="#d1c4ff"
+<div data-color-text="#e9c66a"
 style="text-align:center;font-size:13px;font-weight:bold;letter-spacing:3px;margin-bottom:12px;color:#fff;">
 ✦ NAVIGATION ✦
 </div>
 
-<a data-hover-button data-hover-color="#00bfff"
-data-hover-border="#72eaff"
+<a data-hover-button data-hover-color="#168b48"
+data-hover-border="#65e99a"
 href="https://www.chess.com/club/i-tu"
-data-color-bg="#10172a" data-bw-bg="#181818"
+data-color-bg="#123b25" data-bw-bg="#181818"
 style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;">
 ♟ &nbsp; CLUB HOME &rarr;
 </a>
 
-<a data-hover-button data-hover-color="#00dfff"
-data-hover-border="#83eaff"
+<a data-hover-button data-hover-color="#b51c32"
+data-hover-border="#ff687b"
 href="https://www.chess.com/clubs/members/i-tu"
-data-color-bg="#10172a" data-bw-bg="#181818"
+data-color-bg="#48131e" data-bw-bg="#181818"
 style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;">
 ♙ &nbsp; MEMBERS &rarr;
 </a>
 
-<a data-hover-button data-hover-color="#b65cff"
-data-hover-border="#d18aff"
+<a data-hover-button data-hover-color="#c9a64b"
+data-hover-border="#f2d98b"
 href="https://www.chess.com/clubs/events/i-tu"
-data-color-bg="#10172a" data-bw-bg="#181818"
+data-color-bg="#26391d" data-bw-bg="#181818"
 style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;">
 ⚡ &nbsp; EVENTS &rarr;
 </a>
 </div>
 
 <!-- FOOTER -->
-<div data-color-text="#c39aff"
+<div data-color-text="#e9c66a"
 style="text-align:center;padding:10px;color:#ccc;font-size:13px;font-style:italic;">
 &ldquo;Meow Meeeeow&rdquo; &nbsp;- once said by a hungry cat
 </div>
@@ -479,8 +502,8 @@ C H E S S &bull; E S T . 2 0 2 6
 
 <!-- COPY CLUB LINK -->
 <button data-hover-button
-data-hover-color="#00dfff"
-data-hover-border="#72eaff"
+data-hover-color="#168b48"
+data-hover-border="#65e99a"
 onclick="
 var link='https://www.chess.com/club/i-tu';
 var temp=document.createElement('textarea');
@@ -501,14 +524,17 @@ style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background
 COPY CLUB LINK
 </button>
 
-<!-- CHESS.COM API -->
+<!-- CHESS.COM API + SANTA CURSOR -->
 <script>
 (function(){
 
-/* INITIAL SANTA CURSOR */
 var theme=document.getElementById('itu-theme');
-var santaCursor='url(https://images.chesscomfiles.com/uploads/v1/user/3889224.121e2094.160x160o.7e81e6058f8d.jpg) 16 16, auto';
-theme.style.setProperty('--santa-cursor',santaCursor);
+
+/* SMALL CUSTOM SANTA CURSOR */
+var santaCursor="url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 13 Q10 2 23 7 L28 14 Z' fill='%23c91f36' stroke='%23ffffff' stroke-width='1.5'/%3E%3Ccircle cx='24' cy='7' r='4' fill='%23ffffff'/%3E%3Cpath d='M4 14 Q16 9 28 15 L27 19 Q15 15 5 19 Z' fill='%23ffffff'/%3E%3Ccircle cx='16' cy='20' r='9' fill='%23f2c9a5'/%3E%3Cpath d='M7 20 Q16 17 25 20 L23 28 Q16 33 9 27 Z' fill='%23ffffff'/%3E%3Ccircle cx='13' cy='19' r='1' fill='%23000'/%3E%3Ccircle cx='20' cy='19' r='1' fill='%23000'/%3E%3Cpath d='M14 23 Q16 25 19 23' fill='none' stroke='%23a33' stroke-width='1'/%3E%3C/svg%3E\") 4 4, auto";
+
+theme.style.setProperty('--holiday-cursor',santaCursor);
+
 
 /* LOAD PROFILE PICTURES */
 function loadAvatar(username,imageId,fallbackId,letter){
@@ -542,6 +568,7 @@ loadAvatar('i-am-hawk','hawk-live-avatar','hawk-avatar-fallback','H');
 loadAvatar('watchandlearn101','watch-live-avatar','watch-avatar-fallback','W');
 loadAvatar('lowkbadmove','lowk-live-avatar','lowk-avatar-fallback','L');
 
+
 /* LOAD BLITZ RATINGS */
 function loadBlitz(username,elementId){
   fetch('https://api.chess.com/pub/player/'+username+'/stats')
@@ -551,6 +578,7 @@ function loadBlitz(username,elementId){
     })
     .then(function(stats){
       var rating=document.getElementById(elementId);
+
       if(stats.chess_blitz && stats.chess_blitz.last &&
          stats.chess_blitz.last.rating){
         rating.textContent='Blitz: '+stats.chess_blitz.last.rating;
@@ -566,8 +594,10 @@ function loadBlitz(username,elementId){
 loadBlitz('watchandlearn101','watch-blitz-rating');
 loadBlitz('lowkbadmove','lowk-blitz-rating');
 
-/* LOAD I TU CLUB MEMBER COUNT */
+
+/* LOAD CLUB MEMBER COUNT */
 function loadMemberCount(){
+
   var count=document.getElementById('itu-member-count');
   var status=document.getElementById('itu-member-status');
   var dot=document.getElementById('itu-member-dot');
@@ -578,21 +608,29 @@ function loadMemberCount(){
       return response.json();
     })
     .then(function(club){
+
       if(typeof club.members_count==='number'){
+
         count.textContent=club.members_count.toLocaleString();
+
         status.textContent='Club count loaded';
         dot.style.background='#35d66f';
         dot.style.boxShadow='0 0 8px #35d66f';
+
       } else {
         throw new Error('Member count unavailable');
       }
+
     })
     .catch(function(){
+
       count.textContent='--';
       status.textContent='Member count unavailable';
       dot.style.background='#ff5555';
       dot.style.boxShadow='0 0 8px #ff5555';
+
     });
+
 }
 
 loadMemberCount();
