@@ -1,5 +1,4 @@
 
-
 <style>
 html, body {
   margin:0!important;
@@ -13,9 +12,9 @@ html, body {
   min-height:100vh;
 }
 
-/* FISH BONE CURSOR */
+/* MAGNUS SANTA CURSOR */
 #itu-theme, #itu-theme * {
-  cursor:var(--fish-cursor, auto)!important;
+  cursor:var(--santa-cursor, auto)!important;
 }
 
 /* HOVER EFFECTS */
@@ -241,7 +240,7 @@ html, body {
 </style>
 
 <div id="itu-theme" data-color="off"
-style="--fish-cursor:auto;position:relative;background:#050505;color:#fff;padding:16px;border:1px solid #888;border-radius:14px;font-family:Arial,sans-serif;">
+style="--santa-cursor:url(https://images.chesscomfiles.com/uploads/v1/user/3889224.121e2094.160x160o.7e81e6058f8d.jpg) 16 16, auto;position:relative;background:#050505;color:#fff;padding:16px;border:1px solid #888;border-radius:14px;font-family:Arial,sans-serif;">
 
 <!-- COLOR BUTTON -->
 <button onclick="
@@ -252,12 +251,9 @@ b.style.background=on?'#100a24':'#050505';
 b.style.borderColor=on?'#a855f7':'#888';
 b.style.boxShadow=on?'0 0 22px #7c3aed':'none';
 
-/* COLORFUL FISH BONE */
-var fishOn='url(&quot;data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2732%27 height=%2732%27 viewBox=%270 0 32 32%27%3E%3Cpath d=%27M4 16 L23 16 M23 16 L29 10 M23 16 L29 22 M8 16 L5 11 M8 16 L5 21 M12 16 L10 9 M12 16 L10 23 M16 16 L15 8 M16 16 L15 24 M20 16 L21 10 M20 16 L21 22%27 fill=%27none%27 stroke=%27%2300dfff%27 stroke-width=%272%27 stroke-linecap=%27round%27/%3E%3Ccircle cx=%274%27 cy=%2716%27 r=%272%27 fill=%27%23ff4fd8%27/%3E%3C/svg%3E&quot;) 4 16, auto';
-
-var fishOff='url(&quot;data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2732%27 height=%2732%27 viewBox=%270 0 32 32%27%3E%3Cpath d=%27M4 16 L23 16 M23 16 L29 10 M23 16 L29 22 M8 16 L5 11 M8 16 L5 21 M12 16 L10 9 M12 16 L10 23 M16 16 L15 8 M16 16 L15 24 M20 16 L21 10 M20 16 L21 22%27 fill=%27none%27 stroke=%27%23ffffff%27 stroke-width=%272%27 stroke-linecap=%27round%27/%3E%3Ccircle cx=%274%27 cy=%2716%27 r=%272%27 fill=%27%23ffffff%27/%3E%3C/svg%3E&quot;) 4 16, auto';
-
-b.style.setProperty('--fish-cursor',on?fishOn:fishOff);
+/* SANTA CURSOR IN BOTH THEMES */
+var santaCursor='url(https://images.chesscomfiles.com/uploads/v1/user/3889224.121e2094.160x160o.7e81e6058f8d.jpg) 16 16, auto';
+b.style.setProperty('--santa-cursor',santaCursor);
 
 b.querySelectorAll('[data-color-bg]').forEach(function(e){
 e.style.background=on?e.getAttribute('data-color-bg'):e.getAttribute('data-bw-bg');
@@ -351,14 +347,12 @@ PLAY &bull; LEARN &bull; GROW
   <div class="hawk-owner-label" data-color-text="#72eaff">
     ✦ OWNER ✦
   </div>
-
   <div class="hawk-avatar-wrap">
     <div class="hawk-avatar-inner">
       <span id="hawk-avatar-fallback">H</span>
       <img id="hawk-live-avatar" alt="Owner profile picture">
     </div>
   </div>
-
   <a class="profile-name-link"
      href="https://www.chess.com/member/i-am-hawk"
      target="_blank">
@@ -374,14 +368,12 @@ PLAY &bull; LEARN &bull; GROW
 data-color-bg="linear-gradient(145deg,#101820,#101020,#080808)"
 data-bw-bg="#111"
 data-color-border="#8b5cf6">
-
   <div class="watch-avatar-wrap">
     <div class="watch-avatar-inner">
       <span id="watch-avatar-fallback">W</span>
       <img id="watch-live-avatar" alt="WatchandLearn101 profile picture">
     </div>
   </div>
-
   <div class="watch-info">
     <a class="profile-name-link"
        href="https://www.chess.com/member/watchandlearn101"
@@ -390,7 +382,6 @@ data-color-border="#8b5cf6">
         @WatchandLearn101
       </div>
     </a>
-
     <div class="watch-rating" id="watch-blitz-rating">
       Blitz: Loading...
     </div>
@@ -402,14 +393,12 @@ data-color-border="#8b5cf6">
 data-color-bg="linear-gradient(145deg,#101820,#101020,#080808)"
 data-bw-bg="#111"
 data-color-border="#8b5cf6">
-
   <div class="watch-avatar-wrap">
     <div class="watch-avatar-inner">
       <span id="lowk-avatar-fallback">L</span>
       <img id="lowk-live-avatar" alt="LowkBadMove profile picture">
     </div>
   </div>
-
   <div class="watch-info">
     <a class="profile-name-link"
        href="https://www.chess.com/member/lowkbadmove"
@@ -418,7 +407,6 @@ data-color-border="#8b5cf6">
         @LowkBadMove
       </div>
     </a>
-
     <div class="watch-rating" id="lowk-blitz-rating">
       Blitz: Loading...
     </div>
@@ -430,19 +418,13 @@ data-color-border="#8b5cf6">
 data-color-bg="linear-gradient(145deg,#101820,#101020,#080808)"
 data-bw-bg="#111"
 data-color-border="#8b5cf6">
-
   <div class="member-heading" data-color-text="#72eaff">
     ✦ CLUB MEMBERS ✦
   </div>
-
-  <div class="member-number" id="itu-member-count">
-    ...
-  </div>
-
+  <div class="member-number" id="itu-member-count">...</div>
   <div class="member-caption" data-color-text="#c3a5ff">
     MEMBERS AND COUNTING
   </div>
-
   <div class="member-status">
     <span class="member-dot" id="itu-member-dot"></span>
     <span id="itu-member-status">Connecting to Chess.com...</span>
@@ -523,13 +505,10 @@ COPY CLUB LINK
 <script>
 (function(){
 
-/* FISH BONE CURSOR: INITIAL BLACK THEME */
+/* INITIAL SANTA CURSOR */
 var theme=document.getElementById('itu-theme');
-
-var whiteFish="url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M4 16 L23 16 M23 16 L29 10 M23 16 L29 22 M8 16 L5 11 M8 16 L5 21 M12 16 L10 9 M12 16 L10 23 M16 16 L15 8 M16 16 L15 24 M20 16 L21 10 M20 16 L21 22' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='4' cy='16' r='2' fill='%23ffffff'/%3E%3C/svg%3E\") 4 16, auto";
-
-theme.style.setProperty('--fish-cursor',whiteFish);
-
+var santaCursor='url(https://images.chesscomfiles.com/uploads/v1/user/3889224.121e2094.160x160o.7e81e6058f8d.jpg) 16 16, auto';
+theme.style.setProperty('--santa-cursor',santaCursor);
 
 /* LOAD PROFILE PICTURES */
 function loadAvatar(username,imageId,fallbackId,letter){
@@ -563,7 +542,6 @@ loadAvatar('i-am-hawk','hawk-live-avatar','hawk-avatar-fallback','H');
 loadAvatar('watchandlearn101','watch-live-avatar','watch-avatar-fallback','W');
 loadAvatar('lowkbadmove','lowk-live-avatar','lowk-avatar-fallback','L');
 
-
 /* LOAD BLITZ RATINGS */
 function loadBlitz(username,elementId){
   fetch('https://api.chess.com/pub/player/'+username+'/stats')
@@ -573,7 +551,6 @@ function loadBlitz(username,elementId){
     })
     .then(function(stats){
       var rating=document.getElementById(elementId);
-
       if(stats.chess_blitz && stats.chess_blitz.last &&
          stats.chess_blitz.last.rating){
         rating.textContent='Blitz: '+stats.chess_blitz.last.rating;
@@ -589,10 +566,8 @@ function loadBlitz(username,elementId){
 loadBlitz('watchandlearn101','watch-blitz-rating');
 loadBlitz('lowkbadmove','lowk-blitz-rating');
 
-
 /* LOAD I TU CLUB MEMBER COUNT */
 function loadMemberCount(){
-
   var count=document.getElementById('itu-member-count');
   var status=document.getElementById('itu-member-status');
   var dot=document.getElementById('itu-member-dot');
@@ -603,34 +578,24 @@ function loadMemberCount(){
       return response.json();
     })
     .then(function(club){
-
       if(typeof club.members_count==='number'){
-
         count.textContent=club.members_count.toLocaleString();
-
         status.textContent='Club count loaded';
         dot.style.background='#35d66f';
         dot.style.boxShadow='0 0 8px #35d66f';
-
       } else {
         throw new Error('Member count unavailable');
       }
-
     })
     .catch(function(){
-
       count.textContent='--';
       status.textContent='Member count unavailable';
       dot.style.background='#ff5555';
       dot.style.boxShadow='0 0 8px #ff5555';
-
     });
-
 }
 
 loadMemberCount();
-
-/* RECHECK WHEN SIDEBAR REMAINS OPEN */
 setInterval(loadMemberCount,300000);
 
 })();
