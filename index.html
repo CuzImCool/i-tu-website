@@ -1,3 +1,4 @@
+
 <style>
 html, body {
   margin: 0 !important;
@@ -132,5 +133,30 @@ style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background
 <div style="height:1px;background:#777;margin:6px 0 12px;"></div>
 <div style="text-align:center;color:#aaa;font-size:9px;letter-spacing:4px;">C H E S S &bull; E S T . 2 0 2 6</div>
 
+<!-- COPY CLUB LINK BUTTON -->
+<button data-hover-button
+data-hover-color="#00dfff"
+data-hover-border="#72eaff"
+onclick="
+var link='https://www.chess.com/club/i-tu';
+var temp=document.createElement('textarea');
+temp.value=link;
+temp.style.position='fixed';
+temp.style.left='-9999px';
+document.body.appendChild(temp);
+temp.select();
+try {
+  var success=document.execCommand('copy');
+  this.innerText=success?'✓ LINK COPIED!':'COPY FAILED';
+} catch(e) {
+  this.innerText='COPY FAILED';
+}
+document.body.removeChild(temp);
+"
+style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background:#181818;color:#fff;border:1px solid #888;border-radius:9px;padding:13px;margin-top:14px;font-weight:bold;letter-spacing:2px;cursor:pointer;">
+COPY CLUB LINK
+</button>
+
 </div>
+
 
