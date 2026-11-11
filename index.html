@@ -1,4 +1,5 @@
 
+
 <style>
 html, body {
   margin: 0 !important;
@@ -45,6 +46,59 @@ html, body {
   10% { opacity:1; }
   90% { opacity:1; }
   100% { transform:translateY(750px) rotate(360deg); opacity:0; }
+}
+
+/* PROFILE CARD */
+#itu-theme .hawk-profile {
+  text-align:center;
+  padding:20px 10px;
+  margin-bottom:14px;
+  border:1px solid #555;
+  border-radius:12px;
+  background:linear-gradient(145deg,#101820,#101020,#080808);
+  position:relative;
+  overflow:hidden;
+}
+#itu-theme .hawk-avatar-wrap {
+  width:112px;
+  height:112px;
+  margin:12px auto;
+  border-radius:50%;
+  padding:4px;
+  background:linear-gradient(135deg,#00dfff,#8b5cf6,#00dfff);
+  box-shadow:0 0 18px #008cff, 0 0 35px #5630a0;
+}
+#itu-theme .hawk-avatar-inner {
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background:#171717;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  font-size:42px;
+  font-weight:900;
+  color:#72eaff;
+}
+#itu-theme #hawk-live-avatar {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:none;
+}
+#itu-theme .hawk-name {
+  font-size:21px;
+  font-weight:900;
+  letter-spacing:3px;
+  color:#fff;
+  text-shadow:0 0 12px #008cff;
+}
+#itu-theme .hawk-subtitle {
+  font-size:9px;
+  letter-spacing:4px;
+  color:#aaa;
+  margin-top:7px;
 }
 </style>
 
@@ -108,6 +162,30 @@ style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background
   <div style="font-size:10px;letter-spacing:3px;color:#aaa;margin-top:12px;">PLAY &bull; LEARN &bull; GROW</div>
 </div>
 
+<!-- LIVE CHESS.COM PROFILE -->
+<div class="hawk-profile">
+  <div style="font-size:10px;letter-spacing:4px;color:#72eaff;font-weight:bold;">✦ PLAYER PROFILE ✦</div>
+
+  <div class="hawk-avatar-wrap">
+    <div class="hawk-avatar-inner">
+      <span id="hawk-avatar-fallback">H</span>
+      <img id="hawk-live-avatar" alt="I-Am-Hawk Chess.com profile picture">
+    </div>
+  </div>
+
+  <div class="hawk-name">@I-Am-Hawk</div>
+  <div class="hawk-subtitle">CHESS.COM PLAYER</div>
+
+  <a href="https://www.chess.com/member/i-am-hawk"
+     target="_blank"
+     data-hover-button
+     data-hover-color="#00dfff"
+     data-hover-border="#72eaff"
+     style="--hover-glow:#fff;--hover-border:#fff;display:inline-block;margin-top:15px;padding:9px 18px;background:#181818;color:#fff;border:1px solid #888;border-radius:8px;text-decoration:none;font-size:10px;font-weight:bold;letter-spacing:2px;">
+    VIEW PROFILE ↗
+  </a>
+</div>
+
 <!-- NAVIGATION -->
 <div data-color-bg="#0d1020" data-bw-bg="#111" style="background:#111;border:1px solid #777;border-radius:12px;padding:14px;margin-bottom:14px;">
   <div data-color-text="#d1c4ff" style="text-align:center;font-size:13px;font-weight:bold;letter-spacing:3px;margin-bottom:12px;color:#fff;">✦ NAVIGATION ✦</div>
@@ -156,6 +234,36 @@ document.body.removeChild(temp);
 style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background:#181818;color:#fff;border:1px solid #888;border-radius:9px;padding:13px;margin-top:14px;font-weight:bold;letter-spacing:2px;cursor:pointer;">
 COPY CLUB LINK
 </button>
+
+<!-- LOAD LIVE CHESS.COM AVATAR -->
+<script>
+(function(){
+  var avatar = document.getElementById('hawk-live-avatar');
+  var fallback = document.getElementById('hawk-avatar-fallback');
+
+  fetch('https://api.chess.com/pub/player/i-am-hawk')
+    .then(function(response){
+      if(!response.ok) throw new Error('Profile unavailable');
+      return response.json();
+    })
+    .then(function(profile){
+      if(profile.avatar){
+        avatar.onload = function(){
+          avatar.style.display = 'block';
+          fallback.style.display = 'none';
+        };
+        avatar.onerror = function(){
+          avatar.style.display = 'none';
+          fallback.style.display = 'block';
+        };
+        avatar.src = profile.avatar;
+      }
+    })
+    .catch(function(){
+      fallback.textContent = 'H';
+    });
+})();
+</script>
 
 </div>
 
