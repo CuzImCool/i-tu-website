@@ -190,6 +190,51 @@ html, body {
 #itu-theme .profile-name-link:hover {
   filter:brightness(1.35);
 }
+
+/* LIVE MEMBER COUNTER */
+#itu-theme .member-counter {
+  background:#111;
+  border:1px solid #888;
+  border-radius:10px;
+  padding:16px 12px;
+  margin:4px 0 16px;
+  text-align:center;
+  transition:all .25s ease;
+}
+#itu-theme .member-heading {
+  font-size:10px;
+  font-weight:bold;
+  letter-spacing:4px;
+  color:#aaa;
+  margin-bottom:9px;
+}
+#itu-theme .member-number {
+  font-size:38px;
+  font-weight:900;
+  line-height:1.15;
+  color:#fff;
+  text-shadow:0 0 12px #fff;
+  transition:all .25s ease;
+}
+#itu-theme .member-caption {
+  font-size:10px;
+  letter-spacing:3px;
+  color:#aaa;
+  margin-top:7px;
+}
+#itu-theme .member-status {
+  font-size:10px;
+  color:#888;
+  margin-top:9px;
+}
+#itu-theme .member-dot {
+  display:inline-block;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#888;
+  margin-right:5px;
+}
 </style>
 
 <div id="itu-theme" data-color="off"
@@ -216,6 +261,7 @@ e.style.color=on?e.getAttribute('data-color-text'):'#fff';
 b.querySelectorAll('[data-color-shadow]').forEach(function(e){
 e.style.textShadow=on?e.getAttribute('data-color-shadow'):'none';
 });
+
 b.querySelectorAll('[data-hover-button]').forEach(function(e){
 e.style.setProperty('--hover-glow',on?e.getAttribute('data-hover-color'):'#fff');
 e.style.setProperty('--hover-border',on?e.getAttribute('data-hover-border'):'#fff');
@@ -227,12 +273,23 @@ r.style.setProperty('--avatar-glow',on?'#00dfff':'#fff');
 r.style.boxShadow=on?'0 0 18px #008cff,0 0 35px #5630a0':'0 0 9px #fff';
 });
 
-b.querySelectorAll('.hawk-profile,.watch-profile').forEach(function(p){
+b.querySelectorAll('.hawk-profile,.watch-profile,.member-counter').forEach(function(p){
 p.style.background=on?'linear-gradient(145deg,#101820,#101020,#080808)':'#111';
 p.style.borderColor=on?'#8b5cf6':'#888';
 });
+
 b.querySelectorAll('.watch-profile').forEach(function(p){
 p.style.borderLeftColor=on?'#00dfff':'#777';
+});
+
+var number=b.querySelector('.member-number');
+if(number){
+number.style.color=on?'#72eaff':'#fff';
+number.style.textShadow=on?'0 0 12px #008cff':'0 0 12px #fff';
+}
+
+b.querySelectorAll('.member-dot').forEach(function(d){
+d.style.background=on?'#00e5ff':'#888';
 });
 
 this.innerHTML=on?'◼ BLACK &amp; WHITE':'✦ TURN ON COLOR';
@@ -299,7 +356,6 @@ PLAY &bull; LEARN &bull; GROW
     </div>
   </div>
 
-  <!-- CLICKABLE OWNER NAME -->
   <a class="profile-name-link"
      href="https://www.chess.com/member/i-am-hawk"
      target="_blank">
@@ -324,8 +380,6 @@ data-color-border="#8b5cf6">
   </div>
 
   <div class="watch-info">
-
-    <!-- CLICKABLE WATCHANDLEARN101 NAME -->
     <a class="profile-name-link"
        href="https://www.chess.com/member/watchandlearn101"
        target="_blank">
@@ -338,6 +392,31 @@ data-color-border="#8b5cf6">
       Blitz: Loading...
     </div>
   </div>
+</div>
+
+<!-- LIVE MEMBER COUNTER -->
+<div class="member-counter"
+data-color-bg="linear-gradient(145deg,#101820,#101020,#080808)"
+data-bw-bg="#111"
+data-color-border="#8b5cf6">
+
+  <div class="member-heading" data-color-text="#72eaff">
+    ✦ CLUB MEMBERS ✦
+  </div>
+
+  <div class="member-number" id="itu-member-count">
+    ...
+  </div>
+
+  <div class="member-caption" data-color-text="#c3a5ff">
+    MEMBERS AND COUNTING
+  </div>
+
+  <div class="member-status">
+    <span class="member-dot" id="itu-member-dot"></span>
+    <span id="itu-member-status">Connecting to Chess.com...</span>
+  </div>
+
 </div>
 
 <!-- NAVIGATION -->
@@ -410,10 +489,11 @@ style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background
 COPY CLUB LINK
 </button>
 
-<!-- LOAD CHESS.COM PROFILES AND BLITZ RATING -->
+<!-- CHESS.COM API -->
 <script>
 (function(){
 
+/* LOAD PROFILE PICTURES */
 function loadAvatar(username,imageId,fallbackId,letter){
   var avatar=document.getElementById(imageId);
   var fallback=document.getElementById(fallbackId);
@@ -444,7 +524,8 @@ function loadAvatar(username,imageId,fallbackId,letter){
 loadAvatar('i-am-hawk','hawk-live-avatar','hawk-avatar-fallback','H');
 loadAvatar('watchandlearn101','watch-live-avatar','watch-avatar-fallback','W');
 
-/* FETCH LIVE BLITZ RATING */
+
+/* LOAD WATCHANDLEARN101 BLITZ RATING */
 fetch('https://api.chess.com/pub/player/watchandlearn101/stats')
   .then(function(response){
     if(!response.ok) throw new Error('Stats unavailable');
@@ -464,8 +545,51 @@ fetch('https://api.chess.com/pub/player/watchandlearn101/stats')
     document.getElementById('watch-blitz-rating').textContent='Blitz: --';
   });
 
+
+/* LOAD I TU CLUB MEMBER COUNT */
+function loadMemberCount(){
+
+  var count=document.getElementById('itu-member-count');
+  var status=document.getElementById('itu-member-status');
+  var dot=document.getElementById('itu-member-dot');
+
+  fetch('https://api.chess.com/pub/club/i-tu')
+    .then(function(response){
+      if(!response.ok) throw new Error('Club data unavailable');
+      return response.json();
+    })
+    .then(function(club){
+
+      if(typeof club.members_count==='number'){
+
+        count.textContent=club.members_count.toLocaleString();
+
+        status.textContent='Club count loaded';
+        dot.style.background='#35d66f';
+        dot.style.boxShadow='0 0 8px #35d66f';
+
+      } else {
+        throw new Error('Member count unavailable');
+      }
+
+    })
+    .catch(function(){
+
+      count.textContent='--';
+      status.textContent='Member count unavailable';
+      dot.style.background='#ff5555';
+      dot.style.boxShadow='0 0 8px #ff5555';
+
+    });
+
+}
+
+loadMemberCount();
+
+/* RECHECK WHEN SIDEBAR REMAINS OPEN */
+setInterval(loadMemberCount,300000);
+
 })();
 </script>
 
 </div>
-
