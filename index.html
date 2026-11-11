@@ -47,7 +47,7 @@ html, body {
   100% { transform:translateY(750px) rotate(360deg); opacity:0; }
 }
 
-/* OWNER PROFILE */
+/* PROFILE BOXES */
 #itu-theme .hawk-profile {
   text-align:center;
   padding:20px 10px;
@@ -59,6 +59,7 @@ html, body {
   overflow:hidden;
   transition:all .25s ease;
 }
+
 #itu-theme .hawk-avatar-wrap {
   width:112px;
   height:112px;
@@ -70,6 +71,7 @@ html, body {
   transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;
   cursor:pointer;
 }
+
 #itu-theme .hawk-avatar-wrap:hover {
   transform:scale(1.09);
   filter:brightness(1.2);
@@ -77,6 +79,7 @@ html, body {
              0 0 28px var(--avatar-glow,#fff),
              0 0 45px var(--avatar-glow,#fff);
 }
+
 #itu-theme .hawk-avatar-inner {
   width:100%;
   height:100%;
@@ -90,21 +93,33 @@ html, body {
   font-weight:900;
   color:#fff;
 }
-#itu-theme #hawk-live-avatar {
+
+#itu-theme #hawk-live-avatar,
+#itu-theme #watch-live-avatar {
   width:100%;
   height:100%;
   object-fit:cover;
   display:none;
 }
+
 #itu-theme .hawk-name {
   font-size:21px;
   font-weight:900;
   letter-spacing:3px;
   color:#fff;
+  overflow-wrap:anywhere;
 }
+
 #itu-theme .hawk-owner-label {
   font-size:10px;
   letter-spacing:5px;
+  color:#aaa;
+  margin-bottom:8px;
+}
+
+#itu-theme .watch-label {
+  font-size:10px;
+  letter-spacing:4px;
   color:#aaa;
   margin-bottom:8px;
 }
@@ -122,12 +137,15 @@ b.style.boxShadow=on?'0 0 22px #7c3aed':'none';
 b.querySelectorAll('[data-color-bg]').forEach(function(e){
 e.style.background=on?e.getAttribute('data-color-bg'):e.getAttribute('data-bw-bg');
 });
+
 b.querySelectorAll('[data-color-border]').forEach(function(e){
 e.style.borderColor=on?e.getAttribute('data-color-border'):'#888';
 });
+
 b.querySelectorAll('[data-color-text]').forEach(function(e){
 e.style.color=on?e.getAttribute('data-color-text'):'#fff';
 });
+
 b.querySelectorAll('[data-color-shadow]').forEach(function(e){
 e.style.textShadow=on?e.getAttribute('data-color-shadow'):'none';
 });
@@ -137,18 +155,16 @@ e.style.setProperty('--hover-glow',on?e.getAttribute('data-hover-color'):'#fff')
 e.style.setProperty('--hover-border',on?e.getAttribute('data-hover-border'):'#fff');
 });
 
-var ring=b.querySelector('.hawk-avatar-wrap');
-if(ring){
+b.querySelectorAll('.hawk-avatar-wrap').forEach(function(ring){
 ring.style.background=on?'linear-gradient(135deg,#00dfff,#8b5cf6,#00dfff)':'#555';
 ring.style.setProperty('--avatar-glow',on?'#00dfff':'#fff');
 ring.style.boxShadow=on?'0 0 18px #008cff,0 0 35px #5630a0':'0 0 10px #fff';
-}
+});
 
-var profile=b.querySelector('.hawk-profile');
-if(profile){
+b.querySelectorAll('.hawk-profile').forEach(function(profile){
 profile.style.background=on?'linear-gradient(145deg,#101820,#101020,#080808)':'#111';
 profile.style.borderColor=on?'#8b5cf6':'#888';
-}
+});
 
 this.innerHTML=on?'◼ BLACK &amp; WHITE':'✦ TURN ON COLOR';
 this.style.background=on?'#111':'linear-gradient(90deg,#287bff,#8b5cf6)';
@@ -161,17 +177,17 @@ onclick="
 var box=document.getElementById('itu-theme');
 var cats=['😼','🐱','🐈','🐈‍⬛','😺','😻','😹','🙀','🐾'];
 for(var i=0;i<32;i++){
-  (function(){
-    var cat=document.createElement('span');
-    cat.className='itu-cat-rain';
-    cat.textContent=cats[Math.floor(Math.random()*cats.length)];
-    cat.style.left=(Math.random()*92)+'%';
-    cat.style.fontSize=(18+Math.random()*20)+'px';
-    cat.style.animationDuration=(2.5+Math.random()*2.5)+'s';
-    cat.style.animationDelay=(Math.random()*1.8)+'s';
-    box.appendChild(cat);
-    setTimeout(function(){cat.remove();},7500);
-  })();
+(function(){
+var cat=document.createElement('span');
+cat.className='itu-cat-rain';
+cat.textContent=cats[Math.floor(Math.random()*cats.length)];
+cat.style.left=(Math.random()*92)+'%';
+cat.style.fontSize=(18+Math.random()*20)+'px';
+cat.style.animationDuration=(2.5+Math.random()*2.5)+'s';
+cat.style.animationDelay=(Math.random()*1.8)+'s';
+box.appendChild(cat);
+setTimeout(function(){cat.remove();},7500);
+})();
 }
 "
 style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background:#171717;color:#fff;border:1px solid #888;border-radius:9px;padding:12px;margin-bottom:14px;font-size:20px;cursor:pointer;">😼</button>
@@ -195,6 +211,26 @@ style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background
   </div>
 
   <div class="hawk-name" data-color-text="#72eaff" data-color-shadow="0 0 12px #008cff">@I-Am-Hawk</div>
+</div>
+
+<!-- WATCHANDLEARN101 PROFILE -->
+<div class="hawk-profile" data-color-bg="linear-gradient(145deg,#101820,#101020,#080808)" data-bw-bg="#111">
+
+  <div class="watch-label" data-color-text="#72eaff">
+    ✦ MEMBER ✦
+  </div>
+
+  <div class="hawk-avatar-wrap">
+    <div class="hawk-avatar-inner">
+      <span id="watch-avatar-fallback">W</span>
+      <img id="watch-live-avatar" alt="WatchandLearn101 profile picture">
+    </div>
+  </div>
+
+  <div class="hawk-name" data-color-text="#72eaff" data-color-shadow="0 0 12px #008cff">
+    @WatchandLearn101
+  </div>
+
 </div>
 
 <!-- NAVIGATION -->
@@ -235,10 +271,10 @@ temp.style.left='-9999px';
 document.body.appendChild(temp);
 temp.select();
 try {
-  var success=document.execCommand('copy');
-  this.innerText=success?'✓ LINK COPIED!':'COPY FAILED';
+var success=document.execCommand('copy');
+this.innerText=success?'✓ LINK COPIED!':'COPY FAILED';
 } catch(e) {
-  this.innerText='COPY FAILED';
+this.innerText='COPY FAILED';
 }
 document.body.removeChild(temp);
 "
@@ -246,35 +282,60 @@ style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background
 COPY CLUB LINK
 </button>
 
-<!-- LOAD LIVE CHESS.COM AVATAR -->
+<!-- LOAD LIVE CHESS.COM AVATARS -->
 <script>
 (function(){
-  var avatar = document.getElementById('hawk-live-avatar');
-  var fallback = document.getElementById('hawk-avatar-fallback');
 
-  fetch('https://api.chess.com/pub/player/i-am-hawk')
-    .then(function(response){
-      if(!response.ok) throw new Error('Profile unavailable');
-      return response.json();
-    })
-    .then(function(profile){
-      if(profile.avatar){
-        avatar.onload = function(){
-          avatar.style.display = 'block';
-          fallback.style.display = 'none';
-        };
-        avatar.onerror = function(){
-          avatar.style.display = 'none';
-          fallback.style.display = 'block';
-        };
-        avatar.src = profile.avatar;
-      }
-    })
-    .catch(function(){
-      fallback.textContent = 'H';
-    });
+  function loadAvatar(username, imageId, fallbackId, letter){
+
+    var avatar = document.getElementById(imageId);
+    var fallback = document.getElementById(fallbackId);
+
+    fetch('https://api.chess.com/pub/player/' + username)
+      .then(function(response){
+        if(!response.ok) throw new Error('Profile unavailable');
+        return response.json();
+      })
+      .then(function(profile){
+
+        if(profile.avatar){
+
+          avatar.onload = function(){
+            avatar.style.display = 'block';
+            fallback.style.display = 'none';
+          };
+
+          avatar.onerror = function(){
+            avatar.style.display = 'none';
+            fallback.style.display = 'block';
+          };
+
+          avatar.src = profile.avatar;
+
+        }
+
+      })
+      .catch(function(){
+        fallback.textContent = letter;
+      });
+
+  }
+
+  loadAvatar(
+    'i-am-hawk',
+    'hawk-live-avatar',
+    'hawk-avatar-fallback',
+    'H'
+  );
+
+  loadAvatar(
+    'watchandlearn101',
+    'watch-live-avatar',
+    'watch-avatar-fallback',
+    'W'
+  );
+
 })();
 </script>
 
 </div>
-
