@@ -1,37 +1,36 @@
 
 <style>
 html, body {
-  margin: 0 !important;
-  padding: 0 !important;
-  background: #050505 !important;
-  overflow-x: hidden;
+  margin:0!important;
+  padding:0!important;
+  background:#050505!important;
+  overflow-x:hidden;
 }
-
 #itu-theme {
-  box-sizing: border-box;
-  width: 100%;
-  min-height: 100vh;
+  box-sizing:border-box;
+  width:100%;
+  min-height:100vh;
 }
-</style>
 
-<div id="itu-theme" data-color="off" style="position:relative;background:#050505;color:#fff;padding:16px;border:1px solid #888;border-radius:14px;font-family:Arial,sans-serif;">
-
-<style>
+/* HOVER EFFECTS */
 #itu-theme a[data-hover-button],
 #itu-theme button[data-hover-button] {
-  transition: transform .22s ease, box-shadow .22s ease, filter .22s ease, background .22s ease, border-color .22s ease;
+  transition:all .22s ease;
 }
 #itu-theme a[data-hover-button]:hover,
 #itu-theme button[data-hover-button]:hover {
-  transform: translateY(-2px) scale(1.025);
-  filter: brightness(1.25);
-  box-shadow: 0 0 16px var(--hover-glow,#fff), 0 0 28px var(--hover-glow,#fff);
-  border-color: var(--hover-border,#fff) !important;
+  transform:translateY(-2px) scale(1.025);
+  filter:brightness(1.25);
+  box-shadow:0 0 16px var(--hover-glow,#fff),
+             0 0 28px var(--hover-glow,#fff);
+  border-color:var(--hover-border,#fff)!important;
 }
 #itu-theme a[data-hover-button]:active,
 #itu-theme button[data-hover-button]:active {
-  transform: scale(.99);
+  transform:scale(.99);
 }
+
+/* CAT RAIN */
 #itu-theme .itu-cat-rain {
   position:absolute;
   top:-40px;
@@ -41,37 +40,35 @@ html, body {
   line-height:1;
 }
 @keyframes ituCatFall {
-  0% { transform:translateY(-30px) rotate(0deg); opacity:0; }
-  10% { opacity:1; }
-  90% { opacity:1; }
-  100% { transform:translateY(750px) rotate(360deg); opacity:0; }
+  0% {transform:translateY(-30px) rotate(0);opacity:0}
+  10% {opacity:1}
+  90% {opacity:1}
+  100% {transform:translateY(750px) rotate(360deg);opacity:0}
 }
 
-/* PROFILE BOXES */
+/* OWNER CARD */
 #itu-theme .hawk-profile {
   text-align:center;
-  padding:20px 10px;
-  margin-bottom:14px;
+  padding:11px 8px;
+  margin-bottom:12px;
   border:1px solid #888;
-  border-radius:12px;
+  border-radius:10px;
   background:#111;
   position:relative;
   overflow:hidden;
   transition:all .25s ease;
 }
-
 #itu-theme .hawk-avatar-wrap {
-  width:112px;
-  height:112px;
-  margin:16px auto;
+  width:78px;
+  height:78px;
+  margin:9px auto;
   border-radius:50%;
-  padding:4px;
+  padding:3px;
   background:#555;
-  box-shadow:0 0 10px #fff;
-  transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;
+  box-shadow:0 0 9px #fff;
+  transition:all .25s ease;
   cursor:pointer;
 }
-
 #itu-theme .hawk-avatar-wrap:hover {
   transform:scale(1.09);
   filter:brightness(1.2);
@@ -79,7 +76,6 @@ html, body {
              0 0 28px var(--avatar-glow,#fff),
              0 0 45px var(--avatar-glow,#fff);
 }
-
 #itu-theme .hawk-avatar-inner {
   width:100%;
   height:100%;
@@ -89,41 +85,115 @@ html, body {
   align-items:center;
   justify-content:center;
   overflow:hidden;
-  font-size:42px;
+  font-size:34px;
   font-weight:900;
   color:#fff;
 }
-
-#itu-theme #hawk-live-avatar,
-#itu-theme #watch-live-avatar {
+#itu-theme #hawk-live-avatar {
   width:100%;
   height:100%;
   object-fit:cover;
   display:none;
 }
-
 #itu-theme .hawk-name {
-  font-size:21px;
+  font-size:18px;
   font-weight:900;
-  letter-spacing:3px;
+  letter-spacing:2px;
   color:#fff;
   overflow-wrap:anywhere;
 }
-
 #itu-theme .hawk-owner-label {
-  font-size:10px;
-  letter-spacing:5px;
-  color:#aaa;
-  margin-bottom:8px;
-}
-
-#itu-theme .watch-label {
-  font-size:10px;
+  font-size:9px;
   letter-spacing:4px;
   color:#aaa;
-  margin-bottom:8px;
+  margin-bottom:5px;
+}
+
+/* WATCHANDLEARN101 CARD */
+#itu-theme .watch-profile {
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:12px;
+  margin-bottom:14px;
+  border:1px solid #888;
+  border-left:5px solid #777;
+  border-radius:0 9px 9px 0;
+  background:#111;
+  min-height:88px;
+  box-sizing:border-box;
+  transition:all .25s ease;
+}
+#itu-theme .watch-avatar-wrap {
+  width:68px;
+  height:68px;
+  min-width:68px;
+  border-radius:9px;
+  padding:2px;
+  background:#555;
+  box-shadow:0 0 8px #fff;
+  box-sizing:border-box;
+  transition:all .25s ease;
+  cursor:pointer;
+}
+#itu-theme .watch-avatar-wrap:hover {
+  transform:scale(1.08);
+  filter:brightness(1.2);
+  box-shadow:0 0 14px var(--avatar-glow,#fff),
+             0 0 26px var(--avatar-glow,#fff),
+             0 0 38px var(--avatar-glow,#fff);
+}
+#itu-theme .watch-avatar-inner {
+  width:100%;
+  height:100%;
+  border-radius:7px;
+  background:#171717;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  font-size:30px;
+  font-weight:900;
+  color:#fff;
+}
+#itu-theme #watch-live-avatar {
+  display:none;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+#itu-theme .watch-info {
+  min-width:0;
+  text-align:left;
+}
+#itu-theme .watch-name {
+  font-size:19px;
+  font-weight:900;
+  color:#fff;
+  overflow-wrap:anywhere;
+  line-height:1.2;
+  margin-bottom:5px;
+}
+#itu-theme .watch-rating {
+  font-size:15px;
+  font-weight:900;
+  color:#35c5ff;
+}
+
+/* CLICKABLE PROFILE NAMES */
+#itu-theme .profile-name-link {
+  display:inline-block;
+  color:inherit;
+  text-decoration:none;
+  cursor:pointer;
+}
+#itu-theme .profile-name-link:hover {
+  filter:brightness(1.35);
 }
 </style>
+
+<div id="itu-theme" data-color="off"
+style="position:relative;background:#050505;color:#fff;padding:16px;border:1px solid #888;border-radius:14px;font-family:Arial,sans-serif;">
 
 <!-- COLOR BUTTON -->
 <button onclick="
@@ -137,39 +207,41 @@ b.style.boxShadow=on?'0 0 22px #7c3aed':'none';
 b.querySelectorAll('[data-color-bg]').forEach(function(e){
 e.style.background=on?e.getAttribute('data-color-bg'):e.getAttribute('data-bw-bg');
 });
-
 b.querySelectorAll('[data-color-border]').forEach(function(e){
 e.style.borderColor=on?e.getAttribute('data-color-border'):'#888';
 });
-
 b.querySelectorAll('[data-color-text]').forEach(function(e){
 e.style.color=on?e.getAttribute('data-color-text'):'#fff';
 });
-
 b.querySelectorAll('[data-color-shadow]').forEach(function(e){
 e.style.textShadow=on?e.getAttribute('data-color-shadow'):'none';
 });
-
 b.querySelectorAll('[data-hover-button]').forEach(function(e){
 e.style.setProperty('--hover-glow',on?e.getAttribute('data-hover-color'):'#fff');
 e.style.setProperty('--hover-border',on?e.getAttribute('data-hover-border'):'#fff');
 });
 
-b.querySelectorAll('.hawk-avatar-wrap').forEach(function(ring){
-ring.style.background=on?'linear-gradient(135deg,#00dfff,#8b5cf6,#00dfff)':'#555';
-ring.style.setProperty('--avatar-glow',on?'#00dfff':'#fff');
-ring.style.boxShadow=on?'0 0 18px #008cff,0 0 35px #5630a0':'0 0 10px #fff';
+b.querySelectorAll('.hawk-avatar-wrap,.watch-avatar-wrap').forEach(function(r){
+r.style.background=on?'linear-gradient(135deg,#00dfff,#8b5cf6,#00dfff)':'#555';
+r.style.setProperty('--avatar-glow',on?'#00dfff':'#fff');
+r.style.boxShadow=on?'0 0 18px #008cff,0 0 35px #5630a0':'0 0 9px #fff';
 });
 
-b.querySelectorAll('.hawk-profile').forEach(function(profile){
-profile.style.background=on?'linear-gradient(145deg,#101820,#101020,#080808)':'#111';
-profile.style.borderColor=on?'#8b5cf6':'#888';
+b.querySelectorAll('.hawk-profile,.watch-profile').forEach(function(p){
+p.style.background=on?'linear-gradient(145deg,#101820,#101020,#080808)':'#111';
+p.style.borderColor=on?'#8b5cf6':'#888';
+});
+b.querySelectorAll('.watch-profile').forEach(function(p){
+p.style.borderLeftColor=on?'#00dfff':'#777';
 });
 
 this.innerHTML=on?'◼ BLACK &amp; WHITE':'✦ TURN ON COLOR';
 this.style.background=on?'#111':'linear-gradient(90deg,#287bff,#8b5cf6)';
 this.style.color='#fff';
-" style="display:block;width:100%;background:#111;color:#fff;border:1px solid #fff;border-radius:9px;padding:12px;margin-bottom:10px;font-weight:bold;letter-spacing:2px;cursor:pointer;transition:all .25s ease;">✦ TURN ON COLOR</button>
+"
+style="display:block;width:100%;background:#111;color:#fff;border:1px solid #fff;border-radius:9px;padding:12px;margin-bottom:10px;font-weight:bold;letter-spacing:2px;cursor:pointer;">
+✦ TURN ON COLOR
+</button>
 
 <!-- CAT RAIN BUTTON -->
 <button data-hover-button data-hover-color="#ff9de2" data-hover-border="#ffc5ef"
@@ -186,22 +258,39 @@ cat.style.fontSize=(18+Math.random()*20)+'px';
 cat.style.animationDuration=(2.5+Math.random()*2.5)+'s';
 cat.style.animationDelay=(Math.random()*1.8)+'s';
 box.appendChild(cat);
-setTimeout(function(){cat.remove();},7500);
+setTimeout(function(){cat.remove()},7500);
 })();
 }
 "
-style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background:#171717;color:#fff;border:1px solid #888;border-radius:9px;padding:12px;margin-bottom:14px;font-size:20px;cursor:pointer;">😼</button>
+style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background:#171717;color:#fff;border:1px solid #888;border-radius:9px;padding:12px;margin-bottom:14px;font-size:20px;cursor:pointer;">
+😼
+</button>
 
 <!-- HEADER -->
-<div data-color-bg="linear-gradient(135deg,#101b42,#281044,#101c38)" data-bw-bg="linear-gradient(135deg,#111,#222,#080808)" style="text-align:center;padding:20px 8px;background:linear-gradient(135deg,#111,#222,#080808);border:1px solid #888;border-radius:12px;margin-bottom:14px;">
-  <div data-color-text="#72eaff" data-color-shadow="0 0 12px #008cff" style="font-size:28px;font-weight:900;letter-spacing:4px;color:#fff;text-shadow:none;">♞ CHESS ♞</div>
-  <div data-color-text="#c3a5ff" style="font-size:10px;letter-spacing:5px;color:#ddd;margin-top:8px;">C L U B</div>
-  <div style="font-size:10px;letter-spacing:3px;color:#aaa;margin-top:12px;">PLAY &bull; LEARN &bull; GROW</div>
+<div data-color-bg="linear-gradient(135deg,#101b42,#281044,#101c38)"
+data-bw-bg="linear-gradient(135deg,#111,#222,#080808)"
+style="text-align:center;padding:20px 8px;background:linear-gradient(135deg,#111,#222,#080808);border:1px solid #888;border-radius:12px;margin-bottom:14px;">
+
+<div data-color-text="#72eaff" data-color-shadow="0 0 12px #008cff"
+style="font-size:28px;font-weight:900;letter-spacing:4px;color:#fff;">
+♞ CHESS ♞
+</div>
+
+<div data-color-text="#c3a5ff"
+style="font-size:10px;letter-spacing:5px;color:#ddd;margin-top:8px;">
+C L U B
+</div>
+
+<div style="font-size:10px;letter-spacing:3px;color:#aaa;margin-top:12px;">
+PLAY &bull; LEARN &bull; GROW
+</div>
 </div>
 
 <!-- OWNER PROFILE -->
 <div class="hawk-profile">
-  <div class="hawk-owner-label" data-color-text="#72eaff">✦ OWNER ✦</div>
+  <div class="hawk-owner-label" data-color-text="#72eaff">
+    ✦ OWNER ✦
+  </div>
 
   <div class="hawk-avatar-wrap">
     <div class="hawk-avatar-inner">
@@ -210,55 +299,94 @@ style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background
     </div>
   </div>
 
-  <div class="hawk-name" data-color-text="#72eaff" data-color-shadow="0 0 12px #008cff">@I-Am-Hawk</div>
+  <!-- CLICKABLE OWNER NAME -->
+  <a class="profile-name-link"
+     href="https://www.chess.com/member/i-am-hawk"
+     target="_blank">
+    <div class="hawk-name" data-color-text="#72eaff"
+    data-color-shadow="0 0 12px #008cff">
+      @I-Am-Hawk
+    </div>
+  </a>
 </div>
 
-<!-- WATCHANDLEARN101 PROFILE -->
-<div class="hawk-profile" data-color-bg="linear-gradient(145deg,#101820,#101020,#080808)" data-bw-bg="#111">
+<!-- WATCHANDLEARN101 HORIZONTAL CARD -->
+<div class="watch-profile"
+data-color-bg="linear-gradient(145deg,#101820,#101020,#080808)"
+data-bw-bg="#111"
+data-color-border="#8b5cf6">
 
-  <div class="watch-label" data-color-text="#72eaff">
-    ✦ MEMBER ✦
-  </div>
-
-  <div class="hawk-avatar-wrap">
-    <div class="hawk-avatar-inner">
+  <div class="watch-avatar-wrap">
+    <div class="watch-avatar-inner">
       <span id="watch-avatar-fallback">W</span>
       <img id="watch-live-avatar" alt="WatchandLearn101 profile picture">
     </div>
   </div>
 
-  <div class="hawk-name" data-color-text="#72eaff" data-color-shadow="0 0 12px #008cff">
-    @WatchandLearn101
-  </div>
+  <div class="watch-info">
 
+    <!-- CLICKABLE WATCHANDLEARN101 NAME -->
+    <a class="profile-name-link"
+       href="https://www.chess.com/member/watchandlearn101"
+       target="_blank">
+      <div class="watch-name" data-color-text="#72eaff">
+        @WatchandLearn101
+      </div>
+    </a>
+
+    <div class="watch-rating" id="watch-blitz-rating">
+      Blitz: Loading...
+    </div>
+  </div>
 </div>
 
 <!-- NAVIGATION -->
-<div data-color-bg="#0d1020" data-bw-bg="#111" style="background:#111;border:1px solid #777;border-radius:12px;padding:14px;margin-bottom:14px;">
-  <div data-color-text="#d1c4ff" style="text-align:center;font-size:13px;font-weight:bold;letter-spacing:3px;margin-bottom:12px;color:#fff;">✦ NAVIGATION ✦</div>
+<div data-color-bg="#0d1020" data-bw-bg="#111"
+style="background:#111;border:1px solid #777;border-radius:12px;padding:14px;margin-bottom:14px;">
 
-  <a data-hover-button data-hover-color="#00bfff" data-hover-border="#72eaff"
-  href="https://www.chess.com/club/i-tu"
-  data-color-bg="#10172a" data-bw-bg="#181818"
-  style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;">♟ &nbsp; CLUB HOME &rarr;</a>
+<div data-color-text="#d1c4ff"
+style="text-align:center;font-size:13px;font-weight:bold;letter-spacing:3px;margin-bottom:12px;color:#fff;">
+✦ NAVIGATION ✦
+</div>
 
-  <a data-hover-button data-hover-color="#00dfff" data-hover-border="#83eaff"
-  href="https://www.chess.com/clubs/members/i-tu"
-  data-color-bg="#10172a" data-bw-bg="#181818"
-  style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;">♙ &nbsp; MEMBERS &rarr;</a>
+<a data-hover-button data-hover-color="#00bfff"
+data-hover-border="#72eaff"
+href="https://www.chess.com/club/i-tu"
+data-color-bg="#10172a" data-bw-bg="#181818"
+style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;">
+♟ &nbsp; CLUB HOME &rarr;
+</a>
 
-  <a data-hover-button data-hover-color="#b65cff" data-hover-border="#d18aff"
-  href="https://www.chess.com/clubs/events/i-tu"
-  data-color-bg="#10172a" data-bw-bg="#181818"
-  style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;">⚡ &nbsp; EVENTS &rarr;</a>
+<a data-hover-button data-hover-color="#00dfff"
+data-hover-border="#83eaff"
+href="https://www.chess.com/clubs/members/i-tu"
+data-color-bg="#10172a" data-bw-bg="#181818"
+style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;">
+♙ &nbsp; MEMBERS &rarr;
+</a>
+
+<a data-hover-button data-hover-color="#b65cff"
+data-hover-border="#d18aff"
+href="https://www.chess.com/clubs/events/i-tu"
+data-color-bg="#10172a" data-bw-bg="#181818"
+style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;">
+⚡ &nbsp; EVENTS &rarr;
+</a>
 </div>
 
 <!-- FOOTER -->
-<div data-color-text="#c39aff" style="text-align:center;padding:10px;color:#ccc;font-size:13px;font-style:italic;">&ldquo;Meow Meeeeow&rdquo; &nbsp;- once said by a hungry cat</div>
-<div style="height:1px;background:#777;margin:6px 0 12px;"></div>
-<div style="text-align:center;color:#aaa;font-size:9px;letter-spacing:4px;">C H E S S &bull; E S T . 2 0 2 6</div>
+<div data-color-text="#c39aff"
+style="text-align:center;padding:10px;color:#ccc;font-size:13px;font-style:italic;">
+&ldquo;Meow Meeeeow&rdquo; &nbsp;- once said by a hungry cat
+</div>
 
-<!-- COPY CLUB LINK BUTTON -->
+<div style="height:1px;background:#777;margin:6px 0 12px;"></div>
+
+<div style="text-align:center;color:#aaa;font-size:9px;letter-spacing:4px;">
+C H E S S &bull; E S T . 2 0 2 6
+</div>
+
+<!-- COPY CLUB LINK -->
 <button data-hover-button
 data-hover-color="#00dfff"
 data-hover-border="#72eaff"
@@ -282,60 +410,62 @@ style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background
 COPY CLUB LINK
 </button>
 
-<!-- LOAD LIVE CHESS.COM AVATARS -->
+<!-- LOAD CHESS.COM PROFILES AND BLITZ RATING -->
 <script>
 (function(){
 
-  function loadAvatar(username, imageId, fallbackId, letter){
+function loadAvatar(username,imageId,fallbackId,letter){
+  var avatar=document.getElementById(imageId);
+  var fallback=document.getElementById(fallbackId);
 
-    var avatar = document.getElementById(imageId);
-    var fallback = document.getElementById(fallbackId);
+  fetch('https://api.chess.com/pub/player/'+username)
+    .then(function(response){
+      if(!response.ok) throw new Error('Profile unavailable');
+      return response.json();
+    })
+    .then(function(profile){
+      if(profile.avatar){
+        avatar.onload=function(){
+          avatar.style.display='block';
+          fallback.style.display='none';
+        };
+        avatar.onerror=function(){
+          avatar.style.display='none';
+          fallback.style.display='block';
+        };
+        avatar.src=profile.avatar;
+      }
+    })
+    .catch(function(){
+      fallback.textContent=letter;
+    });
+}
 
-    fetch('https://api.chess.com/pub/player/' + username)
-      .then(function(response){
-        if(!response.ok) throw new Error('Profile unavailable');
-        return response.json();
-      })
-      .then(function(profile){
+loadAvatar('i-am-hawk','hawk-live-avatar','hawk-avatar-fallback','H');
+loadAvatar('watchandlearn101','watch-live-avatar','watch-avatar-fallback','W');
 
-        if(profile.avatar){
+/* FETCH LIVE BLITZ RATING */
+fetch('https://api.chess.com/pub/player/watchandlearn101/stats')
+  .then(function(response){
+    if(!response.ok) throw new Error('Stats unavailable');
+    return response.json();
+  })
+  .then(function(stats){
+    var rating=document.getElementById('watch-blitz-rating');
 
-          avatar.onload = function(){
-            avatar.style.display = 'block';
-            fallback.style.display = 'none';
-          };
-
-          avatar.onerror = function(){
-            avatar.style.display = 'none';
-            fallback.style.display = 'block';
-          };
-
-          avatar.src = profile.avatar;
-
-        }
-
-      })
-      .catch(function(){
-        fallback.textContent = letter;
-      });
-
-  }
-
-  loadAvatar(
-    'i-am-hawk',
-    'hawk-live-avatar',
-    'hawk-avatar-fallback',
-    'H'
-  );
-
-  loadAvatar(
-    'watchandlearn101',
-    'watch-live-avatar',
-    'watch-avatar-fallback',
-    'W'
-  );
+    if(stats.chess_blitz && stats.chess_blitz.last &&
+       stats.chess_blitz.last.rating){
+      rating.textContent='Blitz: '+stats.chess_blitz.last.rating;
+    } else {
+      rating.textContent='Blitz: Unrated';
+    }
+  })
+  .catch(function(){
+    document.getElementById('watch-blitz-rating').textContent='Blitz: --';
+  });
 
 })();
 </script>
 
 </div>
+
