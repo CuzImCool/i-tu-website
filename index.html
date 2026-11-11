@@ -1,4 +1,5 @@
 
+
 <style>
 html, body {
   margin:0!important;
@@ -10,6 +11,11 @@ html, body {
   box-sizing:border-box;
   width:100%;
   min-height:100vh;
+}
+
+/* FISH BONE CURSOR */
+#itu-theme, #itu-theme * {
+  cursor:var(--fish-cursor, auto)!important;
 }
 
 /* HOVER EFFECTS */
@@ -67,7 +73,6 @@ html, body {
   background:#555;
   box-shadow:0 0 9px #fff;
   transition:all .25s ease;
-  cursor:pointer;
 }
 #itu-theme .hawk-avatar-wrap:hover {
   transform:scale(1.09);
@@ -109,13 +114,13 @@ html, body {
   margin-bottom:5px;
 }
 
-/* WATCHANDLEARN101 CARD */
+/* HORIZONTAL PROFILE CARDS */
 #itu-theme .watch-profile {
   display:flex;
   align-items:center;
   gap:13px;
   padding:12px;
-  margin-bottom:14px;
+  margin-bottom:12px;
   border:1px solid #888;
   border-left:5px solid #777;
   border-radius:0 9px 9px 0;
@@ -134,7 +139,6 @@ html, body {
   box-shadow:0 0 8px #fff;
   box-sizing:border-box;
   transition:all .25s ease;
-  cursor:pointer;
 }
 #itu-theme .watch-avatar-wrap:hover {
   transform:scale(1.08);
@@ -156,7 +160,7 @@ html, body {
   font-weight:900;
   color:#fff;
 }
-#itu-theme #watch-live-avatar {
+#itu-theme .watch-avatar-inner img {
   display:none;
   width:100%;
   height:100%;
@@ -185,7 +189,6 @@ html, body {
   display:inline-block;
   color:inherit;
   text-decoration:none;
-  cursor:pointer;
 }
 #itu-theme .profile-name-link:hover {
   filter:brightness(1.35);
@@ -238,7 +241,7 @@ html, body {
 </style>
 
 <div id="itu-theme" data-color="off"
-style="position:relative;background:#050505;color:#fff;padding:16px;border:1px solid #888;border-radius:14px;font-family:Arial,sans-serif;">
+style="--fish-cursor:auto;position:relative;background:#050505;color:#fff;padding:16px;border:1px solid #888;border-radius:14px;font-family:Arial,sans-serif;">
 
 <!-- COLOR BUTTON -->
 <button onclick="
@@ -248,6 +251,13 @@ b.setAttribute('data-color',on?'on':'off');
 b.style.background=on?'#100a24':'#050505';
 b.style.borderColor=on?'#a855f7':'#888';
 b.style.boxShadow=on?'0 0 22px #7c3aed':'none';
+
+/* COLORFUL FISH BONE */
+var fishOn='url(&quot;data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2732%27 height=%2732%27 viewBox=%270 0 32 32%27%3E%3Cpath d=%27M4 16 L23 16 M23 16 L29 10 M23 16 L29 22 M8 16 L5 11 M8 16 L5 21 M12 16 L10 9 M12 16 L10 23 M16 16 L15 8 M16 16 L15 24 M20 16 L21 10 M20 16 L21 22%27 fill=%27none%27 stroke=%27%2300dfff%27 stroke-width=%272%27 stroke-linecap=%27round%27/%3E%3Ccircle cx=%274%27 cy=%2716%27 r=%272%27 fill=%27%23ff4fd8%27/%3E%3C/svg%3E&quot;) 4 16, auto';
+
+var fishOff='url(&quot;data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2732%27 height=%2732%27 viewBox=%270 0 32 32%27%3E%3Cpath d=%27M4 16 L23 16 M23 16 L29 10 M23 16 L29 22 M8 16 L5 11 M8 16 L5 21 M12 16 L10 9 M12 16 L10 23 M16 16 L15 8 M16 16 L15 24 M20 16 L21 10 M20 16 L21 22%27 fill=%27none%27 stroke=%27%23ffffff%27 stroke-width=%272%27 stroke-linecap=%27round%27/%3E%3Ccircle cx=%274%27 cy=%2716%27 r=%272%27 fill=%27%23ffffff%27/%3E%3C/svg%3E&quot;) 4 16, auto';
+
+b.style.setProperty('--fish-cursor',on?fishOn:fishOff);
 
 b.querySelectorAll('[data-color-bg]').forEach(function(e){
 e.style.background=on?e.getAttribute('data-color-bg'):e.getAttribute('data-bw-bg');
@@ -261,42 +271,35 @@ e.style.color=on?e.getAttribute('data-color-text'):'#fff';
 b.querySelectorAll('[data-color-shadow]').forEach(function(e){
 e.style.textShadow=on?e.getAttribute('data-color-shadow'):'none';
 });
-
 b.querySelectorAll('[data-hover-button]').forEach(function(e){
 e.style.setProperty('--hover-glow',on?e.getAttribute('data-hover-color'):'#fff');
 e.style.setProperty('--hover-border',on?e.getAttribute('data-hover-border'):'#fff');
 });
-
 b.querySelectorAll('.hawk-avatar-wrap,.watch-avatar-wrap').forEach(function(r){
 r.style.background=on?'linear-gradient(135deg,#00dfff,#8b5cf6,#00dfff)':'#555';
 r.style.setProperty('--avatar-glow',on?'#00dfff':'#fff');
 r.style.boxShadow=on?'0 0 18px #008cff,0 0 35px #5630a0':'0 0 9px #fff';
 });
-
 b.querySelectorAll('.hawk-profile,.watch-profile,.member-counter').forEach(function(p){
 p.style.background=on?'linear-gradient(145deg,#101820,#101020,#080808)':'#111';
 p.style.borderColor=on?'#8b5cf6':'#888';
 });
-
 b.querySelectorAll('.watch-profile').forEach(function(p){
 p.style.borderLeftColor=on?'#00dfff':'#777';
 });
-
 var number=b.querySelector('.member-number');
 if(number){
 number.style.color=on?'#72eaff':'#fff';
 number.style.textShadow=on?'0 0 12px #008cff':'0 0 12px #fff';
 }
-
 b.querySelectorAll('.member-dot').forEach(function(d){
 d.style.background=on?'#00e5ff':'#888';
 });
-
 this.innerHTML=on?'◼ BLACK &amp; WHITE':'✦ TURN ON COLOR';
 this.style.background=on?'#111':'linear-gradient(90deg,#287bff,#8b5cf6)';
 this.style.color='#fff';
 "
-style="display:block;width:100%;background:#111;color:#fff;border:1px solid #fff;border-radius:9px;padding:12px;margin-bottom:10px;font-weight:bold;letter-spacing:2px;cursor:pointer;">
+style="display:block;width:100%;background:#111;color:#fff;border:1px solid #fff;border-radius:9px;padding:12px;margin-bottom:10px;font-weight:bold;letter-spacing:2px;">
 ✦ TURN ON COLOR
 </button>
 
@@ -319,7 +322,7 @@ setTimeout(function(){cat.remove()},7500);
 })();
 }
 "
-style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background:#171717;color:#fff;border:1px solid #888;border-radius:9px;padding:12px;margin-bottom:14px;font-size:20px;cursor:pointer;">
+style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background:#171717;color:#fff;border:1px solid #888;border-radius:9px;padding:12px;margin-bottom:14px;font-size:20px;">
 😼
 </button>
 
@@ -366,7 +369,7 @@ PLAY &bull; LEARN &bull; GROW
   </a>
 </div>
 
-<!-- WATCHANDLEARN101 HORIZONTAL CARD -->
+<!-- WATCHANDLEARN101 PROFILE -->
 <div class="watch-profile"
 data-color-bg="linear-gradient(145deg,#101820,#101020,#080808)"
 data-bw-bg="#111"
@@ -394,6 +397,34 @@ data-color-border="#8b5cf6">
   </div>
 </div>
 
+<!-- LOWKBADMOVE PROFILE -->
+<div class="watch-profile"
+data-color-bg="linear-gradient(145deg,#101820,#101020,#080808)"
+data-bw-bg="#111"
+data-color-border="#8b5cf6">
+
+  <div class="watch-avatar-wrap">
+    <div class="watch-avatar-inner">
+      <span id="lowk-avatar-fallback">L</span>
+      <img id="lowk-live-avatar" alt="LowkBadMove profile picture">
+    </div>
+  </div>
+
+  <div class="watch-info">
+    <a class="profile-name-link"
+       href="https://www.chess.com/member/lowkbadmove"
+       target="_blank">
+      <div class="watch-name" data-color-text="#72eaff">
+        @LowkBadMove
+      </div>
+    </a>
+
+    <div class="watch-rating" id="lowk-blitz-rating">
+      Blitz: Loading...
+    </div>
+  </div>
+</div>
+
 <!-- LIVE MEMBER COUNTER -->
 <div class="member-counter"
 data-color-bg="linear-gradient(145deg,#101820,#101020,#080808)"
@@ -416,7 +447,6 @@ data-color-border="#8b5cf6">
     <span class="member-dot" id="itu-member-dot"></span>
     <span id="itu-member-status">Connecting to Chess.com...</span>
   </div>
-
 </div>
 
 <!-- NAVIGATION -->
@@ -485,13 +515,21 @@ this.innerText='COPY FAILED';
 }
 document.body.removeChild(temp);
 "
-style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background:#181818;color:#fff;border:1px solid #888;border-radius:9px;padding:13px;margin-top:14px;font-weight:bold;letter-spacing:2px;cursor:pointer;">
+style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background:#181818;color:#fff;border:1px solid #888;border-radius:9px;padding:13px;margin-top:14px;font-weight:bold;letter-spacing:2px;">
 COPY CLUB LINK
 </button>
 
 <!-- CHESS.COM API -->
 <script>
 (function(){
+
+/* FISH BONE CURSOR: INITIAL BLACK THEME */
+var theme=document.getElementById('itu-theme');
+
+var whiteFish="url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M4 16 L23 16 M23 16 L29 10 M23 16 L29 22 M8 16 L5 11 M8 16 L5 21 M12 16 L10 9 M12 16 L10 23 M16 16 L15 8 M16 16 L15 24 M20 16 L21 10 M20 16 L21 22' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='4' cy='16' r='2' fill='%23ffffff'/%3E%3C/svg%3E\") 4 16, auto";
+
+theme.style.setProperty('--fish-cursor',whiteFish);
+
 
 /* LOAD PROFILE PICTURES */
 function loadAvatar(username,imageId,fallbackId,letter){
@@ -523,27 +561,33 @@ function loadAvatar(username,imageId,fallbackId,letter){
 
 loadAvatar('i-am-hawk','hawk-live-avatar','hawk-avatar-fallback','H');
 loadAvatar('watchandlearn101','watch-live-avatar','watch-avatar-fallback','W');
+loadAvatar('lowkbadmove','lowk-live-avatar','lowk-avatar-fallback','L');
 
 
-/* LOAD WATCHANDLEARN101 BLITZ RATING */
-fetch('https://api.chess.com/pub/player/watchandlearn101/stats')
-  .then(function(response){
-    if(!response.ok) throw new Error('Stats unavailable');
-    return response.json();
-  })
-  .then(function(stats){
-    var rating=document.getElementById('watch-blitz-rating');
+/* LOAD BLITZ RATINGS */
+function loadBlitz(username,elementId){
+  fetch('https://api.chess.com/pub/player/'+username+'/stats')
+    .then(function(response){
+      if(!response.ok) throw new Error('Stats unavailable');
+      return response.json();
+    })
+    .then(function(stats){
+      var rating=document.getElementById(elementId);
 
-    if(stats.chess_blitz && stats.chess_blitz.last &&
-       stats.chess_blitz.last.rating){
-      rating.textContent='Blitz: '+stats.chess_blitz.last.rating;
-    } else {
-      rating.textContent='Blitz: Unrated';
-    }
-  })
-  .catch(function(){
-    document.getElementById('watch-blitz-rating').textContent='Blitz: --';
-  });
+      if(stats.chess_blitz && stats.chess_blitz.last &&
+         stats.chess_blitz.last.rating){
+        rating.textContent='Blitz: '+stats.chess_blitz.last.rating;
+      } else {
+        rating.textContent='Blitz: Unrated';
+      }
+    })
+    .catch(function(){
+      document.getElementById(elementId).textContent='Blitz: --';
+    });
+}
+
+loadBlitz('watchandlearn101','watch-blitz-rating');
+loadBlitz('lowkbadmove','lowk-blitz-rating');
 
 
 /* LOAD I TU CLUB MEMBER COUNT */
