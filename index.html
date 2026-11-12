@@ -1,4 +1,3 @@
-
 <style>
 html, body {
   margin:0!important;
@@ -684,6 +683,43 @@ function loadMemberCount(){
     });
 }
 
+/* TURN JOIN DATE INTO TIME AGO */
+function timeAgo(timestamp){
+  var seconds=Math.max(0,Math.floor(Date.now()/1000-timestamp));
+
+  if(seconds<60){
+    return 'JUST NOW';
+  }
+
+  var minutes=Math.floor(seconds/60);
+  if(minutes<60){
+    return minutes+' MINUTE'+(minutes===1?'':'S')+' AGO';
+  }
+
+  var hours=Math.floor(minutes/60);
+  if(hours<24){
+    return hours+' HOUR'+(hours===1?'':'S')+' AGO';
+  }
+
+  var days=Math.floor(hours/24);
+  if(days<7){
+    return days+' DAY'+(days===1?'':'S')+' AGO';
+  }
+
+  var weeks=Math.floor(days/7);
+  if(days<30){
+    return weeks+' WEEK'+(weeks===1?'':'S')+' AGO';
+  }
+
+  var months=Math.floor(days/30);
+  if(days<365){
+    return months+' MONTH'+(months===1?'':'S')+' AGO';
+  }
+
+  var years=Math.floor(days/365);
+  return years+' YEAR'+(years===1?'':'S')+' AGO';
+}
+
 /* NEWEST MEMBERS */
 function loadNewestMembers(){
 
@@ -760,7 +796,7 @@ function loadNewestMembers(){
 
         var date=document.createElement('div');
         date.className='new-member-date';
-        date.textContent='JOINED '+new Date(member.joined*1000).toLocaleDateString();
+        date.textContent='JOINED '+timeAgo(member.joined);
 
         info.appendChild(nameLink);
         info.appendChild(date);
@@ -808,7 +844,7 @@ function loadNewestMembers(){
 loadMemberCount();
 loadNewestMembers();
 
-/* REFRESH */
+/* REFRESH EVERY 5 MINUTES */
 setInterval(loadMemberCount,300000);
 setInterval(loadNewestMembers,300000);
 
