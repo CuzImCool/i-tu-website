@@ -7,10 +7,12 @@ html, body {
   overflow-x:hidden;
 }
 
-/* PAGE-WIDE SNOWMAN CURSOR */
-html, body, body *,
-html *, body * {
-  cursor:var(--holiday-cursor,auto)!important;
+/* CUSTOM CURSOR TEST */
+#itu-theme,
+#itu-theme *,
+#itu-theme *::before,
+#itu-theme *::after {
+  cursor:url("https://cur.cursors-4u.net/nature/nat-11/nat1028.cur"), auto !important;
 }
 
 #itu-theme {
@@ -19,7 +21,7 @@ html *, body * {
   min-height:100vh;
 }
 
-/* SNOW TRAIL - WHOLE PAGE */
+/* SNOW TRAIL */
 .snow-trail {
   position:fixed!important;
   z-index:2147483647!important;
@@ -476,19 +478,11 @@ style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background
 COPY CLUB LINK
 </button>
 
-<!-- CHESS.COM API + PAGE-WIDE SNOWMAN -->
+<!-- CHESS.COM API + SNOW TRAIL -->
 <script>
 (function(){
 
-var theme=document.getElementById('itu-theme');
-
-/* SNOWMAN CURSOR */
-var snowmanCursor="url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ctext x='2' y='32' font-size='32' font-family='Apple Color Emoji,Segoe UI Emoji,Noto Color Emoji,sans-serif'%3E%E2%9B%84%EF%B8%8F%3C/text%3E%3C/svg%3E\") 8 8, auto";
-
-document.documentElement.style.setProperty('--holiday-cursor',snowmanCursor);
-document.body.style.setProperty('--holiday-cursor',snowmanCursor);
-
-/* PAGE-WIDE SNOW TRAIL */
+/* SNOW TRAIL */
 var lastSnow=0;
 
 document.addEventListener('mousemove',function(e){
@@ -507,7 +501,6 @@ document.addEventListener('mousemove',function(e){
   snow.style.setProperty('--snow-y',(15+Math.random()*25)+'px');
 
   document.body.appendChild(snow);
-
   setTimeout(function(){snow.remove()},900);
 });
 
@@ -577,4 +570,3 @@ setInterval(loadMemberCount,300000);
 </script>
 
 </div>
-
