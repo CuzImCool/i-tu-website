@@ -7,18 +7,16 @@ html, body {
   overflow-x:hidden;
 }
 
-/* CUSTOM CURSOR TEST */
-#itu-theme,
-#itu-theme *,
-#itu-theme *::before,
-#itu-theme *::after {
-  cursor:url("https://cur.cursors-4u.net/nature/nat-11/nat1028.cur"), auto !important;
+/* CUSTOM CURSOR */
+#itu-theme, #itu-theme *, #itu-theme *::before, #itu-theme *::after {
+  cursor:url("https://cur.cursors-4u.net/nature/nat-11/nat1028.cur"),auto!important;
 }
 
 #itu-theme {
   box-sizing:border-box;
   width:100%;
   min-height:100vh;
+  line-height:1.4;
 }
 
 /* SNOW TRAIL */
@@ -42,7 +40,7 @@ html, body {
 }
 #itu-theme a[data-hover-button]:hover,
 #itu-theme button[data-hover-button]:hover {
-  transform:translateY(-2px) scale(1.025);
+  transform:translateY(-2px) scale(1.02);
   filter:brightness(1.25);
   box-shadow:0 0 16px var(--hover-glow,#fff),
              0 0 28px var(--hover-glow,#fff);
@@ -72,10 +70,10 @@ html, body {
 /* OWNER CARD */
 #itu-theme .hawk-profile {
   text-align:center;
-  padding:11px 8px;
+  padding:14px 8px;
   margin-bottom:12px;
-  border:1px solid #888;
-  border-radius:10px;
+  border:1px solid #777;
+  border-radius:11px;
   background:#111;
   position:relative;
   overflow:hidden;
@@ -84,7 +82,7 @@ html, body {
 #itu-theme .hawk-avatar-wrap {
   width:78px;
   height:78px;
-  margin:9px auto;
+  margin:10px auto;
   border-radius:50%;
   padding:3px;
   background:#555;
@@ -131,25 +129,25 @@ html, body {
   margin-bottom:5px;
 }
 
-/* HORIZONTAL PROFILE CARDS */
+/* PROFILE CARDS */
 #itu-theme .watch-profile {
   display:flex;
   align-items:center;
   gap:13px;
-  padding:12px;
-  margin-bottom:12px;
-  border:1px solid #888;
-  border-left:5px solid #777;
-  border-radius:0 9px 9px 0;
+  padding:11px;
+  margin-bottom:10px;
+  border:1px solid #777;
+  border-left:4px solid #777;
+  border-radius:9px;
   background:#111;
-  min-height:88px;
+  min-height:82px;
   box-sizing:border-box;
   transition:all .25s ease;
 }
 #itu-theme .watch-avatar-wrap {
-  width:68px;
-  height:68px;
-  min-width:68px;
+  width:64px;
+  height:64px;
+  min-width:64px;
   border-radius:9px;
   padding:2px;
   background:#555;
@@ -192,11 +190,10 @@ html, body {
   font-weight:900;
   color:#fff;
   overflow-wrap:anywhere;
-  line-height:1.2;
-  margin-bottom:0;
+  line-height:1.3;
 }
 
-/* CLICKABLE PROFILE NAMES */
+/* CLICKABLE NAMES */
 #itu-theme .profile-name-link {
   display:inline-block;
   color:inherit;
@@ -206,13 +203,13 @@ html, body {
   filter:brightness(1.35);
 }
 
-/* LIVE MEMBER COUNTER */
+/* MEMBER COUNTER */
 #itu-theme .member-counter {
   background:#111;
-  border:1px solid #888;
-  border-radius:10px;
-  padding:16px 12px;
-  margin:4px 0 16px;
+  border:1px solid #777;
+  border-radius:11px;
+  padding:17px 12px;
+  margin:12px 0;
   text-align:center;
   transition:all .25s ease;
 }
@@ -250,10 +247,113 @@ html, body {
   background:#888;
   margin-right:5px;
 }
+
+/* NEWEST MEMBERS */
+#itu-theme .new-members-box {
+  background:#111;
+  border:1px solid #777;
+  border-radius:11px;
+  padding:13px;
+  margin:12px 0 15px;
+  transition:all .25s ease;
+}
+#itu-theme .new-members-heading {
+  text-align:center;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:3px;
+  color:#fff;
+  padding:3px 0 11px;
+  margin-bottom:11px;
+  border-bottom:1px solid #444;
+}
+#itu-theme .new-member-card {
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:9px;
+  margin-bottom:8px;
+  background:#191919;
+  border:1px solid #444;
+  border-radius:8px;
+  transition:all .2s ease;
+}
+#itu-theme .new-member-card:last-child {
+  margin-bottom:0;
+}
+#itu-theme .new-member-card:hover {
+  transform:translateX(3px);
+  border-color:#aaa;
+  background:#222;
+}
+#itu-theme .new-member-avatar {
+  width:43px;
+  height:43px;
+  min-width:43px;
+  border-radius:8px;
+  background:#292929;
+  border:1px solid #666;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:19px;
+  font-weight:900;
+  color:#fff;
+}
+#itu-theme .new-member-avatar img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+#itu-theme .new-member-info {
+  min-width:0;
+  flex:1;
+}
+#itu-theme .new-member-name {
+  font-size:12px;
+  font-weight:900;
+  color:#fff;
+  overflow-wrap:anywhere;
+}
+#itu-theme .new-member-date {
+  font-size:9px;
+  color:#999;
+  margin-top:3px;
+  letter-spacing:1px;
+}
+#itu-theme .new-member-rank {
+  font-size:9px;
+  color:#c9a64b;
+  letter-spacing:1px;
+  white-space:nowrap;
+}
+#itu-theme .new-members-status {
+  text-align:center;
+  font-size:10px;
+  color:#999;
+  padding:10px 3px 3px;
+}
+#itu-theme .new-members-status:empty {
+  display:none;
+}
+
+/* GENERAL POLISH */
+#itu-theme .section-panel {
+  background:#111;
+  border:1px solid #777;
+  border-radius:11px;
+  padding:14px;
+  margin-bottom:13px;
+}
+#itu-theme button {
+  font-family:Arial,sans-serif;
+}
 </style>
 
 <div id="itu-theme" data-color="off"
-style="position:relative;background:#050505;color:#fff;padding:16px;border:1px solid #888;border-radius:14px;font-family:Arial,sans-serif;">
+style="position:relative;background:#050505;color:#fff;padding:15px;border:1px solid #888;border-radius:14px;font-family:Arial,sans-serif;">
 
 <!-- CHRISTMAS COLOR BUTTON -->
 <button onclick="
@@ -292,13 +392,18 @@ r.style.setProperty('--avatar-glow',on?'#28c76f':'#fff');
 r.style.boxShadow=on?'0 0 18px #087a3c,0 0 30px #b51c32':'0 0 9px #fff';
 });
 
-b.querySelectorAll('.hawk-profile,.watch-profile,.member-counter').forEach(function(p){
+b.querySelectorAll('.hawk-profile,.watch-profile,.member-counter,.new-members-box').forEach(function(p){
 p.style.background=on?'linear-gradient(145deg,#102719,#210c12,#102719)':'#111';
-p.style.borderColor=on?'#c9a64b':'#888';
+p.style.borderColor=on?'#c9a64b':'#777';
 });
 
 b.querySelectorAll('.watch-profile').forEach(function(p){
 p.style.borderLeftColor=on?'#c91f36':'#777';
+});
+
+b.querySelectorAll('.new-member-card').forEach(function(p){
+p.style.background=on?'linear-gradient(145deg,#153321,#291016)':'#191919';
+p.style.borderColor=on?'#8b743d':'#444';
 });
 
 var number=b.querySelector('.member-number');
@@ -320,7 +425,7 @@ style="display:block;width:100%;background:#111;color:#fff;border:1px solid #fff
 ✦ TURN ON COLOR
 </button>
 
-<!-- SNOWMAN CONFETTI BUTTON -->
+<!-- SNOWMAN BUTTON -->
 <button data-hover-button data-hover-color="#bdeaff" data-hover-border="#ffffff"
 onclick="
 var box=document.getElementById('itu-theme');
@@ -339,14 +444,14 @@ setTimeout(function(){flake.remove()},7500);
 })();
 }
 "
-style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background:#171717;color:#fff;border:1px solid #888;border-radius:9px;padding:12px;margin-bottom:14px;font-size:20px;">
+style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background:#171717;color:#fff;border:1px solid #888;border-radius:9px;padding:11px;margin-bottom:14px;font-size:20px;">
 ⛄️
 </button>
 
 <!-- HEADER -->
 <div data-color-bg="linear-gradient(135deg,#0d572d,#7b1425,#0d572d)"
 data-bw-bg="linear-gradient(135deg,#111,#222,#080808)"
-style="text-align:center;padding:20px 8px;background:linear-gradient(135deg,#111,#222,#080808);border:1px solid #888;border-radius:12px;margin-bottom:14px;">
+style="text-align:center;padding:23px 8px;background:linear-gradient(135deg,#111,#222,#080808);border:1px solid #777;border-radius:11px;margin-bottom:14px;">
 
 <div data-color-text="#e9c66a" data-color-shadow="0 0 12px #087a3c,0 0 18px #b51c32"
 style="font-size:28px;font-weight:900;letter-spacing:4px;color:#fff;">
@@ -377,7 +482,7 @@ PLAY &bull; LEARN &bull; GROW
   </a>
 </div>
 
-<!-- WATCHANDLEARN101 PROFILE -->
+<!-- WATCHANDLEARN101 -->
 <div class="watch-profile" data-color-bg="linear-gradient(145deg,#102719,#210c12,#102719)" data-bw-bg="#111" data-color-border="#c9a64b">
   <div class="watch-avatar-wrap">
     <div class="watch-avatar-inner">
@@ -392,7 +497,7 @@ PLAY &bull; LEARN &bull; GROW
   </div>
 </div>
 
-<!-- LOWKBADMOVE PROFILE -->
+<!-- LOWKBADMOVE -->
 <div class="watch-profile" data-color-bg="linear-gradient(145deg,#102719,#210c12,#102719)" data-bw-bg="#111" data-color-border="#c9a64b">
   <div class="watch-avatar-wrap">
     <div class="watch-avatar-inner">
@@ -407,7 +512,7 @@ PLAY &bull; LEARN &bull; GROW
   </div>
 </div>
 
-<!-- LIVE MEMBER COUNTER -->
+<!-- MEMBER COUNTER -->
 <div class="member-counter" data-color-bg="linear-gradient(145deg,#102719,#210c12,#102719)" data-bw-bg="#111" data-color-border="#c9a64b">
   <div class="member-heading" data-color-text="#65e99a">✦ CLUB MEMBERS ✦</div>
   <div class="member-number" id="itu-member-count">...</div>
@@ -418,9 +523,25 @@ PLAY &bull; LEARN &bull; GROW
   </div>
 </div>
 
+<!-- NEWEST MEMBERS LIST -->
+<div class="new-members-box" data-color-bg="linear-gradient(145deg,#102719,#210c12,#102719)" data-bw-bg="#111" data-color-border="#c9a64b">
+
+  <div class="new-members-heading" data-color-text="#e9c66a">
+    ✦ NEWEST MEMBERS ✦
+  </div>
+
+  <div id="itu-new-members">
+    <div class="new-members-status">Loading newest members...</div>
+  </div>
+
+  <div class="new-members-status" id="itu-new-members-status">
+    Connecting to Chess.com...
+  </div>
+</div>
+
 <!-- NAVIGATION -->
 <div data-color-bg="linear-gradient(145deg,#102719,#210c12)" data-bw-bg="#111"
-style="background:#111;border:1px solid #777;border-radius:12px;padding:14px;margin-bottom:14px;">
+style="background:#111;border:1px solid #777;border-radius:11px;padding:14px;margin-bottom:14px;">
 
 <div data-color-text="#e9c66a" style="text-align:center;font-size:13px;font-weight:bold;letter-spacing:3px;margin-bottom:12px;color:#fff;">
 ✦ NAVIGATION ✦
@@ -534,7 +655,7 @@ loadAvatar('i-am-hawk','hawk-live-avatar','hawk-avatar-fallback','H');
 loadAvatar('watchandlearn101','watch-live-avatar','watch-avatar-fallback','W');
 loadAvatar('lowkbadmove','lowk-live-avatar','lowk-avatar-fallback','L');
 
-/* LOAD CLUB MEMBER COUNT */
+/* LOAD MEMBER COUNT */
 function loadMemberCount(){
   var count=document.getElementById('itu-member-count');
   var status=document.getElementById('itu-member-status');
@@ -563,8 +684,133 @@ function loadMemberCount(){
     });
 }
 
+/* NEWEST MEMBERS */
+function loadNewestMembers(){
+
+  var container=document.getElementById('itu-new-members');
+  var status=document.getElementById('itu-new-members-status');
+
+  fetch('https://api.chess.com/pub/club/i-tu/members')
+    .then(function(response){
+      if(!response.ok) throw new Error('Member list unavailable');
+      return response.json();
+    })
+    .then(function(data){
+
+      var members=[];
+
+      ['weekly','monthly','all_time'].forEach(function(group){
+        if(Array.isArray(data[group])){
+          data[group].forEach(function(member){
+            if(member.username && typeof member.joined==='number'){
+              members.push(member);
+            }
+          });
+        }
+      });
+
+      /* SORT BY JOIN DATE */
+      members.sort(function(a,b){
+        return b.joined-a.joined;
+      });
+
+      /* REMOVE DUPLICATES */
+      var seen={};
+      members=members.filter(function(member){
+        var key=member.username.toLowerCase();
+        if(seen[key]) return false;
+        seen[key]=true;
+        return true;
+      });
+
+      /* SHOW THREE NEWEST */
+      var newest=members.slice(0,3);
+
+      container.innerHTML='';
+
+      if(newest.length===0){
+        container.innerHTML='<div class="new-members-status">No member data available.</div>';
+        status.textContent='';
+        return;
+      }
+
+      newest.forEach(function(member,index){
+
+        var card=document.createElement('div');
+        card.className='new-member-card';
+
+        var avatarBox=document.createElement('div');
+        avatarBox.className='new-member-avatar';
+        avatarBox.textContent=member.username.charAt(0).toUpperCase();
+
+        var info=document.createElement('div');
+        info.className='new-member-info';
+
+        var nameLink=document.createElement('a');
+        nameLink.href='https://www.chess.com/member/'+encodeURIComponent(member.username);
+        nameLink.target='_blank';
+        nameLink.rel='noopener noreferrer';
+        nameLink.className='profile-name-link';
+
+        var name=document.createElement('div');
+        name.className='new-member-name';
+        name.textContent='@'+member.username;
+
+        nameLink.appendChild(name);
+
+        var date=document.createElement('div');
+        date.className='new-member-date';
+        date.textContent='JOINED '+new Date(member.joined*1000).toLocaleDateString();
+
+        info.appendChild(nameLink);
+        info.appendChild(date);
+
+        var rank=document.createElement('div');
+        rank.className='new-member-rank';
+        rank.textContent='#'+(index+1);
+
+        card.appendChild(avatarBox);
+        card.appendChild(info);
+        card.appendChild(rank);
+
+        container.appendChild(card);
+
+        /* LOAD MEMBER AVATAR */
+        fetch('https://api.chess.com/pub/player/'+encodeURIComponent(member.username))
+          .then(function(response){
+            if(!response.ok) throw new Error('Avatar unavailable');
+            return response.json();
+          })
+          .then(function(profile){
+            if(profile.avatar){
+              var img=document.createElement('img');
+              img.alt=member.username;
+              img.src=profile.avatar;
+              img.onerror=function(){
+                avatarBox.textContent=member.username.charAt(0).toUpperCase();
+              };
+              avatarBox.textContent='';
+              avatarBox.appendChild(img);
+            }
+          })
+          .catch(function(){});
+      });
+
+      status.textContent='THE 3 MOST RECENTLY JOINED MEMBERS';
+    })
+    .catch(function(){
+      container.innerHTML='<div class="new-members-status">Could not load members right now.</div>';
+      status.textContent='Chess.com API unavailable';
+    });
+}
+
+/* INITIAL LOAD */
 loadMemberCount();
+loadNewestMembers();
+
+/* REFRESH */
 setInterval(loadMemberCount,300000);
+setInterval(loadNewestMembers,300000);
 
 })();
 </script>
