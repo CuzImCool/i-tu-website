@@ -6,9 +6,22 @@ html, body {
   overflow-x:hidden;
 }
 
-/* CUSTOM CURSOR */
+/* SNOWMAN MOUSE CURSOR */
 #itu-theme, #itu-theme *, #itu-theme *::before, #itu-theme *::after {
-  cursor:url("https://cur.cursors-4u.net/nature/nat-11/nat1028.cur"),auto!important;
+  cursor:none!important;
+}
+#itu-snowman-cursor {
+  position:fixed!important;
+  left:0;
+  top:0;
+  z-index:2147483647!important;
+  pointer-events:none!important;
+  display:none;
+  font-size:25px;
+  line-height:1;
+  transform:translate(3px,3px);
+  filter:drop-shadow(0 0 5px #bdeaff);
+  user-select:none!important;
 }
 
 #itu-theme {
@@ -602,6 +615,24 @@ COPY CLUB LINK
 <script>
 (function(){
 
+/* SNOWMAN CURSOR THAT FOLLOWS THE MOUSE */
+var snowmanCursor=document.createElement('span');
+snowmanCursor.id='itu-snowman-cursor';
+snowmanCursor.textContent='⛄️';
+document.body.appendChild(snowmanCursor);
+
+var theme=document.getElementById('itu-theme');
+
+document.addEventListener('mousemove',function(e){
+  if(theme && theme.contains(e.target)){
+    snowmanCursor.style.display='block';
+    snowmanCursor.style.left=e.clientX+'px';
+    snowmanCursor.style.top=e.clientY+'px';
+  } else {
+    snowmanCursor.style.display='none';
+  }
+});
+
 /* SNOW TRAIL */
 var lastSnow=0;
 
@@ -851,4 +882,5 @@ setInterval(loadNewestMembers,300000);
 })();
 </script>
 
+</div>
 </div>
