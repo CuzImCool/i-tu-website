@@ -534,7 +534,7 @@ PLAY &bull; LEARN &bull; GROW
     </div>
   </div>
   <div class="watch-info">
-    <a id="kingslayer-name-link" class="profile-name-link" href="https://www.chess.com/member/k1ngslayer01" target="_blank" rel="noopener noreferrer">
+    <a class="profile-name-link" href="https://www.chess.com/member/k1ngslayer01" target="_blank" rel="noopener noreferrer">
       <div class="watch-name" data-color-text="#65e99a">@K1ngSlayer01</div>
     </a>
   </div>
@@ -645,10 +645,9 @@ document.addEventListener('mousemove',function(e){
 });
 
 /* LOAD PROFILE PICTURES */
-function loadAvatar(username,imageId,fallbackId,letter,linkId){
+function loadAvatar(username,imageId,fallbackId,letter){
   var avatar=document.getElementById(imageId);
   var fallback=document.getElementById(fallbackId);
-  var profileLink=linkId?document.getElementById(linkId):null;
 
   fetch('https://api.chess.com/pub/player/'+username)
     .then(function(response){
@@ -657,7 +656,6 @@ function loadAvatar(username,imageId,fallbackId,letter,linkId){
     })
     .then(function(profile){
       if(profile.avatar){
-        if(profileLink) profileLink.href=profile.avatar;
         avatar.onload=function(){
           avatar.style.display='block';
           fallback.style.display='none';
@@ -675,7 +673,7 @@ function loadAvatar(username,imageId,fallbackId,letter,linkId){
 loadAvatar('i-am-hawk','hawk-live-avatar','hawk-avatar-fallback','H');
 loadAvatar('watchandlearn101','watch-live-avatar','watch-avatar-fallback','W');
 loadAvatar('lowkbadmove','lowk-live-avatar','lowk-avatar-fallback','L');
-loadAvatar('k1ngslayer01','kingslayer-live-avatar','kingslayer-avatar-fallback','K','kingslayer-name-link');
+loadAvatar('k1ngslayer01','kingslayer-live-avatar','kingslayer-avatar-fallback','K');
 
 /* LOAD MEMBER COUNT */
 function loadMemberCount(){
@@ -876,3 +874,4 @@ setInterval(loadNewestMembers,300000);
 
 </div>
 </div>
+
