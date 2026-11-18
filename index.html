@@ -1,8 +1,4 @@
 
-
-
-
-
 <style>
 html, body {
   margin:0!important;
@@ -383,54 +379,54 @@ b.style.borderColor=on?'#c9a64b':'#888';
 b.style.boxShadow=on?'0 0 22px #176b37,0 0 35px #8b1525':'none';
 
 b.querySelectorAll('[data-color-bg]').forEach(function(e){
-e.style.background=on?e.getAttribute('data-color-bg'):e.getAttribute('data-bw-bg');
+  e.style.background=on?e.getAttribute('data-color-bg'):e.getAttribute('data-bw-bg');
 });
 
 b.querySelectorAll('[data-color-border]').forEach(function(e){
-e.style.borderColor=on?e.getAttribute('data-color-border'):'#888';
+  e.style.borderColor=on?e.getAttribute('data-color-border'):'#888';
 });
 
 b.querySelectorAll('[data-color-text]').forEach(function(e){
-e.style.color=on?e.getAttribute('data-color-text'):'#fff';
+  e.style.color=on?e.getAttribute('data-color-text'):'#fff';
 });
 
 b.querySelectorAll('[data-color-shadow]').forEach(function(e){
-e.style.textShadow=on?e.getAttribute('data-color-shadow'):'none';
+  e.style.textShadow=on?e.getAttribute('data-color-shadow'):'none';
 });
 
 b.querySelectorAll('[data-hover-button]').forEach(function(e){
-e.style.setProperty('--hover-glow',on?e.getAttribute('data-hover-color'):'#fff');
-e.style.setProperty('--hover-border',on?e.getAttribute('data-hover-border'):'#fff');
+  e.style.setProperty('--hover-glow',on?e.getAttribute('data-hover-color'):'#fff');
+  e.style.setProperty('--hover-border',on?e.getAttribute('data-hover-border'):'#fff');
 });
 
 b.querySelectorAll('.hawk-avatar-wrap,.watch-avatar-wrap').forEach(function(r){
-r.style.background=on?'linear-gradient(135deg,#d51d36,#087a3c,#d5ad45)':'#555';
-r.style.setProperty('--avatar-glow',on?'#28c76f':'#fff');
-r.style.boxShadow=on?'0 0 18px #087a3c,0 0 30px #b51c32':'0 0 9px #fff';
+  r.style.background=on?'linear-gradient(135deg,#d51d36,#087a3c,#d5ad45)':'#555';
+  r.style.setProperty('--avatar-glow',on?'#28c76f':'#fff');
+  r.style.boxShadow=on?'0 0 18px #087a3c,0 0 30px #b51c32':'0 0 9px #fff';
 });
 
 b.querySelectorAll('.hawk-profile,.watch-profile,.member-counter,.new-members-box').forEach(function(p){
-p.style.background=on?'linear-gradient(145deg,#102719,#210c12,#102719)':'#111';
-p.style.borderColor=on?'#c9a64b':'#777';
+  p.style.background=on?'linear-gradient(145deg,#102719,#210c12,#102719)':'#111';
+  p.style.borderColor=on?'#c9a64b':'#777';
 });
 
 b.querySelectorAll('.watch-profile').forEach(function(p){
-p.style.borderLeftColor=on?'#c91f36':'#777';
+  p.style.borderLeftColor=on?'#c91f36':'#777';
 });
 
 b.querySelectorAll('.new-member-card').forEach(function(p){
-p.style.background=on?'linear-gradient(145deg,#153321,#291016)':'#191919';
-p.style.borderColor=on?'#8b743d':'#444';
+  p.style.background=on?'linear-gradient(145deg,#153321,#291016)':'#191919';
+  p.style.borderColor=on?'#8b743d':'#444';
 });
 
 var number=b.querySelector('.member-number');
 if(number){
-number.style.color=on?'#65e99a':'#fff';
-number.style.textShadow=on?'0 0 12px #087a3c,0 0 20px #b51c32':'0 0 12px #fff';
+  number.style.color=on?'#65e99a':'#fff';
+  number.style.textShadow=on?'0 0 12px #087a3c,0 0 20px #b51c32':'0 0 12px #fff';
 }
 
 b.querySelectorAll('.member-dot').forEach(function(d){
-d.style.background=on?'#28c76f':'#888';
+  d.style.background=on?'#28c76f':'#888';
 });
 
 this.innerHTML=on?' CHRISTMAS MODE ON ':'✦ TURN ON COLOR';
@@ -448,17 +444,17 @@ onclick="
 var box=document.getElementById('itu-theme');
 var snow=['⭐️','⛄️','🎁'];
 for(var i=0;i<32;i++){
-(function(){
-var flake=document.createElement('span');
-flake.className='itu-cat-rain';
-flake.textContent=snow[Math.floor(Math.random()*snow.length)];
-flake.style.left=(Math.random()*92)+'%';
-flake.style.fontSize=(18+Math.random()*20)+'px';
-flake.style.animationDuration=(2.5+Math.random()*2.5)+'s';
-flake.style.animationDelay=(Math.random()*1.8)+'s';
-box.appendChild(flake);
-setTimeout(function(){flake.remove()},7500);
-})();
+  (function(){
+    var flake=document.createElement('span');
+    flake.className='itu-cat-rain';
+    flake.textContent=snow[Math.floor(Math.random()*snow.length)];
+    flake.style.left=(Math.random()*92)+'%';
+    flake.style.fontSize=(18+Math.random()*20)+'px';
+    flake.style.animationDuration=(2.5+Math.random()*2.5)+'s';
+    flake.style.animationDelay=(Math.random()*1.8)+'s';
+    box.appendChild(flake);
+    setTimeout(function(){flake.remove()},7500);
+  })();
 }
 "
 style="--hover-glow:#fff;--hover-border:#fff;display:block;width:100%;background:#171717;color:#fff;border:1px solid #888;border-radius:9px;padding:11px;margin-bottom:14px;font-size:20px;">
@@ -538,7 +534,7 @@ PLAY &bull; LEARN &bull; GROW
     </div>
   </div>
   <div class="watch-info">
-    <a class="profile-name-link" href="https://www.chess.com/member/k1ngslayer01" target="_blank" rel="noopener noreferrer">
+    <a id="kingslayer-name-link" class="profile-name-link" href="https://www.chess.com/member/k1ngslayer01" target="_blank" rel="noopener noreferrer">
       <div class="watch-name" data-color-text="#65e99a">@K1ngSlayer01</div>
     </a>
   </div>
@@ -571,33 +567,6 @@ PLAY &bull; LEARN &bull; GROW
   </div>
 </div>
 
-<!-- NAVIGATION -->
-<div data-color-bg="linear-gradient(145deg,#102719,#210c12)" data-bw-bg="#111"
-style="background:#111;border:1px solid #777;border-radius:11px;padding:14px;margin-bottom:14px;">
-
-<div data-color-text="#e9c66a" style="text-align:center;font-size:13px;font-weight:bold;letter-spacing:3px;margin-bottom:12px;color:#fff;">
-✦ NAVIGATION ✦
-</div>
-
-<a data-hover-button data-hover-color="#168b48" data-hover-border="#65e99a"
-href="https://www.chess.com/club/i-tu" data-color-bg="#123b25" data-bw-bg="#181818"
-style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;">
-♟ &nbsp; CLUB HOME &rarr;
-</a>
-
-<a data-hover-button data-hover-color="#b51c32" data-hover-border="#ff687b"
-href="https://www.chess.com/clubs/members/i-tu" data-color-bg="#48131e" data-bw-bg="#181818"
-style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;">
-♙ &nbsp; MEMBERS &rarr;
-</a>
-
-<a data-hover-button data-hover-color="#c9a64b" data-hover-border="#f2d98b"
-href="https://www.chess.com/clubs/events/i-tu" data-color-bg="#26391d" data-bw-bg="#181818"
-style="--hover-glow:#fff;--hover-border:#fff;display:block;background:#181818;color:#fff;text-decoration:none;border:1px solid #888;border-radius:8px;padding:12px;margin:8px 0;font-weight:bold;">
-⚡ &nbsp; EVENTS &rarr;
-</a>
-</div>
-
 <!-- FOOTER -->
 <div data-color-text="#e9c66a" style="text-align:center;padding:10px;color:#ccc;font-size:13px;font-style:italic;">
 &ldquo;Meow Meeeeow&rdquo; &nbsp;- once said by a hungry cat
@@ -620,10 +589,10 @@ temp.style.left='-9999px';
 document.body.appendChild(temp);
 temp.select();
 try {
-var success=document.execCommand('copy');
-this.innerText=success?'✓ LINK COPIED!':'COPY FAILED';
+  var success=document.execCommand('copy');
+  this.innerText=success?'✓ LINK COPIED!':'COPY FAILED';
 } catch(e) {
-this.innerText='COPY FAILED';
+  this.innerText='COPY FAILED';
 }
 document.body.removeChild(temp);
 "
@@ -676,9 +645,10 @@ document.addEventListener('mousemove',function(e){
 });
 
 /* LOAD PROFILE PICTURES */
-function loadAvatar(username,imageId,fallbackId,letter){
+function loadAvatar(username,imageId,fallbackId,letter,linkId){
   var avatar=document.getElementById(imageId);
   var fallback=document.getElementById(fallbackId);
+  var profileLink=linkId?document.getElementById(linkId):null;
 
   fetch('https://api.chess.com/pub/player/'+username)
     .then(function(response){
@@ -687,6 +657,7 @@ function loadAvatar(username,imageId,fallbackId,letter){
     })
     .then(function(profile){
       if(profile.avatar){
+        if(profileLink) profileLink.href=profile.avatar;
         avatar.onload=function(){
           avatar.style.display='block';
           fallback.style.display='none';
@@ -704,7 +675,7 @@ function loadAvatar(username,imageId,fallbackId,letter){
 loadAvatar('i-am-hawk','hawk-live-avatar','hawk-avatar-fallback','H');
 loadAvatar('watchandlearn101','watch-live-avatar','watch-avatar-fallback','W');
 loadAvatar('lowkbadmove','lowk-live-avatar','lowk-avatar-fallback','L');
-loadAvatar('k1ngslayer01','kingslayer-live-avatar','kingslayer-avatar-fallback','K');
+loadAvatar('k1ngslayer01','kingslayer-live-avatar','kingslayer-avatar-fallback','K','kingslayer-name-link');
 
 /* LOAD MEMBER COUNT */
 function loadMemberCount(){
