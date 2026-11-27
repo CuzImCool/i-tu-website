@@ -507,6 +507,60 @@ html, body {
   pointer-events:none;
 }
 @keyframes itu-title-sweep { 0%,18%{background-position:200% 0;} 58%,100%{background-position:-40% 0;} }
+
+/* ================= VINTAGE / HOLIDAY PALETTE OVERRIDE ================= */
+#itu-theme {
+  --v-ink:#292117; --v-paper:#e6d8bd; --v-dark:#241b13; --v-brown:#73543a;
+  --v-gold:#b18a4e; --v-muted:#9d896d;
+  background:radial-gradient(ellipse at top,#392b1c 0%,#1d160f 65%,#120e09 100%)!important;
+  color:var(--v-paper)!important; border:1px solid #9b8056!important;
+  box-shadow:inset 0 0 28px rgba(176,139,79,.08),0 0 15px rgba(0,0,0,.5)!important;
+  font-family:Georgia,'Times New Roman',serif!important;
+}
+#itu-theme::before { background:conic-gradient(from 0deg,transparent 0 65%,#d0b27b 76%,#725532 83%,transparent 94% 100%)!important; opacity:.55!important; }
+#itu-theme::after { background:linear-gradient(110deg,transparent,rgba(226,200,150,.06),transparent)!important; }
+#itu-theme .itu-title-main {
+  background:linear-gradient(180deg,#f1e2c2,#b99b6b 45%,#725536 75%,#e5d2ad)!important;
+  -webkit-text-fill-color:transparent!important;
+  text-shadow:2px 2px 0 #21180e,3px 4px 0 #090704,0 0 10px rgba(200,162,100,.18)!important;
+  font-family:'Georgia',serif!important; letter-spacing:5px!important;
+}
+#itu-theme .hawk-profile,#itu-theme .watch-profile,#itu-theme .member-counter,
+#itu-theme .new-members-box,#itu-theme .section-panel {
+  background:linear-gradient(145deg,#3a2b1b,#24190f 70%,#332416)!important;
+  border-color:#8a6c45!important; color:#e7d6b5!important;
+  box-shadow:inset 0 1px 0 rgba(244,222,182,.06),0 5px 13px rgba(0,0,0,.28)!important;
+}
+#itu-theme .new-member-card { background:linear-gradient(110deg,#382919,#24180e)!important; border-color:#695034!important; }
+#itu-theme .new-member-avatar { background:#21170e!important; border-color:#8a6c45!important; }
+#itu-theme .hawk-owner-label,#itu-theme .member-heading,#itu-theme .new-members-heading { color:#c8a976!important; }
+#itu-theme .hawk-name,#itu-theme .watch-name,#itu-theme .new-member-name,#itu-theme .member-number { color:#f0dfbd!important; text-shadow:0 0 8px rgba(197,158,94,.16)!important; }
+#itu-theme .member-caption,#itu-theme .member-status,#itu-theme .new-member-date,#itu-theme .new-members-status { color:#b5a083!important; }
+#itu-theme button { background:linear-gradient(180deg,#493521,#26190f)!important; color:#ead8b6!important; border:1px solid #92744b!important; font-family:Georgia,serif!important; letter-spacing:1.3px!important; }
+#itu-theme button[data-hover-button]:hover { box-shadow:0 0 12px rgba(193,153,88,.22),0 0 22px rgba(193,153,88,.1)!important; }
+#itu-theme .hawk-avatar-wrap,#itu-theme .watch-avatar-wrap { background:linear-gradient(135deg,#c9ab73,#574027,#b18a4e)!important; box-shadow:0 0 8px rgba(185,145,80,.2)!important; }
+#itu-theme .watch-profile { border-left-color:#b18a4e!important; }
+#itu-theme .new-member-rank { color:#c8a976!important; }
+
+/* Christmas mode: CSS recolors every surface, text, border, glow, and button */
+#itu-theme[data-color="on"] { background:radial-gradient(ellipse at top,#173a23,#170b0c 68%,#080807)!important; color:#f4e7c5!important; border-color:#c8a65a!important; box-shadow:0 0 18px rgba(19,111,53,.3),0 0 30px rgba(132,18,38,.18)!important; }
+#itu-theme[data-color="on"]::before { background:conic-gradient(from 0deg,transparent 0 65%,#f2d27a 76%,#b52038 83%,#138044 90%,transparent 96%)!important; opacity:.9!important; }
+#itu-theme[data-color="on"]::after { background:linear-gradient(110deg,transparent,rgba(255,215,120,.07),transparent)!important; }
+#itu-theme[data-color="on"] .itu-title-main { background:linear-gradient(180deg,#fff1bc,#d6b458 40%,#a82137 65%,#52b46b)!important; -webkit-text-fill-color:transparent!important; text-shadow:2px 2px 0 #260b0e,3px 4px 0 #090704,0 0 12px rgba(212,170,70,.22)!important; }
+#itu-theme[data-color="on"] .hawk-profile,#itu-theme[data-color="on"] .watch-profile,
+#itu-theme[data-color="on"] .member-counter,#itu-theme[data-color="on"] .new-members-box,
+#itu-theme[data-color="on"] .section-panel { background:linear-gradient(145deg,#123a24,#250d13 65%,#123a24)!important; border-color:#c5a454!important; color:#f4e7c5!important; box-shadow:inset 0 1px 0 rgba(255,230,170,.07),0 0 12px rgba(17,108,50,.12)!important; }
+#itu-theme[data-color="on"] .new-member-card { background:linear-gradient(110deg,#17452b,#2c1118)!important; border-color:#936f39!important; }
+#itu-theme[data-color="on"] .new-member-avatar { background:#102c1c!important; border-color:#b28b43!important; }
+#itu-theme[data-color="on"] .hawk-owner-label,#itu-theme[data-color="on"] .member-heading,#itu-theme[data-color="on"] .new-members-heading { color:#e0bd69!important; }
+#itu-theme[data-color="on"] .hawk-name,#itu-theme[data-color="on"] .watch-name,#itu-theme[data-color="on"] .new-member-name,#itu-theme[data-color="on"] .member-number { color:#fff0c8!important; text-shadow:0 0 9px rgba(20,145,70,.25),0 0 13px rgba(172,20,44,.15)!important; }
+#itu-theme[data-color="on"] .member-caption,#itu-theme[data-color="on"] .member-status,#itu-theme[data-color="on"] .new-member-date,#itu-theme[data-color="on"] .new-members-status { color:#c5b18c!important; }
+#itu-theme[data-color="on"] button { background:linear-gradient(90deg,#9e1d32,#116b38,#9e1d32)!important; color:#fff0c8!important; border-color:#d8b861!important; box-shadow:inset 0 1px 0 rgba(255,239,190,.12)!important; }
+#itu-theme[data-color="on"] .hawk-avatar-wrap,#itu-theme[data-color="on"] .watch-avatar-wrap { background:linear-gradient(135deg,#d6b65b,#b21f36,#137b42)!important; box-shadow:0 0 12px rgba(22,126,62,.3),0 0 20px rgba(171,27,47,.18)!important; }
+#itu-theme[data-color="on"] .watch-profile { border-left-color:#b21f36!important; }
+#itu-theme[data-color="on"] .new-member-rank { color:#e0bd69!important; }
+#itu-theme[data-color="on"] .snow-trail { filter:drop-shadow(0 0 5px rgba(255,235,185,.7))!important; }
+
 </style>
 
 <div id="itu-theme" data-color="off"
@@ -1022,7 +1076,6 @@ setInterval(loadNewestMembers,300000);
 
 </div>
 </div>
-
 
 
 
