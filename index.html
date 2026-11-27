@@ -363,6 +363,117 @@ html, body {
 #itu-theme button {
   font-family:Arial,sans-serif;
 }
+/* PREMIUM WINTER UPGRADE — KEEP ORIGINAL LAYOUT */
+#itu-theme {
+  --silver:#d9e5f1;
+  --silver-soft:#8295a9;
+  --panel:#0c1015;
+  --panel-edge:#3c4856;
+  position:relative;
+  border:1px solid #718092!important;
+  border-radius:16px!important;
+  background:#05070a!important;
+  box-shadow:inset 0 0 24px rgba(180,205,230,.045),0 0 20px rgba(190,215,240,.09)!important;
+  overflow:hidden;
+}
+#itu-theme::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  padding:1px;
+  pointer-events:none;
+  background:conic-gradient(from 0deg,transparent 0 65%,#f2f8ff 76%,#8da6c2 83%,transparent 94% 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  animation:ituSilverOrbit 5s linear infinite;
+  opacity:.8;
+}
+@keyframes ituSilverOrbit {to{transform:rotate(360deg)}}
+#itu-theme::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  border-radius:inherit;
+  background:linear-gradient(115deg,transparent 0%,rgba(215,232,255,.025) 35%,rgba(215,232,255,.10) 50%,rgba(215,232,255,.025) 65%,transparent 100%);
+  background-size:220% 100%;
+  animation:ituFrameShine 7s ease-in-out infinite;
+}
+@keyframes ituFrameShine {0%,100%{background-position:150% 0}50%{background-position:-50% 0}}
+#itu-theme .hawk-profile,
+#itu-theme .watch-profile,
+#itu-theme .member-counter,
+#itu-theme .new-members-box,
+#itu-theme .section-panel {
+  background:linear-gradient(145deg,#111820,#090c10 70%,#10151c)!important;
+  border-color:#394654!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 6px 18px rgba(0,0,0,.28);
+}
+#itu-theme .hawk-profile:hover,
+#itu-theme .watch-profile:hover,
+#itu-theme .member-counter:hover,
+#itu-theme .new-members-box:hover {
+  border-color:#a8b8c9!important;
+  box-shadow:0 0 14px rgba(180,205,230,.09),inset 0 1px 0 rgba(255,255,255,.06);
+}
+#itu-theme .hawk-profile {border-radius:13px;padding:17px 10px;}
+#itu-theme .hawk-owner-label,#itu-theme .member-heading,#itu-theme .new-members-heading {
+  color:#b6c5d6!important;
+  text-shadow:0 0 10px rgba(180,205,230,.12);
+}
+#itu-theme .hawk-avatar-wrap,
+#itu-theme .watch-avatar-wrap {
+  background:linear-gradient(135deg,#e6edf5,#596a7d,#d2deeb)!important;
+  box-shadow:0 0 10px rgba(205,225,245,.2)!important;
+}
+#itu-theme .hawk-avatar-inner,#itu-theme .watch-avatar-inner {background:#080c11;}
+#itu-theme .hawk-name,#itu-theme .watch-name,#itu-theme .new-member-name {letter-spacing:.4px;}
+#itu-theme .watch-profile {border-left-color:#91a5ba!important;border-radius:11px;}
+#itu-theme .member-counter {padding:20px 12px;border-radius:13px;}
+#itu-theme .member-number {color:#e5edf6!important;text-shadow:0 0 14px rgba(190,215,240,.22)!important;}
+#itu-theme .new-members-box {border-radius:13px;}
+#itu-theme .new-member-card {background:linear-gradient(100deg,#131a22,#0c1117)!important;border-color:#303c49!important;}
+#itu-theme .new-member-card:hover {background:#18212b!important;border-color:#8799ad!important;box-shadow:0 0 12px rgba(180,205,230,.07);}
+#itu-theme .new-member-avatar {background:#0b1118;border-color:#64768a;box-shadow:0 0 9px rgba(180,205,230,.08);}
+#itu-theme .new-member-rank {color:#c5d3e1!important;}
+#itu-theme button {border-radius:10px!important;border-color:#718092!important;background:linear-gradient(180deg,#1b232d,#0c1015)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.08);letter-spacing:1.8px;}
+#itu-theme button[data-hover-button]:hover {box-shadow:0 0 12px rgba(190,215,240,.18),0 0 24px rgba(190,215,240,.08)!important;}
+#itu-theme [data-color-text] {transition:color .3s,text-shadow .3s;}
+#itu-theme a {transition:all .2s ease;}
+#itu-theme .snow-trail {filter:drop-shadow(0 0 4px rgba(200,230,255,.65));}
+#itu-snowman-cursor {filter:drop-shadow(0 0 7px rgba(205,230,255,.75))!important;}
+
+
+/* COMPACT PREMIUM SIZE TUNING */
+#itu-theme { padding:12px!important; min-height:auto!important; }
+#itu-theme > div:first-child { padding:8px 0 12px!important; }
+#itu-theme > div:first-child [data-color-text] { font-size:23px!important; letter-spacing:3px!important; }
+#itu-theme .hawk-profile { padding:11px 7px!important; margin-bottom:9px!important; }
+#itu-theme .hawk-avatar-wrap { width:62px!important; height:62px!important; margin:7px auto!important; }
+#itu-theme .hawk-avatar-inner { font-size:28px!important; }
+#itu-theme .hawk-name { font-size:15px!important; letter-spacing:1px!important; }
+#itu-theme .hawk-owner-label { font-size:8px!important; letter-spacing:3px!important; }
+#itu-theme .watch-profile { gap:9px!important; padding:8px!important; margin-bottom:8px!important; min-height:65px!important; }
+#itu-theme .watch-avatar-wrap { width:50px!important; height:50px!important; min-width:50px!important; }
+#itu-theme .watch-avatar-inner { font-size:24px!important; }
+#itu-theme .watch-name { font-size:11px!important; }
+#itu-theme .member-counter { padding:14px 10px!important; margin:9px 0!important; }
+#itu-theme .member-heading { font-size:9px!important; letter-spacing:3px!important; margin-bottom:6px!important; }
+#itu-theme .member-number { font-size:31px!important; }
+#itu-theme .member-caption { font-size:8px!important; letter-spacing:2px!important; margin-top:5px!important; }
+#itu-theme .member-status { font-size:9px!important; margin-top:6px!important; }
+#itu-theme .new-members-box { padding:10px!important; margin:9px 0 12px!important; }
+#itu-theme .new-members-heading { font-size:10px!important; letter-spacing:2px!important; padding:2px 0 8px!important; margin-bottom:8px!important; }
+#itu-theme .new-member-card { gap:8px!important; padding:7px!important; margin-bottom:6px!important; }
+#itu-theme .new-member-avatar { width:35px!important; height:35px!important; min-width:35px!important; font-size:16px!important; }
+#itu-theme .new-member-name { font-size:10px!important; }
+#itu-theme .new-member-date { font-size:8px!important; margin-top:2px!important; letter-spacing:.5px!important; }
+#itu-theme .new-member-rank { font-size:8px!important; }
+#itu-theme .new-members-status { font-size:9px!important; padding:7px 2px 2px!important; }
+#itu-theme a[data-hover-button], #itu-theme button[data-hover-button] { padding:8px 3px!important; font-size:10px!important; }
+#itu-snowman-cursor { font-size:22px!important; }
 </style>
 
 <div id="itu-theme" data-color="off"
@@ -375,8 +486,8 @@ var on=b.getAttribute('data-color')!=='on';
 b.setAttribute('data-color',on?'on':'off');
 
 b.style.background=on?'linear-gradient(145deg,#071b10,#180609,#071b10)':'#050505';
-b.style.borderColor=on?'#c9a64b':'#888';
-b.style.boxShadow=on?'0 0 22px #176b37,0 0 35px #8b1525':'none';
+b.style.borderColor=on?'#c9a64b':'#718092';
+b.style.boxShadow=on?'0 0 18px #176b37,0 0 32px #8b1525':'inset 0 0 24px rgba(180,205,230,.045),0 0 20px rgba(190,215,240,.09)';
 
 b.querySelectorAll('[data-color-bg]').forEach(function(e){
   e.style.background=on?e.getAttribute('data-color-bg'):e.getAttribute('data-bw-bg');
@@ -888,6 +999,8 @@ setInterval(loadNewestMembers,300000);
 
 </div>
 </div>
+
+
 
 
 
