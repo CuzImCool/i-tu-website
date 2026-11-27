@@ -1150,5 +1150,63 @@ setInterval(loadNewestMembers,300000);
 
 
 
-
-
+<style>
+/* UNIVERSAL BLACK / ANTIQUE-GOLD HOVER GLOW */
+#itu-theme .hawk-profile,
+#itu-theme .watch-profile,
+#itu-theme .section-panel,
+#itu-theme .new-members-box,
+#itu-theme .new-member-card,
+#itu-theme .member-counter,
+#itu-theme .itu-title-lockup,
+#itu-theme .hawk-avatar-wrap,
+#itu-theme .watch-avatar-wrap,
+#itu-theme .new-member-avatar,
+#itu-theme a,
+#itu-theme button,
+#itu-theme [role="button"] {
+  transition: box-shadow .25s ease, border-color .25s ease, background-color .25s ease, transform .25s ease, filter .25s ease !important;
+}
+#itu-theme .hawk-profile:hover,
+#itu-theme .watch-profile:hover,
+#itu-theme .section-panel:hover,
+#itu-theme .new-members-box:hover,
+#itu-theme .new-member-card:hover,
+#itu-theme .member-counter:hover,
+#itu-theme .itu-title-lockup:hover,
+#itu-theme .hawk-avatar-wrap:hover,
+#itu-theme .watch-avatar-wrap:hover,
+#itu-theme .new-member-avatar:hover,
+#itu-theme a:hover,
+#itu-theme button:hover,
+#itu-theme [role="button"]:hover {
+  border-color: #b08a50 !important;
+  box-shadow: 0 0 7px rgba(176,138,80,.35), 0 0 17px rgba(176,138,80,.22) !important;
+  filter: brightness(1.08) !important;
+}
+#itu-theme .hawk-profile:hover,
+#itu-theme .watch-profile:hover,
+#itu-theme .section-panel:hover,
+#itu-theme .new-members-box:hover,
+#itu-theme .new-member-card:hover,
+#itu-theme .member-counter:hover,
+#itu-theme .itu-title-lockup:hover,
+#itu-theme a:hover,
+#itu-theme button:hover,
+#itu-theme [role="button"]:hover {
+  transform: translateY(-1px);
+}
+/* Title text remains untouched; only its matching frame softly glows. */
+#itu-theme .itu-title-lockup:hover .itu-title-main,
+#itu-theme .itu-title-main:hover {
+  color: inherit !important;
+  background: none !important;
+  -webkit-text-fill-color: inherit !important;
+  text-shadow: none !important;
+}
+/* Gold-only hover accents, never the default gray hover. */
+#itu-theme a:hover, #itu-theme button:hover, #itu-theme [role="button"]:hover {
+  background-color: rgba(176,138,80,.08) !important;
+  color: #d1b077 !important;
+}
+</style>
