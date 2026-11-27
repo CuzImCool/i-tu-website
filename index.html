@@ -562,27 +562,72 @@ html, body {
 #itu-theme[data-color="on"] .snow-trail { filter:drop-shadow(0 0 5px rgba(255,235,185,.7))!important; }
 
 
-/* CLEAN FIX: no gray hover, no word highlight, no floating sweep strip */
-#itu-theme::before, #itu-theme::after { display:none!important; content:none!important; animation:none!important; }
-#itu-theme .itu-title-main::before, #itu-theme .itu-title-main::after { display:none!important; content:none!important; animation:none!important; background:none!important; }
-#itu-theme .itu-title-main { user-select:none!important; -webkit-user-select:none!important; background:none!important; color:#b08a50!important; -webkit-text-fill-color:#b08a50!important; text-shadow:1px 1px 0 #160f08, 0 0 5px rgba(176,138,80,.08)!important; filter:none!important; }
-#itu-theme .itu-title-main:hover { background:none!important; color:#b08a50!important; -webkit-text-fill-color:#b08a50!important; text-shadow:1px 1px 0 #160f08, 0 0 5px rgba(176,138,80,.08)!important; filter:none!important; }
-#itu-theme a[data-hover-button]:hover, #itu-theme button[data-hover-button]:hover,
-#itu-theme .hawk-avatar-wrap:hover, #itu-theme .watch-avatar-wrap:hover,
-#itu-theme .profile-name-link:hover, #itu-theme .new-member-card:hover,
-#itu-theme .hawk-profile:hover, #itu-theme .watch-profile:hover,
-#itu-theme .member-counter:hover, #itu-theme .new-members-box:hover {
-  transform:none!important; filter:none!important; background-color:inherit!important;
-  border-color:inherit!important; box-shadow:none!important; color:inherit!important;
+/* FINAL CLEANUP — consistent antique theme, real button hover, stable title */
+#itu-theme::before, #itu-theme::after,
+#itu-theme .itu-title-main::before, #itu-theme .itu-title-main::after {
+  display:none!important; content:none!important; animation:none!important;
 }
-#itu-theme button[data-hover-button]:hover, #itu-theme a[data-hover-button]:hover {
-  background:linear-gradient(180deg,#302214,#100b06)!important; color:#d9c39a!important; border-color:#80643b!important;
+
+/* Keep CHESS lettering unchanged in both modes, including hover */
+#itu-theme .itu-title-main,
+#itu-theme .itu-title-main:hover,
+#itu-theme[data-color="on"] .itu-title-main,
+#itu-theme[data-color="on"] .itu-title-main:hover {
+  display:inline-block!important;
+  background:none!important;
+  color:#b08a50!important;
+  -webkit-text-fill-color:#b08a50!important;
+  text-shadow:1px 1px 0 #160f08, 0 0 7px rgba(176,138,80,.12)!important;
+  filter:none!important; transform:none!important; box-shadow:none!important;
+  user-select:none!important; -webkit-user-select:none!important;
 }
-#itu-theme[data-color="on"] button[data-hover-button]:hover, #itu-theme[data-color="on"] a[data-hover-button]:hover {
-  background:linear-gradient(90deg,#9e1d32,#116b38,#9e1d32)!important; color:#fff0c8!important; border-color:#d8b861!important;
+/* Title panel matches the vintage card surfaces */
+#itu-theme .itu-title-lockup {
+  text-align:center!important; padding:2px 0 0!important; overflow:hidden!important;
 }
-#itu-theme .new-member-card:hover { background:linear-gradient(110deg,#20160b,#0b0805)!important; border-color:#594326!important; }
-#itu-theme[data-color="on"] .new-member-card:hover { background:linear-gradient(110deg,#17452b,#2c1118)!important; border-color:#936f39!important; }
+#itu-theme > div[data-color-bg] {
+  background:linear-gradient(145deg,#21170d,#0d0a06 70%,#1a1209)!important;
+  border:1px solid #6d542f!important;
+  border-radius:13px!important;
+  box-shadow:inset 0 1px 0 rgba(218,188,132,.035),0 5px 14px rgba(0,0,0,.4)!important;
+}
+#itu-theme[data-color="on"] > div[data-color-bg] {
+  background:linear-gradient(145deg,#123a24,#250d13 65%,#123a24)!important;
+  border-color:#c5a454!important;
+}
+/* Buttons: no gray flash; a controlled antique-gold hover */
+#itu-theme button,
+#itu-theme a[data-hover-button] {
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease!important;
+  transform:none!important;
+  outline:none!important;
+}
+#itu-theme button:hover,
+#itu-theme a[data-hover-button]:hover {
+  background:linear-gradient(180deg,#49351c,#1b1208)!important;
+  color:#f0d7a6!important;
+  border-color:#c09a5a!important;
+  box-shadow:0 0 8px rgba(176,138,80,.22),inset 0 1px 0 rgba(218,188,132,.08)!important;
+  transform:translateY(-1px)!important;
+  filter:none!important;
+}
+#itu-theme button:active,
+#itu-theme a[data-hover-button]:active { transform:translateY(0) scale(.985)!important; }
+#itu-theme[data-color="on"] button:hover,
+#itu-theme[data-color="on"] a[data-hover-button]:hover {
+  background:linear-gradient(90deg,#791c27,#16472a,#791c27)!important;
+  color:#fff0c8!important; border-color:#e0bd69!important;
+  box-shadow:0 0 9px rgba(201,166,74,.22)!important;
+}
+/* Keep cards and avatar hover effects from flashing gray */
+#itu-theme .hawk-avatar-wrap:hover,#itu-theme .watch-avatar-wrap:hover,
+#itu-theme .profile-name-link:hover,#itu-theme .new-member-card:hover,
+#itu-theme .hawk-profile:hover,#itu-theme .watch-profile:hover,
+#itu-theme .member-counter:hover,#itu-theme .new-members-box:hover {
+  filter:none!important; background-color:inherit!important; color:inherit!important;
+}
+#itu-theme .new-member-card:hover { background:linear-gradient(110deg,#2b1d0e,#100b06)!important; border-color:#8b6b3c!important; box-shadow:0 0 8px rgba(176,138,80,.12)!important; }
+#itu-theme[data-color="on"] .new-member-card:hover { background:linear-gradient(110deg,#17452b,#2c1118)!important; border-color:#c5a454!important; }
 </style>
 
 <div id="itu-theme" data-color="off"
