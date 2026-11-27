@@ -474,6 +474,120 @@ html, body {
 #itu-theme .new-members-status { font-size:9px!important; padding:7px 2px 2px!important; }
 #itu-theme a[data-hover-button], #itu-theme button[data-hover-button] { padding:8px 3px!important; font-size:10px!important; }
 #itu-snowman-cursor { font-size:22px!important; }
+
+/* ================= VINTAGE CHESS CLUB FINISH ================= */
+#itu-theme {
+  --silver:#c7b58b!important;
+  --silver-soft:#8d7955!important;
+  color:#e4d7b8!important;
+  background:#17130d!important;
+  border:1px solid #9b8153!important;
+  border-radius:12px!important;
+  box-shadow:inset 0 0 30px rgba(0,0,0,.55),0 0 12px rgba(120,86,42,.16)!important;
+  font-family:Georgia,'Times New Roman',serif!important;
+}
+#itu-theme::before {
+  background:conic-gradient(from 0deg,transparent 0 65%,#d1b77b 76%,#755d37 83%,transparent 94% 100%)!important;
+  opacity:.6!important;
+  animation-duration:9s!important;
+}
+#itu-theme::after {
+  background:linear-gradient(115deg,transparent,rgba(232,205,146,.045),rgba(232,205,146,.11),rgba(232,205,146,.045),transparent)!important;
+}
+#itu-theme .hawk-profile,
+#itu-theme .watch-profile,
+#itu-theme .member-counter,
+#itu-theme .new-members-box,
+#itu-theme .section-panel {
+  background:linear-gradient(145deg,#282015,#17120c 72%,#21190f)!important;
+  border-color:#665233!important;
+  box-shadow:inset 0 1px 0 rgba(231,205,151,.06),0 5px 12px rgba(0,0,0,.35)!important;
+}
+#itu-theme .hawk-profile:hover,
+#itu-theme .watch-profile:hover,
+#itu-theme .member-counter:hover,
+#itu-theme .new-members-box:hover {
+  border-color:#b39a65!important;
+  box-shadow:0 0 10px rgba(163,129,72,.13),inset 0 1px 0 rgba(231,205,151,.07)!important;
+}
+#itu-theme .hawk-owner-label,
+#itu-theme .member-heading,
+#itu-theme .new-members-heading {
+  color:#c4ad7b!important;
+  text-shadow:none!important;
+}
+#itu-theme .hawk-avatar-wrap,
+#itu-theme .watch-avatar-wrap {
+  background:linear-gradient(135deg,#c4a46a,#5d472a,#b18d50)!important;
+  box-shadow:0 0 7px rgba(171,137,75,.13)!important;
+}
+#itu-theme .hawk-avatar-inner,
+#itu-theme .watch-avatar-inner {background:#100d09!important;}
+#itu-theme .hawk-name,
+#itu-theme .watch-name,
+#itu-theme .new-member-name {
+  color:#e4d7b8!important;
+  letter-spacing:.5px!important;
+}
+#itu-theme .watch-profile {border-left-color:#9b8153!important;}
+#itu-theme .member-number {
+  color:#d9c28e!important;
+  text-shadow:0 0 8px rgba(179,147,88,.12)!important;
+}
+#itu-theme .new-member-card {
+  background:linear-gradient(100deg,#241b11,#17120c)!important;
+  border-color:#493a26!important;
+}
+#itu-theme .new-member-card:hover {
+  background:#302415!important;
+  border-color:#9b8153!important;
+  box-shadow:0 0 9px rgba(163,129,72,.1)!important;
+}
+#itu-theme .new-member-avatar {
+  background:#171109!important;
+  border-color:#7b6541!important;
+  box-shadow:none!important;
+}
+#itu-theme .new-member-rank {color:#bba16a!important;}
+#itu-theme button {
+  color:#e1d1ad!important;
+  border-color:#8c754c!important;
+  background:linear-gradient(180deg,#352818,#1a130b)!important;
+  box-shadow:inset 0 1px 0 rgba(227,202,150,.08)!important;
+  font-family:Georgia,'Times New Roman',serif!important;
+}
+#itu-theme button[data-hover-button]:hover {
+  box-shadow:0 0 10px rgba(184,145,76,.16)!important;
+}
+#itu-theme a {color:#c8ad74!important;}
+#itu-theme .snow-trail {filter:drop-shadow(0 0 3px rgba(222,197,145,.4))!important;}
+#itu-snowman-cursor {filter:drop-shadow(0 0 5px rgba(222,197,145,.45))!important;}
+#itu-theme [data-color-text] {text-shadow:none!important;}
+/* Keep the color toggle's ON state antique rather than neon */
+#itu-theme[data-color="on"] {
+  background:linear-gradient(145deg,#211b10,#180d0b,#211b10)!important;
+  border-color:#b39a65!important;
+  box-shadow:0 0 14px rgba(115,80,35,.2)!important;
+}
+#itu-theme[data-color="on"] .hawk-profile,
+#itu-theme[data-color="on"] .watch-profile,
+#itu-theme[data-color="on"] .member-counter,
+#itu-theme[data-color="on"] .new-members-box {
+  background:linear-gradient(145deg,#302415,#21130f,#302415)!important;
+  border-color:#a78a55!important;
+}
+#itu-theme[data-color="on"] .new-member-card {
+  background:linear-gradient(145deg,#382818,#24130f)!important;
+  border-color:#8d7547!important;
+}
+#itu-theme[data-color="on"] .member-number {
+  color:#e0c078!important;
+  text-shadow:0 0 9px rgba(178,138,60,.18)!important;
+}
+#itu-theme[data-color="on"] button {
+  background:linear-gradient(90deg,#5a3b1d,#442019,#5a3b1d)!important;
+  border-color:#c3a56c!important;
+}
 </style>
 
 <div id="itu-theme" data-color="off"
@@ -1001,6 +1115,9 @@ setInterval(loadNewestMembers,300000);
 </div>
 
 
+
+
+As this conversation gets longer, ChatGPT may lose track of details from earlier in the chat. Upgrade for more context in every conversation.
 
 
 
