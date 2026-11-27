@@ -561,6 +561,28 @@ html, body {
 #itu-theme[data-color="on"] .new-member-rank { color:#e0bd69!important; }
 #itu-theme[data-color="on"] .snow-trail { filter:drop-shadow(0 0 5px rgba(255,235,185,.7))!important; }
 
+
+/* CLEAN FIX: no gray hover, no word highlight, no floating sweep strip */
+#itu-theme::before, #itu-theme::after { display:none!important; content:none!important; animation:none!important; }
+#itu-theme .itu-title-main::before, #itu-theme .itu-title-main::after { display:none!important; content:none!important; animation:none!important; background:none!important; }
+#itu-theme .itu-title-main { user-select:none!important; -webkit-user-select:none!important; background:none!important; color:#b08a50!important; -webkit-text-fill-color:#b08a50!important; text-shadow:1px 1px 0 #160f08, 0 0 5px rgba(176,138,80,.08)!important; filter:none!important; }
+#itu-theme .itu-title-main:hover { background:none!important; color:#b08a50!important; -webkit-text-fill-color:#b08a50!important; text-shadow:1px 1px 0 #160f08, 0 0 5px rgba(176,138,80,.08)!important; filter:none!important; }
+#itu-theme a[data-hover-button]:hover, #itu-theme button[data-hover-button]:hover,
+#itu-theme .hawk-avatar-wrap:hover, #itu-theme .watch-avatar-wrap:hover,
+#itu-theme .profile-name-link:hover, #itu-theme .new-member-card:hover,
+#itu-theme .hawk-profile:hover, #itu-theme .watch-profile:hover,
+#itu-theme .member-counter:hover, #itu-theme .new-members-box:hover {
+  transform:none!important; filter:none!important; background-color:inherit!important;
+  border-color:inherit!important; box-shadow:none!important; color:inherit!important;
+}
+#itu-theme button[data-hover-button]:hover, #itu-theme a[data-hover-button]:hover {
+  background:linear-gradient(180deg,#302214,#100b06)!important; color:#d9c39a!important; border-color:#80643b!important;
+}
+#itu-theme[data-color="on"] button[data-hover-button]:hover, #itu-theme[data-color="on"] a[data-hover-button]:hover {
+  background:linear-gradient(90deg,#9e1d32,#116b38,#9e1d32)!important; color:#fff0c8!important; border-color:#d8b861!important;
+}
+#itu-theme .new-member-card:hover { background:linear-gradient(110deg,#20160b,#0b0805)!important; border-color:#594326!important; }
+#itu-theme[data-color="on"] .new-member-card:hover { background:linear-gradient(110deg,#17452b,#2c1118)!important; border-color:#936f39!important; }
 </style>
 
 <div id="itu-theme" data-color="off"
